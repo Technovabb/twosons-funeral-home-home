@@ -22,7 +22,7 @@ const crypto = require("crypto");
 /* Where the site lives. While it's a preview on GitHub Pages this is the
    github.io address; at launch change it to https://www.twosonsfuneralhome.com
    (and add the CNAME file). Facebook and WhatsApp need absolute og:image links. */
-const SITE = "https://technovabb.github.io/twosons-funeral-home-home";
+const SITE = "https://technovabb.com/twosons-funeral-home-home";
 
 /* true = green "Preview" bar on every page and sample notices shown.
    Set to false at launch, after the samples are deleted from obituaries.json. */
