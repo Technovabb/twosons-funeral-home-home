@@ -1,0 +1,317 @@
+[
+  {
+    "id": "burial",
+    "title": "Burial",
+    "items": [
+      {
+        "type": "choice",
+        "name": "Casket / Coffin",
+        "options": [
+          "Casket",
+          "Coffin",
+          "Not sure yet"
+        ]
+      },
+      {
+        "type": "check",
+        "name": "Removal",
+        "checked": true
+      },
+      {
+        "type": "multi",
+        "name": "Subsequent Announcement / Advertisement",
+        "options": [
+          "CBC",
+          "Nation"
+        ]
+      },
+      {
+        "type": "qty",
+        "name": "CBC Announcements",
+        "min": 0,
+        "note": "How many announcements"
+      },
+      {
+        "type": "choice",
+        "name": "Nation Advertisement",
+        "options": [
+          "Regular",
+          "Display ¼ Page",
+          "None"
+        ]
+      },
+      {
+        "type": "multi",
+        "name": "Thank You Announcement / Advertisement",
+        "options": [
+          "CBC",
+          "Nation"
+        ]
+      },
+      {
+        "type": "qty",
+        "name": "Hymn Sheets",
+        "min": 50,
+        "note": "Minimum order 50"
+      },
+      {
+        "type": "choice",
+        "name": "Government Cemetery",
+        "options": [
+          "Westbury",
+          "Bushy Park",
+          "St. James",
+          "Christ Church",
+          "St. Peter",
+          "None"
+        ]
+      },
+      {
+        "type": "multi",
+        "name": "Coral Ridge Cemetery",
+        "options": [
+          "Grave",
+          "Chapel",
+          "Priest",
+          "Choir"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Name of Church"
+      },
+      {
+        "type": "text",
+        "name": "Name of Church Cemetery"
+      },
+      {
+        "type": "check",
+        "name": "Tent and Chairs"
+      },
+      {
+        "type": "check",
+        "name": "Condolence Book(s)"
+      },
+      {
+        "type": "qty",
+        "name": "Buttons",
+        "min": 25,
+        "note": "Minimum order 25"
+      },
+      {
+        "type": "qty",
+        "name": "Prayer Cards",
+        "min": 25,
+        "note": "Minimum order 25"
+      },
+      {
+        "type": "multi",
+        "name": "Flowers",
+        "options": [
+          "Casket Spray",
+          "Wreath"
+        ],
+        "note": "Wreaths from $60"
+      },
+      {
+        "type": "multiqty",
+        "name": "Certificates",
+        "options": [
+          "Death",
+          "Birth",
+          "Marriage",
+          "Cause of Death"
+        ]
+      },
+      {
+        "type": "check",
+        "name": "Cross"
+      },
+      {
+        "type": "check",
+        "name": "Streaming"
+      }
+    ]
+  },
+  {
+    "id": "cremation",
+    "title": "Cremation with a Service",
+    "items": [
+      {
+        "type": "required",
+        "name": "Cremation Case & Rental Casket"
+      },
+      {
+        "type": "required",
+        "name": "Removal"
+      },
+      {
+        "type": "multi",
+        "name": "Subsequent Announcement",
+        "options": [
+          "CBC",
+          "Nation"
+        ]
+      },
+      {
+        "type": "required",
+        "name": "Dressing and Preparation"
+      },
+      {
+        "type": "choice",
+        "name": "Nation Advertisement",
+        "options": [
+          "Regular",
+          "Display ¼ Page",
+          "None"
+        ]
+      },
+      {
+        "type": "multi",
+        "name": "Thank You Announcement / Advertisement",
+        "options": [
+          "CBC",
+          "Nation"
+        ]
+      },
+      {
+        "type": "qty",
+        "name": "Hymn Sheets",
+        "min": 50,
+        "note": "Minimum order 50"
+      },
+      {
+        "type": "required",
+        "name": "Cremation"
+      },
+      {
+        "type": "multi",
+        "name": "Coral Ridge",
+        "options": [
+          "Chapel",
+          "Priest",
+          "Organist"
+        ]
+      },
+      {
+        "type": "required",
+        "name": "Keeping of the Body"
+      },
+      {
+        "type": "required",
+        "name": "Professional Services"
+      },
+      {
+        "type": "text",
+        "name": "Name of Church"
+      },
+      {
+        "type": "required",
+        "name": "Pathologist"
+      },
+      {
+        "type": "multiqty",
+        "name": "Certificates",
+        "options": [
+          "Death",
+          "Birth",
+          "Marriage",
+          "Cause of Death"
+        ]
+      },
+      {
+        "type": "required",
+        "name": "Hearse Transportation"
+      }
+    ]
+  },
+  {
+    "id": "shipment",
+    "title": "Shipment with a Service",
+    "items": [
+      {
+        "type": "required",
+        "name": "Removal"
+      },
+      {
+        "type": "multi",
+        "name": "Subsequent Announcement / Advertisement",
+        "options": [
+          "CBC",
+          "Nation"
+        ]
+      },
+      {
+        "type": "required",
+        "name": "Dressing and Preparation"
+      },
+      {
+        "type": "choice",
+        "name": "Nation Advertisement",
+        "options": [
+          "Regular",
+          "Display ¼ Page",
+          "None"
+        ]
+      },
+      {
+        "type": "multi",
+        "name": "Thank You Announcement / Advertisement",
+        "options": [
+          "CBC",
+          "Nation"
+        ]
+      },
+      {
+        "type": "qty",
+        "name": "Hymn Sheets",
+        "min": 50,
+        "note": "Minimum order 50"
+      },
+      {
+        "type": "required",
+        "name": "Keeping of the Body"
+      },
+      {
+        "type": "required",
+        "name": "Professional Service"
+      },
+      {
+        "type": "multiqty",
+        "name": "Certificates",
+        "options": [
+          "Death Certificate",
+          "Cause of Death Certificate"
+        ]
+      },
+      {
+        "type": "required",
+        "name": "Customs"
+      },
+      {
+        "type": "required",
+        "name": "Freight"
+      }
+    ]
+  },
+  {
+    "id": "memorial",
+    "title": "Memorial Service",
+    "items": [
+      {
+        "type": "text",
+        "name": "Name of Church or venue"
+      },
+      {
+        "type": "qty",
+        "name": "Hymn Sheets",
+        "min": 50,
+        "note": "Minimum order 50"
+      },
+      {
+        "type": "check",
+        "name": "Streaming"
+      }
+    ]
+  }
+]

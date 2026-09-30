@@ -1,0 +1,7 @@
+{
+  "_readme": "Approved condolences only. Keyed by the person's slug, exactly as in obituaries.json. Everything families send arrives by email at info@; a message appears on the site only once it is copied in here and the build is re-run. See FORMS.md.",
+  "sample-name-of-loved-one": [
+    { "name": "Sample message", "relationship": "A neighbour", "date": "2026-10-02", "message": "Our thoughts are with the family at this time. He will be missed by all on the street." },
+    { "name": "Sample message", "relationship": "Family abroad", "date": "2026-10-02", "message": "Rest in peace, Uncle. Watching from Toronto with love." }
+  ]
+}

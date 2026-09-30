@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Two Sons Funeral Home//Notices//EN
+BEGIN:VEVENT
+UID:sample-loved-one-christ-church@twosonsfuneralhome.com
+DTSTAMP:20261016T140000Z
+DTSTART:20261016T140000Z
+DTEND:20261016T160000Z
+SUMMARY:Funeral of Name of Loved One
+LOCATION:Two Sons Funeral Home\, Stadium Road\, Bush Hall\, St. Michael
+URL:https://technovabb.github.io/twosons-funeral-home-home/obituaries/sample-loved-one-christ-church.html
+END:VEVENT
+END:VCALENDAR

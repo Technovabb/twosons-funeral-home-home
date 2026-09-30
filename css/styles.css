@@ -1,0 +1,961 @@
+/* Two Sons Funeral Home website styles. */
+
+#wrapwrap {
+  font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color: #1d1e22;
+  font-size: 1.0625rem;
+}
+
+#wrapwrap h1, #wrapwrap h2, #wrapwrap h3, #wrapwrap .h1, #wrapwrap .h2, #wrapwrap .h3 {
+  font-family: "Marcellus", Georgia, serif;
+  font-weight: 400;
+  color: inherit;
+}
+
+#wrapwrap .btn-primary {
+  background-color: #1d1e22;
+  border-color: #1d1e22;
+  color: #fff;
+}
+
+#wrapwrap .btn-primary:hover, #wrapwrap .btn-primary:focus {
+  background-color: #2a2b30;
+  border-color: #2a2b30;
+  color: #fff;
+}
+
+#wrapwrap .btn-outline-primary {
+  border-color: #1d1e22;
+  color: #1d1e22;
+  background: #ffffff;
+}
+
+#wrapwrap .btn-outline-primary:hover, #wrapwrap .btn-outline-primary:focus {
+  background-color: #1d1e22;
+  color: #fff;
+}
+
+#wrapwrap .btn {
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.ts-topbar {
+  background: #1d1e22;
+  color: #e9e9e6;
+  font-size: 0.875rem;
+  padding: 6px 0;
+}
+
+.ts-topbar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ts-topbar strong {
+  color: #fff;
+}
+
+.ts-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ts-brand img {
+  height: 47px;
+  width: auto;
+}
+
+.ts-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.ts-brand-name {
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 1.6rem;
+  color: #1d1e22;
+}
+
+.ts-brand-sub {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5f6166;
+}
+
+.ts-page {
+  background: #f2f1ee;
+}
+
+.ts-section {
+  padding: 72px 0;
+}
+
+.ts-alt {
+  background: #e9e8e3;
+}
+
+.ts-dark {
+  background: #1d1e22;
+  color: #e9e9e6;
+}
+
+.ts-dark h2, .ts-dark h3 {
+  color: #fff;
+}
+
+.ts-dark .ts-lead {
+  color: #c9c9c5;
+}
+
+.ts-banner {
+  padding: 56px 0 32px;
+  background: #f2f1ee;
+}
+
+.ts-section-head {
+  margin-bottom: 32px;
+}
+
+.ts-lead {
+  font-size: 1.1rem;
+  color: #5f6166;
+  max-width: 680px;
+}
+
+.ts-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5c6b3c;
+  margin-bottom: 10px;
+}
+
+.ts-dark .ts-eyebrow {
+  color: #b7c09a;
+}
+
+.ts-link {
+  font-weight: 700;
+  color: #1d1e22;
+  text-decoration: none;
+}
+
+.ts-link:hover {
+  text-decoration: underline;
+}
+
+.ts-meta {
+  color: #5f6166;
+  font-size: 0.95rem;
+}
+
+.ts-empty {
+  background: #ffffff;
+  border: 1px solid #e2e0da;
+  padding: 24px;
+  border-radius: 6px;
+}
+
+.ts-todo {
+  background: #fff3c4;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+
+.ts-narrow {
+  max-width: 760px;
+}
+
+.ts-narrow-wide {
+  max-width: 980px;
+}
+
+.ts-trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.ts-panel {
+  background: #ffffff;
+  border: 1px solid #e2e0da;
+  border-radius: 6px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.ts-panel h2 {
+  font-size: 1.7rem;
+}
+
+.ts-panel-dark {
+  background: #1d1e22;
+  color: #e9e9e6;
+  border-color: #1d1e22;
+}
+
+.ts-panel-dark h2 {
+  color: #fff;
+}
+
+.ts-hero {
+  padding: 56px 0 64px;
+  background: #f2f1ee;
+}
+
+.ts-hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.ts-features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  font-size: 0.92rem;
+  color: #5f6166;
+}
+
+.ts-features i {
+  margin-right: 6px;
+  color: #1d1e22;
+}
+
+.ts-photo-card {
+  background: #ffffff;
+  padding: 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  margin: 0;
+}
+
+.ts-photo-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.ts-photo-card figcaption {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 4px 2px;
+  font-family: "Marcellus", Georgia, serif;
+}
+
+.ts-photo-card figcaption small {
+  font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color: #5f6166;
+}
+
+.ts-search {
+  position: relative;
+  min-width: 280px;
+}
+
+.ts-search i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5f6166;
+}
+
+.ts-search input {
+  padding-left: 38px;
+  border-radius: 4px;
+  border-color: #e2e0da;
+}
+
+.ts-notice-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.ts-notice-card {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #1d1e22;
+  background: #ffffff;
+  border: 1px solid #e2e0da;
+  outline: 6px solid #ffffff;
+  outline-offset: -12px;
+  box-shadow: inset 0 0 0 7px #ffffff, inset 0 0 0 8px #e2e0da;
+  padding: 30px 24px 26px;
+  border-radius: 4px;
+  transition: box-shadow 0.2s;
+}
+
+.ts-notice-card:hover {
+  color: #1d1e22;
+  box-shadow: inset 0 0 0 7px #ffffff, inset 0 0 0 8px #5c6b3c;
+}
+
+.ts-notice-card .ts-eyebrow {
+  color: #5f6166;
+  font-size: 0.66rem;
+  margin: 14px 0 4px;
+}
+
+.ts-notice-card .ts-when {
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin: 10px 0 2px;
+}
+
+.ts-oval {
+  width: 110px;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #eceee8;
+  border: 1px solid #e2e0da;
+}
+
+.ts-oval img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ts-oval-lg {
+  width: 170px;
+}
+
+.ts-name {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-style: italic;
+  font-weight: 600 !important;
+  font-size: 1.7rem;
+  margin: 0 0 4px;
+}
+
+.ts-name-lg {
+  font-size: clamp(2.2rem, 6vw, 3rem);
+}
+
+.ts-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.ts-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef0e6;
+  color: #5c6b3c;
+}
+
+.ts-pill-dark {
+  background: #1d1e22;
+  color: #fff;
+}
+
+.ts-back {
+  color: #1d1e22;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ts-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.ts-facts li {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e0da;
+}
+
+.ts-facts li:last-child {
+  border-bottom: 0;
+}
+
+.ts-facts i {
+  width: 20px;
+  margin-top: 4px;
+  color: #5f6166;
+  text-align: center;
+}
+
+.ts-live-tag {
+  display: inline-block;
+  background: #b3261e;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 14px;
+}
+
+.ts-family p {
+  margin: 0 0 10px;
+}
+
+.ts-condolence {
+  border-left: 3px solid #5c6b3c;
+  padding: 4px 0 4px 16px;
+  margin: 0 0 18px;
+}
+
+.ts-condolence p {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  margin: 0 0 4px;
+}
+
+.ts-condolence footer {
+  font-size: 0.9rem;
+  color: #5f6166;
+}
+
+.ts-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  border-top: 1px solid #e2e0da;
+  border-left: 1px solid #e2e0da;
+  background: #ffffff;
+}
+
+.ts-tile {
+  display: block;
+  padding: 26px 24px;
+  border-right: 1px solid #e2e0da;
+  border-bottom: 1px solid #e2e0da;
+  color: #1d1e22;
+  text-decoration: none;
+}
+
+.ts-tile i {
+  font-size: 1.3rem;
+  color: #5f6166;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.ts-tile h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.ts-tile p {
+  color: #5f6166;
+  font-size: 0.93rem;
+  margin: 0;
+}
+
+a.ts-tile:hover {
+  background: #fafaf8;
+  color: #1d1e22;
+}
+
+.ts-steps {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 32px 0;
+}
+
+.ts-steps > div {
+  border-top: 1px solid #45464c;
+  padding-top: 16px;
+}
+
+.ts-steps h3 {
+  font-size: 1.25rem;
+}
+
+.ts-steps p {
+  color: #c9c9c5;
+  font-size: 0.95rem;
+}
+
+.ts-step-no {
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.ts-callbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #45464c;
+  padding: 22px 26px;
+  border-radius: 4px;
+}
+
+.ts-callbox span {
+  display: block;
+  font-size: 0.9rem;
+  color: #c9c9c5;
+}
+
+.ts-callbox strong {
+  font-family: "Marcellus", Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.ts-callbox-light {
+  border-color: #e2e0da;
+  background: #ffffff;
+}
+
+.ts-callbox-light span {
+  color: #5f6166;
+}
+
+.ts-callbox-light strong {
+  color: #1d1e22;
+}
+
+.ts-flower-row, .ts-gallery {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.ts-flower-row figure, .ts-gallery figure {
+  margin: 0;
+}
+
+.ts-flower-row img, .ts-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.ts-flower-row figcaption, .ts-gallery figcaption {
+  font-size: 0.88rem;
+  color: #5f6166;
+  padding-top: 6px;
+}
+
+.ts-gallery img {
+  aspect-ratio: 4 / 3;
+}
+
+.ts-live-card {
+  background: #1d1e22;
+  color: #e9e9e6;
+  padding: 32px;
+  border-radius: 6px;
+  height: 100%;
+}
+
+.ts-live-card h2 {
+  color: #fff;
+}
+
+.ts-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.ts-stats > div {
+  border-top: 1px solid #1d1e22;
+  padding-top: 10px;
+}
+
+.ts-stats strong {
+  display: block;
+  font-family: "Marcellus", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+.ts-stats span {
+  font-size: 0.85rem;
+  color: #5f6166;
+}
+
+.ts-service {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  padding: 36px 0;
+  border-bottom: 1px solid #e2e0da;
+}
+
+.ts-service img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.ts-service:nth-child(even) img {
+  order: 2;
+}
+
+@media (max-width: 767.98px) {
+  .ts-service {
+    grid-template-columns: 1fr;
+  }
+  .ts-service:nth-child(even) img {
+    order: 0;
+  }
+}
+
+.ts-hover-cap {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.ts-hover-cap img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.ts-hover-cap figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 18px;
+  background: rgba(29, 30, 34, 0.85);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.ts-hover-cap figcaption strong {
+  display: block;
+  font-family: "Marcellus", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+.ts-hover-cap:hover figcaption, .ts-hover-cap:focus-within figcaption {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .ts-hover-cap figcaption {
+    opacity: 1;
+  }
+}
+
+.ts-form .form-control, .ts-form .form-select {
+  border-color: #cfccc4;
+  border-radius: 4px;
+}
+
+.ts-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.ts-tab {
+  padding: 9px 18px;
+  border: 1px solid #1d1e22;
+  border-radius: 999px;
+  color: #1d1e22;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ts-tab.active, .ts-tab:hover {
+  background: #1d1e22;
+  color: #fff;
+}
+
+.ts-q-row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 8px 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e2e0da;
+}
+
+@media (max-width: 767.98px) {
+  .ts-q-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ts-q-label {
+  font-weight: 700;
+}
+
+.ts-q-note {
+  display: block;
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: #5f6166;
+}
+
+.ts-q-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: center;
+}
+
+.ts-q-opts label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.ts-num {
+  width: 96px;
+  display: inline-block;
+}
+
+.ts-included {
+  color: #5c6b3c;
+  font-weight: 700;
+}
+
+.ts-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ts-contact-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e0da;
+}
+
+.ts-contact-list span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5c6b3c;
+}
+
+.ts-hours th {
+  font-weight: 600;
+}
+
+.ts-hours th, .ts-hours td {
+  background: transparent;
+}
+
+.ts-map iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 6px;
+}
+
+.ts-footer {
+  background: #1d1e22;
+  color: #d7d7d3;
+  font-size: 0.95rem;
+}
+
+.ts-footer h5 {
+  color: #fff;
+  font-family: "Marcellus", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+.ts-footer a {
+  color: #fff;
+}
+
+.ts-footer li {
+  margin-bottom: 6px;
+}
+
+.ts-mobilebar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1030;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  background: #ffffff;
+  border-top: 1px solid #e2e0da;
+  padding: 6px;
+}
+
+.ts-mobilebar a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: #1d1e22;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 2px;
+}
+
+.ts-mobilebar a i {
+  font-size: 1.15rem;
+}
+
+.ts-mobilebar .ts-mobilebar-call {
+  flex-direction: row;
+  gap: 8px;
+  background: #1d1e22;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 991.98px) {
+  #wrapwrap {
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .row.g-5 {
+    --bs-gutter-x: 1.5rem;
+  }
+}
+
+.ts-flower-row {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+/* ---- Header, preview bar, notices, flowers ---- */
+body { margin: 0; background: #f2f1ee; }
+.ts-preview { background: #5c6b3c; color: #fff; text-align: center; font-size: 0.8rem; padding: 4px 12px; letter-spacing: 0.04em; }
+.ts-header { position: sticky; top: 0; z-index: 1020; background: #fff; border-bottom: 1px solid #e2e0da; }
+.ts-header .navbar { padding: 10px 0; }
+.ts-header .nav-link { color: #1d1e22; font-weight: 600; font-size: 0.98rem; padding: 8px 9px !important; white-space: nowrap; font-size: 0.95rem; }
+.ts-call-btn { white-space: nowrap; }
+.ts-header .nav-link.active, .ts-header .nav-link:hover { color: #5c6b3c; }
+.ts-header .navbar-toggler { border: 1px solid #cfccc4; font-weight: 700; color: #1d1e22; padding: 8px 14px; }
+.ts-header .navbar-toggler:focus { box-shadow: none; }
+@media (max-width: 1199.98px) {
+  .ts-header .navbar-collapse { padding: 10px 0 6px; }
+  .ts-header .nav-link { border-top: 1px solid #e2e0da; padding: 12px 4px !important; }
+  .ts-call-btn { width: 100%; margin-top: 8px; }
+  .ts-brand-name { font-size: 1.35rem; }
+}
+.ts-notice-card { position: relative; }
+.ts-sample {
+  position: absolute; top: 14px; right: 14px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: 1px solid #cfccc4; padding: 2px 6px; background: #fff; color: #5f6166;
+}
+.ts-copyright { border-top: 1px solid #3a3b40; padding: 18px 12px 22px; font-size: 0.85rem; color: #b9b9b5; }
+.ts-flower-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.ts-flower { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
+.ts-flower img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; margin-bottom: 8px; }
+.ts-flower h3 { font-size: 1.3rem; margin: 0; }
+.ts-price { font-weight: 700; color: #5c6b3c; margin: 0; }
+.ts-flower .btn { margin-top: auto; align-self: flex-start; }
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .ts-header .nav-link { padding: 8px 6px !important; font-size: 0.92rem; }
+  .ts-call-btn { padding-left: 12px; padding-right: 12px; }
+}
+
+/* ---- 24-hour band at the foot of each page ---- */
+.ts-band h2 { color: #fff; }
+
+/* ---- Upcoming funerals (home) and service rows (Funerals page) ---- */
+.ts-upcoming { background: #fff; border-bottom: 1px solid #e2e0da; padding: 40px 0; }
+.ts-upcoming-row, .ts-service-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  background: #fff; border: 1px solid #e2e0da; border-radius: 6px; padding: 16px 20px; margin-bottom: 10px;
+}
+.ts-upcoming-row h3, .ts-service-row h3 { font-size: 1.35rem; margin: 0 0 2px; }
+.ts-upcoming-row h3 a, .ts-service-row h3 a { color: inherit; text-decoration: none; }
+.ts-service-face .ts-oval { width: 64px; }
+.ts-service-detail { flex: 1; }
+@media (max-width: 575.98px) { .ts-upcoming-row, .ts-service-row { flex-wrap: wrap; } .ts-service-row .btn, .ts-upcoming-row .btn { width: 100%; } }
+.ts-sample-inline { position: static; display: inline-block; vertical-align: middle; margin-left: 6px; }
+
+/* ---- Pre-planning ---- */
+.ts-steps-light > div { border-top-color: #1d1e22; }
+.ts-steps-light h3 { color: #1d1e22; }
+.ts-steps-light p { color: #5f6166; }
+.ts-steps-light .ts-step-no { color: #1d1e22; }
+.ts-faq h3 { font-size: 1.25rem; margin-top: 22px; }
+
+/* ---- Quote form ---- */
+.ts-quote-set { border: 0; padding: 0; margin: 0; min-width: 0; }
+.ts-quote-set legend { font-family: 'Marcellus', Georgia, serif; margin: 10px 0 4px; }
+.ts-tabs button.ts-tab { background: #fff; font: inherit; font-weight: 600; }
+.ts-tabs button.ts-tab.active { background: #1d1e22; color: #fff; }
+form.is-sent { background: #eef0e6; border-color: #cdd3bd; }
+
+/* ---- Casket collection and photo viewer ---- */
+.casket-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.casket-card { background: #fff; border: 1px solid #e2e0da; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; }
+.casket-image { cursor: zoom-in; }
+.casket-image img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.casket-info { padding: 18px 20px 20px; }
+.casket-info h3 { font-size: 1.3rem; margin-bottom: 4px; }
+.casket-info p { color: #5f6166; font-size: 0.95rem; }
+.casket-info a { color: #1d1e22; font-weight: 700; text-decoration: none; }
+.lightbox { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; }
+.lightbox.open { display: flex; }
+.lightbox-backdrop { position: absolute; inset: 0; background: rgba(20, 21, 24, 0.88); }
+.lightbox-panel { position: relative; background: #fff; border-radius: 6px; max-width: 960px; width: 100%; max-height: 92vh; overflow: auto; }
+.lightbox-image { position: relative; background: #111; }
+.lightbox-image img { width: 100%; max-height: 70vh; object-fit: contain; display: block; }
+.lightbox-close { position: absolute; top: 8px; right: 10px; z-index: 2; border: 0; background: #fff; border-radius: 50%; width: 38px; height: 38px; font-size: 1.5rem; line-height: 1; }
+.lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); border: 0; background: rgba(255, 255, 255, 0.9); width: 42px; height: 42px; border-radius: 50%; font-size: 1.2rem; }
+.lightbox-prev { left: 10px; } .lightbox-next { right: 10px; }
+.lightbox-counter { position: absolute; bottom: 10px; right: 12px; background: rgba(0, 0, 0, 0.6); color: #fff; font-size: 0.8rem; padding: 2px 8px; border-radius: 3px; }
+.lightbox-copy { padding: 18px 22px 22px; }
+.lightbox-copy h3 { margin-bottom: 4px; }
+
+/* Sterling's nine menu items: between 1200 and 1400px the header call button is hidden
+   (the 24-hour number is in the black bar just above). */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .ts-header .ts-call-btn { display: none; }
+  .ts-header .navbar-nav { margin-right: 0 !important; }
+}
+
+/* Links inside text use the site's ink colour, not Bootstrap blue */
+#main p a:not(.btn), #main li a:not(.btn) { color: #1d1e22; text-decoration: underline; text-underline-offset: 3px; }
+#main p a:not(.btn):hover { color: #5c6b3c; }
+.ts-footer a { overflow-wrap: anywhere; }
+@media (max-width: 575.98px) {
+  .ts-service-row > .ts-meta:last-child { width: 100%; }
+}
