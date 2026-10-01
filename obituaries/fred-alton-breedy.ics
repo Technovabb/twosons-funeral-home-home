@@ -3,11 +3,16 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:fred-alton-breedy@twosonsfuneralhome.com
-DTSTAMP:20260804T160000Z
-DTSTART:20260804T160000Z
-DTEND:20260804T180000Z
+DTSTAMP:20260804T000000Z
+DTSTART:20260804T173000Z
+DTEND:20260804T193000Z
 SUMMARY:Funeral of Fred Alton Breedy
-LOCATION:St. Mary’s Anglican Church
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/fred-alton-breedy.html
+LOCATION:St. Mary’s Anglican Church\, Barbados
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 12:00 p.m. Service at St. Mary’s Ang
+ lican Church\, 1:30 p.m. Interment: Christ Church Cemetery. https://techno
+ vabb.com/twosons-funeral-home-home/obituaries/fred-alton-breedy.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/fred-alton-
+ breedy.html
 END:VEVENT
 END:VCALENDAR

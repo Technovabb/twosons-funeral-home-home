@@ -3,11 +3,18 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:jacqueline-carol-boyce@twosonsfuneralhome.com
-DTSTAMP:20260811T151500Z
-DTSTART:20260811T151500Z
-DTEND:20260811T171500Z
+DTSTAMP:20260811T000000Z
+DTSTART:20260811T170000Z
+DTEND:20260811T190000Z
 SUMMARY:Funeral of Jacqueline Carol Boyce
-LOCATION:Holders Hill Seventh-Day Adventist Church\, Durants Village\, St. James
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/jacqueline-carol-boyce.html
+LOCATION:Holders Hill Seventh-Day Adventist Church\, Durants Village\, St. 
+ James\, Barbados
+DESCRIPTION:Leaves the Chapel of Two Sons Funeral Home\, Stadium Road\, Bus
+ h Hall\, St. Michael at 11:15 a.m. Service at Holders Hill Seventh-Day Adv
+ entist Church\, Durants Village\, St. James\, 1:00 p.m. Interment: Westbur
+ y Cemetery. https://technovabb.com/twosons-funeral-home-home/obituaries/ja
+ cqueline-carol-boyce.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/jacqueline-
+ carol-boyce.html
 END:VEVENT
 END:VCALENDAR

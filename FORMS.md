@@ -15,6 +15,7 @@ They all work the same way as on the Sterling site.
 2. It goes to **FormSubmit** (formsubmit.co), which emails **info@twosonsfuneralhome.com**.
 3. Staff read it in the info@ shared mailbox.
 4. If sending fails for any reason, the visitor's email app opens with the message filled in, so **nothing is lost**.
+   The page also says plainly that it could not send, and gives the email address and phone number.
 
 **Nothing a visitor writes goes on the website by itself.** That is on purpose: an open comment box on a grieving family's page attracts spam.
 

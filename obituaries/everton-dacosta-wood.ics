@@ -3,11 +3,18 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:everton-dacosta-wood@twosonsfuneralhome.com
-DTSTAMP:20260703T173000Z
-DTSTART:20260703T173000Z
-DTEND:20260703T193000Z
+DTSTAMP:20260703T000000Z
+DTSTART:20260703T190000Z
+DTEND:20260703T210000Z
 SUMMARY:Funeral of Everton DaCosta Wood
-LOCATION:St. Matthews Anglican Church\, Jackman's\, St. Michael
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/everton-dacosta-wood.html
+LOCATION:St. Matthews Anglican Church\, Jackman’s\, St. Michael\, Barbado
+ s
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 1:30 p.m. Service at St. Matthews Angl
+ ican Church\, Jackman’s\, St. Michael\, 3:00 p.m. Interment: Follows the
+  service. https://technovabb.com/twosons-funeral-home-home/obituaries/ever
+ ton-dacosta-wood.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/everton-dac
+ osta-wood.html
 END:VEVENT
 END:VCALENDAR

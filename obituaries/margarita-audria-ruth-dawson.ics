@@ -3,11 +3,18 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:margarita-audria-ruth-dawson@twosonsfuneralhome.com
-DTSTAMP:20260819T171500Z
-DTSTART:20260819T171500Z
-DTEND:20260819T191500Z
+DTSTAMP:20260819T000000Z
+DTSTART:20260819T190000Z
+DTEND:20260819T210000Z
 SUMMARY:Funeral of Margarita Audria Ruth Dawson
-LOCATION:St. Augustine Anglican Church\, Market Hill\, St. George
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/margarita-audria-ruth-dawson.html
+LOCATION:St. Augustine Anglican Church\, Market Hill\, St. George\, Barbado
+ s
+DESCRIPTION:Leaves the Chapel of Two Sons Funeral Home\, Stadium Road\, Bus
+ h Hall\, St. Michael at 1:15 p.m. Service at St. Augustine Anglican Church
+ \, Market Hill\, St. George\, 3:00 p.m. Interment: St. Joseph Cemetery. ht
+ tps://technovabb.com/twosons-funeral-home-home/obituaries/margarita-audria
+ -ruth-dawson.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/margarita-a
+ udria-ruth-dawson.html
 END:VEVENT
 END:VCALENDAR

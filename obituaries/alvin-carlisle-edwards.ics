@@ -3,11 +3,15 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:alvin-carlisle-edwards@twosonsfuneralhome.com
-DTSTAMP:20260630T143000Z
+DTSTAMP:20260630T000000Z
 DTSTART:20260630T143000Z
 DTEND:20260630T163000Z
 SUMMARY:Funeral of Alvin Carlisle Edwards
-LOCATION:The Chapel of Coral Ridge Memorial Gardens
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/alvin-carlisle-edwards.html
+LOCATION:The Chapel of Coral Ridge Memorial Gardens\, Barbados
+DESCRIPTION:A Service of Thanksgiving at the Chapel of Coral Ridge Memorial
+  Gardens. https://technovabb.com/twosons-funeral-home-home/obituaries/alvi
+ n-carlisle-edwards.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/alvin-carli
+ sle-edwards.html
 END:VEVENT
 END:VCALENDAR

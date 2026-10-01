@@ -3,11 +3,18 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:myrleen-patricia-lovell@twosonsfuneralhome.com
-DTSTAMP:20260728T121500Z
-DTSTART:20260728T121500Z
-DTEND:20260728T141500Z
+DTSTAMP:20260728T000000Z
+DTSTART:20260728T140000Z
+DTEND:20260728T160000Z
 SUMMARY:Funeral of Myrleen Patricia Lovell
-LOCATION:River Road New Testament Church of God\, River Road\, St. Michael
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/myrleen-patricia-lovell.html
+LOCATION:River Road New Testament Church of God\, River Road\, St. Michael\
+ , Barbados
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 8:15 a.m. Service at River Road New Te
+ stament Church of God\, River Road\, St. Michael\, 10:00 a.m. Tributes at 
+ 9:30 a.m. Interment: St. Joseph Cemetery. https://technovabb.com/twosons-f
+ uneral-home-home/obituaries/myrleen-patricia-lovell.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/myrleen-pat
+ ricia-lovell.html
 END:VEVENT
 END:VCALENDAR

@@ -3,11 +3,17 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:gloria-marina-small@twosonsfuneralhome.com
-DTSTAMP:20260813T161500Z
-DTSTART:20260813T161500Z
-DTEND:20260813T181500Z
+DTSTAMP:20260813T000000Z
+DTSTART:20260813T180000Z
+DTEND:20260813T200000Z
 SUMMARY:Funeral of Gloria Marina Small
-LOCATION:St. Anne’s Anglican Church\, Parris Hill\, St. Joseph
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/gloria-marina-small.html
+LOCATION:St. Anne’s Anglican Church\, Parris Hill\, St. Joseph\, Barbados
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 12:15 p.m. Service at St. Anne’s Ang
+ lican Church\, Parris Hill\, St. Joseph\, 2:00 p.m. Interment: Follows the
+  service. https://technovabb.com/twosons-funeral-home-home/obituaries/glor
+ ia-marina-small.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/gloria-mari
+ na-small.html
 END:VEVENT
 END:VCALENDAR

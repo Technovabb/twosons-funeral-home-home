@@ -3,11 +3,16 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:cardinal-haldene-lewis@twosonsfuneralhome.com
-DTSTAMP:20260903T193000Z
+DTSTAMP:20260903T000000Z
 DTSTART:20260903T193000Z
 DTEND:20260903T213000Z
 SUMMARY:Funeral of Cardinal Haldene Lewis
-LOCATION:Holy Innocents Anglican Church
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/cardinal-haldene-lewis.html
+LOCATION:Holy Innocents Anglican Church\, Barbados
+DESCRIPTION:A Service of Thanksgiving at Holy Innocents Anglican Church. Of
+ ficiating Minister: The Rev. Peter A.N. Boxill. Interment: The Churchyard.
+  https://technovabb.com/twosons-funeral-home-home/obituaries/cardinal-hald
+ ene-lewis.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/cardinal-ha
+ ldene-lewis.html
 END:VEVENT
 END:VCALENDAR

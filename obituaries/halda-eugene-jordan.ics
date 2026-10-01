@@ -3,11 +3,15 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:halda-eugene-jordan@twosonsfuneralhome.com
-DTSTAMP:20260716T171500Z
-DTSTART:20260716T171500Z
-DTEND:20260716T191500Z
+DTSTAMP:20260716T000000Z
+DTSTART:20260716T190000Z
+DTEND:20260716T210000Z
 SUMMARY:Funeral of Halda Eugene Jordan
-LOCATION:St. Andrew Parish Church
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/halda-eugene-jordan.html
+LOCATION:St. Andrew Parish Church\, Barbados
+DESCRIPTION:The funeral begins at 1:15 p.m. Service at St. Andrew Parish Ch
+ urch\, 3:00 p.m. Interment: Follows the service. https://technovabb.com/tw
+ osons-funeral-home-home/obituaries/halda-eugene-jordan.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/halda-eugen
+ e-jordan.html
 END:VEVENT
 END:VCALENDAR

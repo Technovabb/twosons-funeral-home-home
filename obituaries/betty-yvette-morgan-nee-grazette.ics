@@ -3,11 +3,16 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:betty-yvette-morgan-nee-grazette@twosonsfuneralhome.com
-DTSTAMP:20260814T180000Z
+DTSTAMP:20260814T000000Z
 DTSTART:20260814T180000Z
 DTEND:20260814T200000Z
 SUMMARY:Funeral of Betty Yvette Morgan née Grazette
-LOCATION:Bank Hall Church of the Nazarene\, Bank Hall\, St. Michael
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/betty-yvette-morgan-nee-grazette.html
+LOCATION:Bank Hall Church of the Nazarene\, Bank Hall\, St. Michael\, Barba
+ dos
+DESCRIPTION:Thanksgiving Service at Bank Hall Church of the Nazarene\, Bank
+  Hall\, St. Michael. Interment: Westbury Cemetery. https://technovabb.com/
+ twosons-funeral-home-home/obituaries/betty-yvette-morgan-nee-grazette.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/betty-yvett
+ e-morgan-nee-grazette.html
 END:VEVENT
 END:VCALENDAR

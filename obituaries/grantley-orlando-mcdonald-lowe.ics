@@ -3,11 +3,16 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:grantley-orlando-mcdonald-lowe@twosonsfuneralhome.com
-DTSTAMP:20260826T171500Z
-DTSTART:20260826T171500Z
-DTEND:20260826T191500Z
+DTSTAMP:20260826T000000Z
+DTSTART:20260826T190000Z
+DTEND:20260826T210000Z
 SUMMARY:Funeral of Grantley Orlando McDonald Lowe
-LOCATION:St. Andrew Parish Church
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/grantley-orlando-mcdonald-lowe.html
+LOCATION:St. Andrew Parish Church\, Barbados
+DESCRIPTION:Leaves the Chapel of Two Sons Funeral Home\, Stadium Road\, Bus
+ h Hall\, St. Michael at 1:15 p.m. Service at St. Andrew Parish Church\, 3:
+ 00 p.m. Interment: In the churchyard. https://technovabb.com/twosons-funer
+ al-home-home/obituaries/grantley-orlando-mcdonald-lowe.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/grantley-or
+ lando-mcdonald-lowe.html
 END:VEVENT
 END:VCALENDAR

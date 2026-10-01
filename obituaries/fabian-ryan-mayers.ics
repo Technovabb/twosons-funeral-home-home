@@ -3,11 +3,17 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:fabian-ryan-mayers@twosonsfuneralhome.com
-DTSTAMP:20260730T123000Z
-DTSTART:20260730T123000Z
-DTEND:20260730T143000Z
+DTSTAMP:20260730T000000Z
+DTSTART:20260730T140000Z
+DTEND:20260730T160000Z
 SUMMARY:Funeral of Fabian Ryan Mayers
-LOCATION:St. Matthew Anglican Church\, Jackmans\, St. Michael
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/fabian-ryan-mayers.html
+LOCATION:St. Matthew Anglican Church\, Jackmans\, St. Michael\, Barbados
+DESCRIPTION:Leaves the Chapel of Two Sons Funeral Home\, Stadium Road\, Bus
+ h Hall\, St. Michael at 8:30 a.m. Service at St. Matthew Anglican Church\,
+  Jackmans\, St. Michael\, 10:00 a.m. Interment: Follows the service. https
+ ://technovabb.com/twosons-funeral-home-home/obituaries/fabian-ryan-mayers.
+ html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/fabian-ryan
+ -mayers.html
 END:VEVENT
 END:VCALENDAR

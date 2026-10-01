@@ -77,6 +77,10 @@
         ]
       },
       {
+        "type": "check",
+        "name": "Church Fees"
+      },
+      {
         "type": "text",
         "name": "Name of Church"
       },

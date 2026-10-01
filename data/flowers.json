@@ -1,5 +1,5 @@
 {
-  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. Photos go in images/flowers/<slug>.jpg. TODO: client to send names, photos and prices.",
+  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. Photos go in images/flowers/<slug>.jpg. \"fit\": \"contain\" shows the whole photo (for tall or very wide tributes). TODO: client to send names, photos and prices.",
   "items": [
     {
       "slug": "bleeding-heart",
@@ -26,11 +26,12 @@
     {
       "slug": "floral-cross",
       "name": "Floral Cross",
-      "price": null
+      "price": null,
+      "fit": "contain"
     },
     {
       "slug": "lettered-tribute",
-      "name": "Lettered Tribute (MUM, GRAN, DAD...)",
+      "name": "Lettered Tribute",
       "price": null
     }
   ]

@@ -3,11 +3,18 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:noreen-milroy-legall@twosonsfuneralhome.com
-DTSTAMP:20260731T121500Z
-DTSTART:20260731T121500Z
-DTEND:20260731T141500Z
+DTSTAMP:20260731T000000Z
+DTSTART:20260731T140000Z
+DTEND:20260731T160000Z
 SUMMARY:Funeral of Noreen Milroy Legall
-LOCATION:St. Patrick's Roman Catholic Church\, Bay Street\, St. Michael
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/noreen-milroy-legall.html
+LOCATION:St. Patrick’s Roman Catholic Church\, Bay Street\, St. Michael\,
+  Barbados
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 8:15 a.m. Service at St. Patrick’s R
+ oman Catholic Church\, Bay Street\, St. Michael\, 10:00 a.m. Interment: We
+ stbury Cemetery. https://technovabb.com/twosons-funeral-home-home/obituari
+ es/noreen-milroy-legall.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/noreen-milr
+ oy-legall.html
 END:VEVENT
 END:VCALENDAR

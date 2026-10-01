@@ -3,11 +3,17 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:stevenson-rudolph-harris@twosonsfuneralhome.com
-DTSTAMP:20260702T160000Z
-DTSTART:20260702T160000Z
-DTEND:20260702T180000Z
+DTSTAMP:20260702T000000Z
+DTSTART:20260702T180000Z
+DTEND:20260702T200000Z
 SUMMARY:Funeral of Stevenson Rudolph Harris
-LOCATION:The Chapel of Mount Pleasant Memorial Gardens
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/stevenson-rudolph-harris.html
+LOCATION:The Chapel of Mount Pleasant Memorial Gardens\, Barbados
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 12:00 p.m. Service at the Chapel of Mo
+ unt Pleasant Memorial Gardens\, 2:00 p.m. Interment: Follows the service. 
+ https://technovabb.com/twosons-funeral-home-home/obituaries/stevenson-rudo
+ lph-harris.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/stevenson-r
+ udolph-harris.html
 END:VEVENT
 END:VCALENDAR

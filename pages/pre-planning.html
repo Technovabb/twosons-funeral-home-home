@@ -1,41 +1,37 @@
 <section class="ts-banner"><div class="container">
-<p class="ts-eyebrow">Pre-planning</p>
-<h1>A thoughtful decision. A lasting gift.</h1>
-<p class="ts-lead">Whether a death has just happened or you are planning ahead, we are here to help. Consider your wishes at your own pace, and spare your family hard decisions at a hard time.</p>
+<p class="ts-eyebrow">When a death occurs &middot; Planning ahead</p>
+<h1>We are here to help</h1>
+<p class="ts-lead">If a death has just happened, start with the four steps below. If you are planning ahead, take your time: we can talk whenever you are ready.</p>
 </div></section>
-<section class="ts-section ts-dark">
-            <div class="container">
-                <div>
-                    <section>
-                        <p class="ts-eyebrow">When a death occurs</p>
-                        <h2>What to do first</h2>
-                        <p class="ts-lead">You do not need to know the steps. We walk you through each one.</p>
-                        <div class="ts-steps">
-                            <div><span class="ts-step-no">1</span><h3>Call us, day or night</h3><p>Ring (246) 426-1205 at any hour. We tell you exactly what happens next.</p></div>
-                            <div><span class="ts-step-no">2</span><h3>We bring your loved one into our care</h3><p>Our team comes to the home, hospital or nursing home with dignity and respect.</p></div>
-                            <div><span class="ts-step-no">3</span><h3>Plan the service together</h3><p>Meet us at Bush Hall to choose the service, the notice, the flowers and the cars.</p></div>
-                            <div><span class="ts-step-no">4</span><h3>Share the notice</h3><p>We post the funeral notice and livestream link here, ready to share on WhatsApp.</p></div>
-                        </div>
-                    </section>
-                </div>
-                <div class="ts-callbox">
-                    <div><span>Help 24 hours a day</span><strong>(246) 426-1205</strong></div>
-                    <a class="btn btn-light" href="tel:+12464261205"><i class="fa fa-phone me-2"></i>Call now</a>
-                </div>
-            </div>
-        </section>
+<section class="ts-section ts-dark" id="first-steps">
+<div class="container">
+<p class="ts-eyebrow">When a death occurs</p>
+<h2>What to do first</h2>
+<p class="ts-lead">You do not need to know the steps. We walk you through each one.</p>
+<div class="ts-steps">
+<div><span class="ts-step-no">1</span><h3>Call us, day or night</h3><p>Ring {{PHONE}} at any hour. We tell you exactly what happens next.</p></div>
+<div><span class="ts-step-no">2</span><h3>We bring your loved one into our care</h3><p>Our team comes to the home, hospital or nursing home with dignity and respect.</p></div>
+<div><span class="ts-step-no">3</span><h3>Plan the service together</h3><p>Meet us at Bush Hall to choose the service, the notice, the flowers and the cars.</p></div>
+<div><span class="ts-step-no">4</span><h3>Share the notice</h3><p>We post the funeral notice and livestream link here, ready to share on WhatsApp.</p></div>
+</div>
+<div class="ts-callbox">
+<div><span>Help 24 hours a day</span><strong>{{PHONE}}</strong></div>
+<a class="btn btn-light" href="{{TEL}}"><i class="fa fa-phone me-2"></i>Call now</a>
+</div>
+</div>
+</section>
 <section class="ts-section">
 <div class="container">
 <div class="ts-section-head">
 <p class="ts-eyebrow">Planning ahead</p>
-<h2>Make your choices in your own time.</h2>
+<h2>A thoughtful decision. A lasting gift.</h2>
 <p class="ts-lead">Pre-planning is a chance to talk through your wishes, understand the choices involved and write down what your family will need to know. A conversation with us helps you decide how much planning feels right.</p>
 </div>
 <div class="ts-steps ts-steps-light">
 <div><span class="ts-step-no">1</span><h3>Start a conversation</h3><p>Speak privately with us at Bush Hall, or by phone, about what pre-planning involves.</p></div>
 <div><span class="ts-step-no">2</span><h3>Think about your wishes</h3><p>Burial or cremation, the church, the hymns, the flowers, the cars, and the details that matter to you.</p></div>
-<div><span class="ts-step-no">3</span><h3>Write down the key details</h3><p>We keep a record of your wishes on file, so your family knows exactly what you wanted.</p></div>
-<div><span class="ts-step-no">4</span><h3>Review when you need to</h3><p>Come back to your plan at any time so it still reflects your wishes.</p></div>
+<div><span class="ts-step-no">3</span><h3>Write down the key details</h3><p>Write down your wishes and share them with your family. We can help you think through what to include.</p></div>
+<div><span class="ts-step-no">4</span><h3>Review when you need to</h3><p>Look at your wishes again whenever your circumstances change.</p></div>
 </div>
 </div>
 </section>
@@ -53,13 +49,13 @@
 <h3>Can I get an idea of the cost?</h3>
 <p>Yes. Use our <a href="get-a-quote.html">Get a quote</a> form to choose burial, cremation, shipment or a memorial service, and we will reply with a price.</p>
 <h3>How do I begin?</h3>
-<p>Call us on <a href="tel:+12464261205">(246) 426-1205</a>, or leave your details below and we will call you to arrange a meeting.</p>
+<p>Call us on <a href="{{TEL}}">{{PHONE}}</a>, or fill in the short form on this page and we will call you to arrange a meeting.</p>
 </div>
 </div>
 <div class="col-lg-6" id="plan-ahead">
 <div class="ts-panel mb-0">
-<h2>Request a pre-planning meeting</h2>
-<form class="ts-form" data-form="plan_ahead">
+<h2>Request a <span class="text-nowrap">pre-planning</span> meeting</h2>
+<form class="ts-form" data-form="plan_ahead" method="post" action="https://formsubmit.co/info@twosonsfuneralhome.com">
 <div class="ts-trap" aria-hidden="true"><label>Leave empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 <div class="row g-3">
 <div class="col-md-6"><label class="form-label" for="pa-name">Your name</label><input id="pa-name" name="name" class="form-control" required maxlength="200" autocomplete="name"></div>
@@ -68,7 +64,7 @@
 <div class="col-12"><label class="form-label" for="pa-msg">Your wishes, or a good time to meet (optional)</label><textarea id="pa-msg" name="message" class="form-control" rows="4" maxlength="4000"></textarea></div>
 </div>
 <button type="submit" class="btn btn-primary mt-3">Send request</button>
-<p class="form-note ts-meta mt-2" role="status">Your request goes to our staff at info@twosonsfuneralhome.com, who will call you.</p>
+<p class="form-note ts-meta mt-2" role="status">Your request goes to Two Sons. We will call you to arrange a meeting.</p>
 </form>
 </div>
 </div>

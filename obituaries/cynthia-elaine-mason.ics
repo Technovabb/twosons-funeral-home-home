@@ -3,11 +3,18 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:cynthia-elaine-mason@twosonsfuneralhome.com
-DTSTAMP:20260824T151500Z
-DTSTART:20260824T151500Z
-DTEND:20260824T171500Z
+DTSTAMP:20260824T000000Z
+DTSTART:20260824T170000Z
+DTEND:20260824T190000Z
 SUMMARY:Funeral of Cynthia Elaine Mason
-LOCATION:Golan Seventh-Day Adventist Church\, Harrismith\, St. Philip
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/cynthia-elaine-mason.html
+LOCATION:Golan Seventh-Day Adventist Church\, Harrismith\, St. Philip\, Bar
+ bados
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 11:15 a.m. Service at Golan Seventh-Da
+ y Adventist Church\, Harrismith\, St. Philip\, 1:00 p.m. Interment: Bushy 
+ Park Cemetery. https://technovabb.com/twosons-funeral-home-home/obituaries
+ /cynthia-elaine-mason.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/cynthia-ela
+ ine-mason.html
 END:VEVENT
 END:VCALENDAR

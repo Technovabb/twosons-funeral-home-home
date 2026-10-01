@@ -3,11 +3,17 @@ VERSION:2.0
 PRODID:-//Two Sons Funeral Home//Notices//EN
 BEGIN:VEVENT
 UID:sonja-joyceline-hawkesworth@twosonsfuneralhome.com
-DTSTAMP:20260709T163000Z
-DTSTART:20260709T163000Z
-DTEND:20260709T183000Z
+DTSTAMP:20260709T000000Z
+DTSTART:20260709T180000Z
+DTEND:20260709T200000Z
 SUMMARY:Funeral of Sonja Joyceline Hawkesworth
-LOCATION:Church of God\, Chelsea Road\, St. Michael
-URL:https://technovabb.com/twosons-funeral-home-home/obituaries/sonja-joyceline-hawkesworth.html
+LOCATION:Church of God\, Chelsea Road\, St. Michael\, Barbados
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 12:30 p.m. Service at Church of God\, 
+ Chelsea Road\, St. Michael\, 2:00 p.m. Interment: Westbury Cemetery. https
+ ://technovabb.com/twosons-funeral-home-home/obituaries/sonja-joyceline-haw
+ kesworth.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/sonja-joyce
+ line-hawkesworth.html
 END:VEVENT
 END:VCALENDAR
