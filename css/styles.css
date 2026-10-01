@@ -1191,27 +1191,13 @@ html { scroll-padding-top: 110px; }
   border-bottom: 4px solid #93a4c6;
   overflow: hidden;
 }
-.ts-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* only a whisper of shade, so the photo itself shows */
-  background: rgba(29, 30, 34, 0.18);
-}
 .ts-hero > .container { position: relative; z-index: 1; }
-/* the words sit on a small translucent panel, so the picture stays clear around them */
+/* no shading over the photo; the text is kept legible with a soft shadow on the letters only */
 .ts-hero-inner {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  background: rgba(26, 27, 31, 0.56);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-  border: 1px solid rgba(147, 164, 198, 0.45);
-  border-radius: 10px;
-  padding: 40px 44px;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 20px rgba(0, 0, 0, 0.7);
 }
-@media (max-width: 575.98px) { .ts-hero-inner { padding: 28px 22px; } }
 .ts-hero h1 { color: #fff; }
 .ts-hero .ts-eyebrow { color: #cfd8e6; }
 .ts-hero .ts-lead { color: #eef1f5; max-width: 620px; margin-left: auto; margin-right: auto; }
