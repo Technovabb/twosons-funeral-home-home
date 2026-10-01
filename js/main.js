@@ -11,7 +11,7 @@
    anything - see FORMS.md. */
 var FORM_ENDPOINT = "https://formsubmit.co/ajax/info@twosonsfuneralhome.com";
 var FORM_EMAIL = "info@twosonsfuneralhome.com";
-var FORM_PHONE = "(246) 426-1205";
+var FORM_PHONE = "(246)\u00a0426-1205"; // non-breaking space: the number never splits across lines
 var FORM_TEL = "tel:+12464261205";
 
 var FORM_KINDS = {

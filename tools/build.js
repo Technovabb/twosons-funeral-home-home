@@ -385,10 +385,11 @@ function card(p, up = "", eager = false) {
   ].join("");
   const img = cardFor(p);
   const thumb = img !== flyerFor(p) && thumbFor(p);
-  // phones show the card picture 92 px wide: they get the 320 px copy
-  const srcset = thumb ? ` srcset="${up}${thumb} 320w, ${up}${img} 600w" sizes="(max-width: 767.98px) 92px, (max-height: 500px) and (max-width: 991.98px) 92px, 400px"` : "";
+  // phones show the card picture 92 px wide and other screens at most 320 px (380 px on the home page from 1400 px):
+  // most screens get the 320 px copy, large and high-density screens the 600 px one
+  const srcset = thumb ? ` srcset="${up}${thumb} 320w, ${up}${img} 600w" sizes="(max-width: 767.98px) 92px, (max-height: 500px) and (max-width: 991.98px) 92px, (min-width: 1400px) 380px, 320px"` : "";
   const picture = !photoFor("notices", p.slug) && img
-    ? `<div class="ts-card-flyer${p.flyer_wide ? " ts-card-flyer-wide" : ""}"${p.flyer_wide ? ` style="background-image:url('${up}${img}')"` : ""}><img src="${up}${img}"${srcset}${dims(img)} alt=""${eager ? "" : ' loading="lazy"'} /></div>`
+    ? `<div class="ts-card-flyer${p.flyer_wide ? " ts-card-flyer-wide" : ""}"${p.flyer_wide ? ` style="background-image:url('${up}${miniFor(p)}')"` : ""}><img src="${up}${img}"${srcset}${dims(img)} alt=""${eager ? "" : ' loading="lazy"'} /></div>`
     : oval(p, up);
   const when = p.service ? `Funeral: ${whenText(p)}` : lifeDates(p);
   const lines = [placeText(p), departText(p)].filter(Boolean).map((t) => `<p class="ts-meta">${t}</p>`).join("\n");
@@ -718,8 +719,9 @@ function flowersPage() {
 <div class="ts-flower-grid">
 ${flowers.items.map((f, i) => {
     const photo = photoFor("flowers", f.slug);
+    const tile = photo && (photoFor("thumbs", f.slug) || photo); // the smaller copy made by tools/images.js
     const picture = photo
-      ? `<img src="${photo}"${dims(photo)} alt="${esc(f.name)}" class="img-fluid${f.fit === "contain" ? " ts-contain" : ""}"${i < 3 ? "" : ' loading="lazy"'} />`
+      ? `<img src="${tile}"${dims(tile)} alt="${esc(f.name)}" class="img-fluid${f.fit === "contain" ? " ts-contain" : ""}"${i < 3 ? "" : ' loading="lazy"'} />`
       : '<div class="ts-service-art ts-flower-art" aria-hidden="true"><i class="fa fa-leaf"></i></div>';
     return `<div class="ts-panel ts-flower">${picture}<h3>${esc(f.name)}</h3><p class="ts-price">${money(f)}</p>
 <a class="btn btn-outline-primary ts-pick" href="#order" data-pick="${esc(f.name)}">Send Flowers<span class="visually-hidden">: ${esc(f.name)}</span></a></div>`;
@@ -735,7 +737,7 @@ ${flowers.items.map((f, i) => {
 <div class="col-md-8"><label class="form-label" for="fl-item">Tribute</label><select id="fl-item" name="tribute" class="form-select">${flowers.items.map((f) => `<option>${esc(f.name)} (${money(f)})</option>`).join("")}</select></div>
 <div class="col-md-4"><label class="form-label" for="fl-qty">How many</label><input id="fl-qty" name="quantity" type="number" min="1" max="50" value="1" class="form-control" /></div>
 <div class="col-12"><label class="form-label" for="fl-for">For the funeral of</label><select id="fl-for" name="funeral" class="form-select" required><option value="" selected disabled>Choose the funeral</option>${options}<option value="Not listed">A funeral not listed here (tell us below)</option></select></div>
-<div class="col-12" id="fl-other-row"><label class="form-label" for="fl-other">If the funeral is not listed: the name of the person who has died, and the funeral date</label><input id="fl-other" name="funeral_not_listed" class="form-control" maxlength="200" /></div>
+<div class="col-12" id="fl-other-row"><label class="form-label" for="fl-other">If the funeral is not listed: the name of the person who has died, and the funeral date</label><input id="fl-other" name="funeral_not_listed" class="form-control" maxlength="200"${funerals.length ? "" : " required"} /></div>
 <div class="col-12"><label class="form-label" for="fl-card">Message for the card</label><textarea id="fl-card" name="card_message" class="form-control" rows="3" maxlength="600"></textarea></div>
 <div class="col-md-6"><label class="form-label" for="fl-name">Your name</label><input id="fl-name" name="name" class="form-control" required maxlength="200" autocomplete="name" /></div>
 <div class="col-md-6"><label class="form-label" for="fl-phone">Your phone number</label><input id="fl-phone" name="phone" type="tel" class="form-control" required maxlength="60" autocomplete="tel" /></div>
@@ -755,7 +757,7 @@ function quotePage() {
     const note = item.note ? ` aria-describedby="${key}-note"` : "";
     switch (item.type) {
       case "required": return '<span class="ts-included"><i class="fa fa-check me-1"></i>Included</span>';
-      case "check": return `<label><input type="checkbox" name="${key}" aria-labelledby="${key}-label"${item.checked ? " checked" : ""} /> Yes</label>`;
+      case "check": return `<label><input type="checkbox" name="${key}" value="Yes" aria-labelledby="${key}-label"${item.checked ? " checked" : ""} /> Yes</label>`;
       case "choice": return opts.map((o) => `<label><input type="radio" name="${key}" value="${esc(o)}" /> ${esc(o)}</label>`).join("");
       case "multi": return opts.map((o, i) => `<label><input type="checkbox" name="${key}_${i}" value="${esc(o)}" /> ${esc(o)}</label>`).join("");
       case "qty": return `<input type="number" class="form-control ts-num" id="${key}" name="${key}" min="0" step="1" placeholder="0" data-min="${item.min || 0}"${note} />`;
@@ -764,7 +766,7 @@ function quotePage() {
     }
     return "";
   };
-  const forms = quotes.map((f, fi) => `<fieldset class="ts-quote-set" data-quote-set="${f.id}"${fi === 0 ? "" : " hidden"}>
+  const forms = quotes.map((f, fi) => `<fieldset class="ts-quote-set" data-quote-set="${f.id}"${fi === 0 ? "" : " hidden disabled"}>
 <legend class="h2">${esc(f.title)}</legend>
 ${f.items.map((item, n) => {
     const key = `${f.id}_q${n}`;
@@ -810,7 +812,7 @@ const PAGES = [
 
 const out = {};
 for (const [file, title, desc, band] of PAGES) {
-  let body = read("pages/" + file).replaceAll("{{PHONE}}", PHONE).replaceAll("{{TEL}}", TEL);
+  let body = read("pages/" + file).replaceAll("{{PHONE}}", PHONE).replaceAll("{{TEL}}", TEL).replaceAll("{{FORM_ACTION}}", FORM_ACTION);
   if (file === "index.html") {
     body = body.replace(/<!-- upcoming:start -->[\s\S]*?<!-- upcoming:end -->/, "<!-- upcoming:start -->" + upcomingBlock() + "<!-- upcoming:end -->");
     body = body.replace("<!-- notices:home -->", grid(people.slice(0, 3), "New funeral notices will appear here.", "", 0, "ts-notice-grid-3"));
@@ -900,6 +902,13 @@ const missing = new Set();
 for (const [rel, html] of Object.entries(out)) {
   if (rel === "404.html" || rel.endsWith(".ics")) continue;
   for (const m of html.matchAll(/(?:\.\.\/)?(images\/[\w\-\/.]+\.(?:jpe?g|png|webp|gif|svg))/g)) if (!fs.existsSync(path.join(root, m[1]))) missing.add(m[1]);
+}
+// gallery and home-page copies older than their photo (a photo was replaced)
+for (const dir of ["photos", "flowers"]) {
+  for (const f of fs.readdirSync(path.join(root, "images", dir)).filter((x) => /\.(jpe?g|png)$/i.test(x))) {
+    const t = path.join(root, "images", "thumbs", f.replace(/\.[^.]+$/, "") + ".jpg");
+    if (fs.existsSync(t) && fs.statSync(t).mtimeMs < fs.statSync(path.join(root, "images", dir, f)).mtimeMs) warn.push(`images/${dir}/${f} is newer than its small copy: run node tools/images.js, then build again.`);
+  }
 }
 for (const m of missing) warn.push(`${m} is used on a page but the file is missing (new photo? run node tools/images.js)`);
 if (people.some((p) => flyerFor(p) && ["cards", "thumbs", "mini", "share"].some((d) => !photoFor("notices/" + d, p.slug)))) {

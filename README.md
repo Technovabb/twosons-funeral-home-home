@@ -88,7 +88,12 @@ Messages come to info@ by email. Nothing goes on the site by itself. See [FORMS.
 
 ## Change a photo
 
-Replace the file, then **run the build**. Keep photos to about 1200 px on the long side (`node tools/images.js --shrink` does it for you). The build adds a fingerprint to every image link, so the new photo shows straight away. GitHub Pages would otherwise keep showing the old one for up to 10 minutes.
+1. Put the new photo in `images/photos/` or `images/flowers/`, with the same name as the old one.
+2. Run `node tools/images.js`. It remakes the small copies the gallery and home page use.
+   Add `--shrink` if the photo is bigger than 1600 px.
+3. **Run the build.**
+
+The build adds a fingerprint to every image link, so the new photo shows straight away. GitHub Pages would otherwise keep showing the old one for up to 10 minutes.
 
 ## Preview now, real domain later
 

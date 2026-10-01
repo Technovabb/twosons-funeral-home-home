@@ -958,7 +958,7 @@ form.is-sent { background: #eef0e6; border-color: #cdd3bd; }
 form.is-sent:not(.ts-panel) { border: 1px solid #cdd3bd; border-radius: 6px; padding: 20px 22px; }
 
 /* ---- Casket collection and photo viewer ---- */
-.casket-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.casket-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
 .casket-card { background: #fff; border: 1px solid #e2e0da; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; }
 .casket-image { cursor: zoom-in; }
 .casket-image img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
@@ -1166,8 +1166,9 @@ html { scroll-padding-top: 110px; }
 .ts-stats span { display: block; line-height: 1.35; text-wrap: balance; }
 .ts-panel > .ts-facts:last-child { margin-bottom: 0; }
 .ts-panel > .ts-facts:last-child > li:last-child { padding-bottom: 0; }
-@media (min-width: 768px) { .ts-q-label { padding-top: 10px; } .ts-q-opts { align-self: start; } }
-.ts-call-btn-lg { white-space: nowrap; }
+@media (min-width: 768px) { .ts-q-label, .ts-q-opts > .ts-included { padding-top: 10px; } .ts-q-opts { align-self: start; } }
+.ts-call-btn-lg { white-space: nowrap; min-height: 44px; }
+.ts-stats strong { white-space: nowrap; }
 /* The open menu shows a cross, matching its "Close" label */
 .ts-header .navbar-toggler[aria-expanded="true"] .fa-bars::before { content: "\f00d"; }
 @media (max-width: 359.98px) {

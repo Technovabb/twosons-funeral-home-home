@@ -45,4 +45,4 @@ Add it to `entries` in `data/testimonials.json`, then build.
 ## Good to know
 - Each form has a hidden trap field. Robots fill it in, people don't, and those messages are dropped.
 - A visitor's email address is optional and is never shown on the page.
-- Messages travel through FormSubmit (a third party) on the way to info@, as on the Sterling site. To change the address later, edit `FORM_ENDPOINT` at the top of `js/main.js`, then activate the new address the same way.
+- Messages travel through FormSubmit (a third party) on the way to info@, as on the Sterling site. To change the address later, edit `FORM_ENDPOINT` and `FORM_EMAIL` at the top of `js/main.js`, and `EMAIL` at the top of `tools/build.js`. Run `node tools/build.js`, then activate the new address the same way.

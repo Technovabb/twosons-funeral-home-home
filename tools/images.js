@@ -15,8 +15,10 @@
  *                                     for WhatsApp and Facebook link previews
  * and for each photo in images/photos/ and images/flowers/ (run it after
  * adding a photo too):
- *   images/thumbs/<name>.jpg          600 px on the short side, for the gallery
- *                                     and the flower row on the home page
+ *   images/thumbs/<name>.jpg          600 px on the short side (760 px for flowers,
+ *                                     which fill tall boxes on the home page),
+ *                                     for the gallery, the home page and the
+ *                                     Floral tributes page
  *
  *   node tools/images.js --shrink
  * also makes any photo in images/photos/ or images/flowers/ that is wider or
@@ -101,7 +103,8 @@ async function main() {
       wanted.add(name);
       const dest = img("thumbs", name);
       if (upToDate(img(dir, f), dest)) continue;
-      await sharp(img(dir, f)).rotate().flatten({ background: "#ffffff" }).resize({ width: 600, height: 600, fit: "outside", withoutEnlargement: true }).jpeg(JPEG).toFile(dest);
+      const side = dir === "flowers" ? 760 : 600;
+      await sharp(img(dir, f)).rotate().flatten({ background: "#ffffff" }).resize({ width: side, height: side, fit: "outside", withoutEnlargement: true }).jpeg(JPEG).toFile(dest);
       thumbs++;
     }
   }
