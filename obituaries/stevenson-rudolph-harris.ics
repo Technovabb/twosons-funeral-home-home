@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Two Sons Funeral Home//Notices//EN
+BEGIN:VEVENT
+UID:stevenson-rudolph-harris@twosonsfuneralhome.com
+DTSTAMP:20260702T160000Z
+DTSTART:20260702T160000Z
+DTEND:20260702T180000Z
+SUMMARY:Funeral of Stevenson Rudolph Harris
+LOCATION:The Chapel of Mount Pleasant Memorial Gardens
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/stevenson-rudolph-harris.html
+END:VEVENT
+END:VCALENDAR

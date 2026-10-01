@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Two Sons Funeral Home//Notices//EN
+BEGIN:VEVENT
+UID:james-livingstone-eastmond@twosonsfuneralhome.com
+DTSTAMP:20260728T171500Z
+DTSTART:20260728T171500Z
+DTEND:20260728T191500Z
+SUMMARY:Funeral of James Livingstone Eastmond
+LOCATION:St. Luke's Anglican Church
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/james-livingstone-eastmond.html
+END:VEVENT
+END:VCALENDAR

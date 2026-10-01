@@ -959,3 +959,12 @@ form.is-sent { background: #eef0e6; border-color: #cdd3bd; }
 @media (max-width: 575.98px) {
   .ts-service-row > .ts-meta:last-child { width: 100%; }
 }
+
+/* ---- Funeral notice flyers (the funeral home's own notice images) ---- */
+.ts-card-flyer { margin: -10px -6px 4px; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 3px; background: #eceee8; }
+.ts-card-flyer img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.ts-flyer { display: block; max-width: 520px; margin: 0 auto 18px; }
+.ts-flyer img { width: 100%; height: auto; border-radius: 4px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
+.ts-service-flyer { width: 64px; height: 80px; object-fit: cover; object-position: top center; border-radius: 3px; display: block; }
+.ts-brand img { height: 50px; width: auto; }
+.ts-card-flyer-wide img { object-fit: contain; object-position: center; }

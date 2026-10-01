@@ -1,64 +1,333 @@
 [
   {
-    "slug": "sample-name-of-loved-one",
-    "sample": true,
-    "name": "Name of Loved One",
-    "aka": "Nickname",
-    "age": 83,
-    "late_of": "St. Joseph",
-    "died": "2026-10-01",
-    "service": "2026-10-14T13:15",
+    "slug": "richard-mario-nicolas-wason-jr",
+    "name": "Richard Mario Nicolas Wason Jr.",
+    "born": "1986-02-28",
+    "died": "2026-08-11",
+    "livestream": {
+      "url": "https://sharingmemoriesforever.live/RichardWasonJr",
+      "label": "Sharing Memories Forever"
+    },
+    "flyer_wide": true
+  },
+  {
+    "slug": "cardinal-haldene-lewis",
+    "name": "Cardinal Haldene Lewis",
+    "born": "1947-06-14",
+    "died": "2026-07-21",
+    "late_of": "Lower Holders Hill, Paynes Bay, St. James",
+    "service": "2026-09-03T15:30",
+    "service_start": "A Service of Thanksgiving at Holy Innocents Anglican Church",
+    "church": "Holy Innocents Anglican Church",
+    "church_time": "3:30 p.m.",
+    "church_note": "Officiating Minister: The Rev. Peter A.N. Boxill",
+    "interment": "The Churchyard",
+    "livestream": {
+      "url": "https://youtube.com/live/RocQDYGxSmA",
+      "label": "YouTube"
+    },
+    "flyer_wide": true
+  },
+  {
+    "slug": "athelbert-bourne",
+    "name": "Athelbert Bourne",
+    "late_of": "Lot 54 Lammings, St. Joseph",
+    "service": "2026-08-26T12:15",
     "service_start": "Leaves the Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
-    "church": "[Church name], St. Joseph",
+    "church": "St. Annes Anglican Church",
+    "church_time": "2:00 p.m.",
+    "interment": "In the churchyard"
+  },
+  {
+    "slug": "grantley-orlando-mcdonald-lowe",
+    "name": "Grantley Orlando McDonald Lowe",
+    "aka": "Boyfriend",
+    "age": 83,
+    "late_of": "Fruitful Hill, St. Joseph",
+    "service": "2026-08-26T13:15",
+    "service_start": "Leaves the Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. Andrew Parish Church",
     "church_time": "3:00 p.m.",
-    "church_note": "where relatives and friends are asked to meet",
-    "interment": "Follows in [the churchyard]",
-    "viewing_start": "2026-10-13T16:00",
-    "viewing_end": "2026-10-13T18:00",
+    "interment": "In the churchyard"
+  },
+  {
+    "slug": "cynthia-elaine-mason",
+    "name": "Cynthia Elaine Mason",
+    "age": 76,
+    "service": "2026-08-24T11:15",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "Golan Seventh-Day Adventist Church, Harrismith, St. Philip",
+    "church_time": "1:00 p.m.",
+    "interment": "Bushy Park Cemetery"
+  },
+  {
+    "slug": "margarita-audria-ruth-dawson",
+    "name": "Margarita Audria Ruth Dawson",
+    "aka": "Delcina",
+    "age": 92,
+    "late_of": "Tourville Road, Horse Hill, St. Joseph",
+    "service": "2026-08-19T13:15",
+    "service_start": "Leaves the Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. Augustine Anglican Church, Market Hill, St. George",
+    "church_time": "3:00 p.m.",
+    "interment": "St. Joseph Cemetery",
+    "viewing_start": "2026-08-18T16:00",
+    "viewing_end": "2026-08-18T18:00",
     "viewing_place": "In the Chapel of Two Sons Funeral Home",
-    "flowers_by": "1:00 p.m. on the day",
-    "livestream": { "url": "https://www.youtube.com/", "label": "Two Sons on YouTube" },
-    "family": [
-      "Son of the late [names]",
-      "Husband of [name]",
-      "Father of [names]",
-      "Grandfather of [names]",
-      "Brother of [names]",
-      "Friend of many"
-    ],
-    "obituary": []
+    "livestream": {
+      "url": "https://youtu.be/kY6lhrGe_wI",
+      "label": "YouTube"
+    }
   },
   {
-    "slug": "sample-loved-one-christ-church",
-    "sample": true,
-    "name": "Name of Loved One",
-    "age": 67,
-    "late_of": "Christ Church",
-    "died": "2026-10-03",
-    "service": "2026-10-16T10:00",
-    "service_start": "Service in our chapel",
-    "interment": "[Cemetery]",
-    "flowers_by": "9:00 a.m. on the day",
-    "livestream": { "url": "https://www.youtube.com/", "label": "Two Sons on YouTube" },
-    "family": [],
-    "obituary": []
+    "slug": "betty-yvette-morgan-nee-grazette",
+    "name": "Betty Yvette Morgan née Grazette",
+    "age": 71,
+    "died": "2026-07-23",
+    "late_of": "1st Avenue, Peterkin Land, Bank Hall, St. Michael",
+    "service": "2026-08-14T14:00",
+    "service_start": "Thanksgiving Service at Bank Hall Church of the Nazarene, Bank Hall, St. Michael",
+    "church": "Bank Hall Church of the Nazarene, Bank Hall, St. Michael",
+    "church_time": "2:00 p.m.",
+    "interment": "Westbury Cemetery",
+    "viewing_start": "2026-08-13T16:00",
+    "viewing_end": "2026-08-13T18:00",
+    "viewing_place": "In the Chapel of Two Sons Funeral Home",
+    "livestream": {
+      "url": "https://youtube.com/live/hrgRdg-Fs8s",
+      "label": "YouTube"
+    }
   },
   {
-    "slug": "sample-loved-one-st-philip",
-    "sample": true,
-    "name": "Name of Loved One",
+    "slug": "gloria-marina-small",
+    "name": "Gloria Marina Small",
     "age": 91,
-    "late_of": "St. Philip",
-    "died": "2026-10-04",
-    "service": "2026-10-17T14:00",
-    "service_start": "Thanksgiving service at the church",
-    "church": "[Church name], St. Philip",
-    "interment": "[Cemetery]",
-    "viewing_start": "2026-10-16T17:00",
-    "viewing_end": "2026-10-16T19:00",
-    "viewing_place": "In the Chapel of Two Sons Funeral Home",
-    "flowers_by": "1:00 p.m. on the day",
-    "family": [],
-    "obituary": []
+    "late_of": "Joe Glo Villa, Sugar Hill, St. Joseph",
+    "service": "2026-08-13T12:15",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. Anne’s Anglican Church, Parris Hill, St. Joseph",
+    "church_time": "2:00 p.m.",
+    "interment": "Follows the service",
+    "livestream": {
+      "url": "https://kd34dstreamingservices.live/Gloria-Small",
+      "label": "KD34D Streaming Services"
+    }
+  },
+  {
+    "slug": "jacqueline-carol-boyce",
+    "name": "Jacqueline Carol Boyce",
+    "born": "1962-01-12",
+    "died": "2026-06-30",
+    "age": 64,
+    "late_of": "Holders Hill, St. James",
+    "service": "2026-08-11T11:15",
+    "service_start": "Leaves the Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "Holders Hill Seventh-Day Adventist Church, Durants Village, St. James",
+    "church_time": "1:00 p.m.",
+    "interment": "Westbury Cemetery",
+    "viewing_start": "2026-08-10T16:00",
+    "viewing_end": "2026-08-10T18:00",
+    "viewing_place": "In the Chapel of Two Sons Funeral Home"
+  },
+  {
+    "slug": "fred-alton-breedy",
+    "name": "Fred Alton Breedy",
+    "born": "1932-02-02",
+    "died": "2026-07-18",
+    "age": 94,
+    "late_of": "Sargeants Village, Christ Church",
+    "service": "2026-08-04T12:00",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. Mary’s Anglican Church",
+    "church_time": "1:30 p.m.",
+    "interment": "Christ Church Cemetery",
+    "viewing_start": "2026-08-04T12:30",
+    "viewing_place": "At St. Mary’s Church, until the start of the service"
+  },
+  {
+    "slug": "noreen-milroy-legall",
+    "name": "Noreen Milroy Legall",
+    "age": 90,
+    "late_of": "1st Ave Paddock Road, Dalkeith, St. Michael",
+    "service": "2026-07-31T08:15",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. Patrick's Roman Catholic Church, Bay Street, St. Michael",
+    "church_time": "10:00 a.m.",
+    "interment": "Westbury Cemetery"
+  },
+  {
+    "slug": "fabian-ryan-mayers",
+    "name": "Fabian Ryan Mayers",
+    "aka": "Bruce",
+    "age": 47,
+    "late_of": "2nd Avenue Bibby's Lane, St. Michael",
+    "service": "2026-07-30T08:30",
+    "service_start": "Leaves the Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. Matthew Anglican Church, Jackmans, St. Michael",
+    "church_time": "10:00 a.m.",
+    "church_note": "Service of Thanksgiving and Interment",
+    "interment": "At St. Matthew Anglican Church",
+    "livestream": {
+      "url": "https://kd34dstreamingservices.live/Fabian-Ryan-Mayers",
+      "label": "KD34D Streaming Services"
+    }
+  },
+  {
+    "slug": "james-livingstone-eastmond",
+    "name": "James Livingstone Eastmond",
+    "aka": "Tallies",
+    "age": 86,
+    "late_of": "Butlers Avenue, Spooners Hill, St. Michael",
+    "service": "2026-07-28T13:15",
+    "service_start": "Leaves Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. Luke's Anglican Church",
+    "church_time": "3:00 p.m.",
+    "interment": "Follows the service",
+    "livestream": {
+      "url": "https://youtube.com/live/PKFkeyKvg30",
+      "label": "YouTube"
+    }
+  },
+  {
+    "slug": "myrleen-patricia-lovell",
+    "name": "Myrleen Patricia Lovell",
+    "age": 75,
+    "late_of": "#25 Lammings Phase 3, St. Joseph",
+    "service": "2026-07-28T08:15",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "River Road New Testament Church of God, River Road, St. Michael",
+    "church_time": "10:00 a.m.",
+    "church_note": "tributes at 9:30 a.m.",
+    "interment": "St. Joseph Cemetery",
+    "livestream": {
+      "url": "https://kd34dstreamingservices.live/Myrleen-Lovell",
+      "label": "KD34D Streaming Services"
+    }
+  },
+  {
+    "slug": "halda-eugene-jordan",
+    "name": "Halda Eugene Jordan",
+    "age": 69,
+    "died": "2026-06-23",
+    "late_of": "Lewis Gap, Green Hill, St. Michael",
+    "service": "2026-07-16T13:15",
+    "service_start": "The funeral of the late Halda Eugene Jordan",
+    "church": "St. Andrew Parish Church",
+    "church_time": "3:00 p.m.",
+    "interment": "Follows the service",
+    "livestream": {
+      "url": "https://thefuneralcompany.live/HaldaJordan",
+      "label": "The Funeral Company"
+    }
+  },
+  {
+    "slug": "alec-adolph-farley",
+    "name": "Alec Adolph Farley",
+    "age": 77,
+    "late_of": "Rendezvous, Christ Church, formerly of Bermuda",
+    "service": "2026-07-14",
+    "service_start": "Graveside service at Christ Church Cemetery, followed by the interment",
+    "interment": "Christ Church Cemetery",
+    "flag": "the flyer prints two times (11:15 a.m. and 1:00 p.m.); confirm which before showing a time"
+  },
+  {
+    "slug": "reynold-oswald-kelman",
+    "name": "Reynold Oswald Kelman",
+    "aka": "Ren",
+    "age": 96,
+    "service": "2026-07-08T13:15",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. John Parish Church, Church View, St. John",
+    "church_time": "3:00 p.m.",
+    "interment": "St. Joseph Cemetery",
+    "livestream": {
+      "url": "https://kd34dstreamingservices.live/Reynold-Kelman",
+      "label": "KD34D Streaming Services"
+    },
+    "flag": "heading says Kelman, body text says Kellman; confirm the spelling"
+  },
+  {
+    "slug": "sonja-joyceline-hawkesworth",
+    "name": "Sonja Joyceline Hawkesworth",
+    "born": "1941-07-09",
+    "died": "2026-06-21",
+    "age": 84,
+    "late_of": "formerly of Vauxhall Senior Village, Vauxhall, Christ Church",
+    "service": "2026-07-09T12:30",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "Church of God, Chelsea Road, St. Michael",
+    "church_time": "2:00 p.m.",
+    "interment": "Westbury Cemetery"
+  },
+  {
+    "slug": "everton-dacosta-wood",
+    "name": "Everton DaCosta Wood",
+    "aka": "Bricksy",
+    "age": 62,
+    "late_of": "Maynards, St. Peter",
+    "service": "2026-07-03T13:30",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "St. Matthews Anglican Church, Jackman's, St. Michael",
+    "church_time": "3:00 p.m.",
+    "church_note": "Thanksgiving Service and interment",
+    "interment": "At St. Matthews Anglican Church",
+    "livestream": {
+      "url": "https://kd34dstreamingservices.live/Everton-Wood",
+      "label": "KD34D Streaming Services"
+    },
+    "flag": "heading says DaCosta, body text says Dacosta; confirm"
+  },
+  {
+    "slug": "stevenson-rudolph-harris",
+    "name": "Stevenson Rudolph Harris",
+    "aka": "Money Boy",
+    "age": 71,
+    "late_of": "Holder's Land, Kew Road, Bank Hall, St. Michael",
+    "service": "2026-07-02T12:00",
+    "service_start": "Leaves the Tranquility Chapel of Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael",
+    "church": "The Chapel of Mount Pleasant Memorial Gardens",
+    "church_time": "2:00 p.m.",
+    "interment": "Follows the service",
+    "viewing_start": "2026-07-01T16:00",
+    "viewing_end": "2026-07-01T18:00",
+    "viewing_place": "In the Tranquility Chapel of Two Sons Funeral Home",
+    "livestream": {
+      "url": "https://youtu.be/G19mm5vSBtA",
+      "label": "YouTube"
+    }
+  },
+  {
+    "slug": "alvin-carlisle-edwards",
+    "name": "Alvin Carlisle Edwards",
+    "born": "1944-10-01",
+    "died": "2026-06-13",
+    "late_of": "35 Coral Cliff, Bottom Bay, St. Philip",
+    "service": "2026-06-30T10:30",
+    "service_start": "A Service of Thanksgiving at the Chapel of Coral Ridge Memorial Gardens",
+    "church": "The Chapel of Coral Ridge Memorial Gardens",
+    "church_time": "10:30 a.m."
+  },
+  {
+    "slug": "egbert-athelstan-king",
+    "name": "Egbert Athelstan King",
+    "age": 76,
+    "born": "1950-03-15",
+    "died": "2026-05-24",
+    "livestream": {
+      "url": "https://youtube.com/live/yyPz805kvh4",
+      "label": "YouTube"
+    },
+    "flyer_wide": true
+  },
+  {
+    "slug": "clyde-david-harper",
+    "name": "Clyde David Harper",
+    "born": "1947-06-12",
+    "died": "2026-03-10",
+    "livestream": {
+      "url": "https://kd34dstreamingservices.live/Clyde-Harper",
+      "label": "KD34D Streaming Services"
+    },
+    "flyer_wide": true
   }
 ]

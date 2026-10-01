@@ -1,10 +1,37 @@
 {
   "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. Photos go in images/flowers/<slug>.jpg. TODO: client to send names, photos and prices.",
   "items": [
-    { "slug": "bleeding-heart", "name": "Bleeding Heart", "price": 250 },
-    { "slug": "casket-spray", "name": "Casket Spray", "price": null },
-    { "slug": "wreath", "name": "Wreath", "price": 60, "from": true, "_todo": "confirm the $60 is USD" },
-    { "slug": "floral-cross", "name": "Floral Cross", "price": null },
-    { "slug": "lettered-tribute", "name": "Lettered Tribute (MUM, GRAN, DAD...)", "price": null }
+    {
+      "slug": "bleeding-heart",
+      "name": "Bleeding Heart",
+      "price": 250
+    },
+    {
+      "slug": "heart-tribute",
+      "name": "Heart Tribute",
+      "price": null
+    },
+    {
+      "slug": "casket-spray",
+      "name": "Casket Spray",
+      "price": null
+    },
+    {
+      "slug": "wreath",
+      "name": "Wreath",
+      "price": 60,
+      "from": true,
+      "_todo": "confirm the $60 is USD"
+    },
+    {
+      "slug": "floral-cross",
+      "name": "Floral Cross",
+      "price": null
+    },
+    {
+      "slug": "lettered-tribute",
+      "name": "Lettered Tribute (MUM, GRAN, DAD...)",
+      "price": null
+    }
   ]
 }

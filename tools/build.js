@@ -71,6 +71,8 @@ function shortDate(s) {
   const p = parts(s);
   return p ? `${DAYS[p.wd].slice(0, 3)} ${p.d} ${MONTHS[p.mo].slice(0, 3)}` + (p.h == null ? "" : `, ${hour(p)}`) : "";
 }
+/** add a full stop unless the text already ends with one (e.g. "3:30 p.m.") */
+const stop = (t) => (/\.$/.test(t) ? t : t + ".");
 function viewing(p) {
   if (!p.viewing_start) return "";
   const e = parts(p.viewing_end);
@@ -105,7 +107,8 @@ function head({ up = "", file, title, desc, image }) {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(desc)}" />
-<link rel="icon" type="image/svg+xml" href="${up}images/brand/crest-dark.svg" />
+<link rel="icon" type="image/png" href="${up}images/brand/favicon-32.png" />
+<link rel="apple-touch-icon" href="${up}images/brand/icon-512.png" />
 <link rel="canonical" href="${url}" />
 <meta property="og:url" content="${url}" />
 <meta property="og:site_name" content="Two Sons Funeral Home" />
@@ -129,13 +132,13 @@ function header(up, current) {
   }).join("\n");
   return `<body>
 <div id="wrapwrap">
-${PREVIEW ? '<div class="ts-preview">Preview website &middot; names and service details are samples</div>\n' : ""}<div class="ts-topbar"><div class="container d-flex align-items-center justify-content-center justify-content-lg-between gap-3">
+${PREVIEW ? '<div class="ts-preview">Preview website &middot; not yet live</div>\n' : ""}<div class="ts-topbar"><div class="container d-flex align-items-center justify-content-center justify-content-lg-between gap-3">
 <a href="${TEL}"><i class="fa fa-phone me-2"></i>Help 24 hours a day <strong>${PHONE}</strong></a>
 <a class="d-none d-lg-inline" href="${MAPS}" target="_blank" rel="noopener"><i class="fa fa-map-marker me-2"></i>Stadium Road, Bush Hall, St. Michael</a>
 <span class="d-none d-lg-inline"><i class="fa fa-clock-o me-2"></i>Office: Mon&ndash;Fri 8:30&ndash;5 &middot; Sat 9&ndash;2</span>
 </div></div>
 <header class="ts-header"><nav class="navbar navbar-expand-xl" aria-label="Main"><div class="container">
-<a class="navbar-brand" href="${up}index.html" aria-label="Two Sons Funeral Home home"><span class="ts-brand"><img src="${up}images/brand/crest-dark.svg" alt="" width="52" height="47" /><span class="ts-brand-text"><span class="ts-brand-name">Two Sons</span><span class="ts-brand-sub">Funeral Home Ltd &middot; Since 1979</span></span></span></a>
+<a class="navbar-brand" href="${up}index.html" aria-label="Two Sons Funeral Home home"><span class="ts-brand"><img src="${up}images/brand/crest-dark.png" alt="" width="68" height="50" /><span class="ts-brand-text"><span class="ts-brand-name">Two Sons</span><span class="ts-brand-sub">Funeral Home Ltd &middot; Since 1979</span></span></span></a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ts-nav" aria-controls="ts-nav" aria-expanded="false" aria-label="Menu"><i class="fa fa-bars me-2"></i>Menu</button>
 <div class="collapse navbar-collapse" id="ts-nav"><ul class="navbar-nav ms-auto me-xl-3">
 ${links}
@@ -154,7 +157,7 @@ const contactBand = `<section class="ts-section ts-dark ts-band">
 function footer(up) {
   return `</main>
 <footer class="ts-footer"><section class="pt-5 pb-3"><div class="container"><div class="row g-4">
-<div class="col-lg-3"><img src="${up}images/brand/crest-light.svg" alt="Two Sons crest" width="80" height="72" class="mb-3" />
+<div class="col-lg-3"><img src="${up}images/brand/crest-light.png" alt="Two Sons Funeral Home crest" width="120" height="89" class="mb-3" />
 <p><strong>Two Sons Funeral Home Ltd.</strong><br />Stadium Road, Bush Hall<br />St. Michael, Barbados BB15038</p></div>
 <div class="col-6 col-lg-3"><h5>Call us</h5><ul class="list-unstyled">
 <li>24 hours: <a href="tel:+12464261205">(246) 426-1205</a></li>
@@ -207,7 +210,15 @@ function photoFor(dir, slug) {
   }
   return null;
 }
-const meta = (p) => [p.age ? `Aged ${p.age}` : "", p.late_of ? `Late of ${esc(p.late_of)}` : ""].filter(Boolean).join(" &middot; ");
+const lateOf = (p) => (p.late_of ? (/^formerly of /i.test(p.late_of) ? esc(p.late_of.charAt(0).toUpperCase() + p.late_of.slice(1)) : `Late of ${esc(p.late_of)}`) : "");
+const meta = (p) => [p.age ? `Aged ${p.age}` : "", lateOf(p)].filter(Boolean).join(" &middot; ");
+/** 1 February 1932 – 18 July 2026 (dates only, no weekday) */
+function dayMonthYear(s) { const p = parts(s); return p ? `${p.d} ${MONTHS[p.mo]} ${p.y}` : ""; }
+function lifeDates(p) {
+  if (p.born && p.died) return `${dayMonthYear(p.born)} &ndash; ${dayMonthYear(p.died)}`;
+  return p.died ? `Entered rest ${dayMonthYear(p.died)}` : "";
+}
+const flyerFor = (p) => photoFor("notices/flyers", p.slug);
 
 function oval(p, up, large) {
   const photo = photoFor("notices", p.slug);
@@ -223,11 +234,11 @@ function card(p, up = "") {
     !p.viewing_start && p.flowers_by ? `<span class="ts-pill"><i class="fa fa-leaf me-1"></i>Flowers by ${esc(p.flowers_by.replace(" on the day", ""))}</span>` : "",
   ].join("");
   return `<a class="ts-notice-card" href="${up}obituaries/${p.slug}.html" data-name="${esc((p.name + " " + (p.aka || "")).toLowerCase())}">
-${p.sample ? '<span class="ts-sample">Sample</span>' : ""}${oval(p, up)}
+${p.sample ? '<span class="ts-sample">Sample</span>' : ""}${!photoFor("notices", p.slug) && flyerFor(p) ? `<div class="ts-card-flyer${p.flyer_wide ? " ts-card-flyer-wide" : ""}"><img src="${up}${flyerFor(p)}" alt="" loading="lazy" /></div>` : oval(p, up)}
 <p class="ts-eyebrow">In loving memory of</p>
 <h3 class="ts-name">${esc(p.name)}</h3>
 <p class="ts-meta">${meta(p)}</p>
-${p.service ? `<p class="ts-when">Funeral: ${longDate(p.service)}</p>` : ""}
+${p.service ? `<p class="ts-when">Funeral: ${longDate(p.service)}</p>` : lifeDates(p) ? `<p class="ts-when">${lifeDates(p)}</p>` : ""}
 <p class="ts-meta">${esc(p.church || p.service_start || "")}</p>
 <div class="ts-pills">${pills}</div>
 </a>`;
@@ -271,10 +282,11 @@ function memorialPage(p) {
   const up = "../";
   const file = `obituaries/${p.slug}.html`;
   const photo = photoFor("notices", p.slug);
+  const flyer = flyerFor(p);
   const share = `${SITE}/${file}`;
-  const shareText = `In loving memory of ${p.name}.` + (p.service ? ` Funeral: ${longDate(p.service)}.` : "");
+  const shareText = `In loving memory of ${p.name}.` + (p.service ? ` Funeral: ${stop(longDate(p.service))}` : "");
   const place = p.church || "Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael, Barbados";
-  const desc = `${p.name}${p.aka ? `, also known as ${p.aka}` : ""}. ` + (p.service ? `Funeral ${longDate(p.service)}.` : "Funeral details from Two Sons Funeral Home.");
+  const desc = `${p.name}${p.aka ? `, also known as ${p.aka}` : ""}. ` + (p.service ? `Funeral ${stop(longDate(p.service))}` : "Funeral details from Two Sons Funeral Home.");
   const facts = [
     p.service ? `<li><i class="fa fa-calendar"></i><div><strong>${longDate(p.service)}</strong><br />${esc(p.service_start || "")}</div></li>` : "",
     p.church ? `<li><i class="fa fa-building-o"></i><div><strong>Service${p.church_time ? ", " + esc(p.church_time) : ""}</strong><br />${esc(p.church)}${p.church_note ? ", " + esc(p.church_note) : ""}</div></li>` : "",
@@ -287,11 +299,12 @@ function memorialPage(p) {
   const body = `<div class="ts-page ts-notice-page"><div class="container ts-narrow py-4">
 <p><a href="../obituaries.html" class="ts-back"><i class="fa fa-arrow-left me-2"></i>All obituaries</a></p>
 <div class="ts-panel text-center position-relative">
-${p.sample ? '<span class="ts-sample">Sample notice</span>' : ""}${oval(p, up, true)}
+${p.sample ? '<span class="ts-sample">Sample notice</span>' : ""}${flyer ? `<a class="ts-flyer" href="${up}${flyer}" target="_blank" rel="noopener"><img src="${up}${flyer}" alt="Funeral notice for ${esc(p.name)}" /></a>` : oval(p, up, true)}
 <p class="ts-eyebrow">In loving memory of</p>
 <h1 class="ts-name ts-name-lg">${esc(p.name)}</h1>
 ${p.aka ? `<p class="ts-meta mb-1">also known as &ldquo;${esc(p.aka)}&rdquo;</p>` : ""}
-<p class="ts-meta">${meta(p)}</p>
+<p class="ts-meta mb-1">${meta(p)}</p>
+${lifeDates(p) ? `<p class="ts-meta">${lifeDates(p)}</p>` : ""}
 <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
 <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(shareText + " " + share)}"><i class="fa fa-whatsapp me-2"></i>Share on WhatsApp</a>
 <a class="btn btn-outline-primary" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(share)}"><i class="fa fa-facebook me-2"></i>Facebook</a>
@@ -311,7 +324,7 @@ ${p.service ? `<a class="btn btn-outline-primary" href="${p.slug}.ics" download>
 ${p.livestream ? `<div class="ts-panel ts-panel-dark">
 ${live ? `<span class="ts-live-tag">&#9679; Live ${serviceDayName}</span>` : ""}
 <h2>${live ? "Watch the service live" : "Watch the service"}</h2>
-<p>${p.service ? `${live ? "Starts" : "Streamed"} ${longDate(p.service)}. ` : ""}One link for everyone, at home and abroad.</p>
+<p>${p.service ? `${live ? "Starts" : "Streamed"} ${stop(longDate(p.service))} ` : ""}One link for everyone, at home and abroad.</p>
 <a class="btn btn-light" href="${esc(p.livestream.url)}" target="_blank" rel="noopener"><i class="fa fa-video-camera me-2"></i>Open livestream</a>
 ${p.livestream.label ? `<p class="ts-meta mt-2 mb-0" style="color:#c9c9c5">Streamed by ${esc(p.livestream.label)}</p>` : ""}
 </div>` : ""}
@@ -331,7 +344,7 @@ ${p.obituary && p.obituary.length ? `<div class="ts-panel"><h2>Obituary</h2>\n${
 ${condolenceSection(p)}
 <p class="ts-meta">Professional services entrusted to Two Sons Funeral Home Ltd., Stadium Road, Bush Hall, St. Michael.</p>
 </div></div>`;
-  return page({ up, file, title: `${p.name} | Obituaries`, desc, image: photo, body });
+  return page({ up, file, title: `${p.name} | Obituaries`, desc, image: flyer || photo, body });
 }
 
 function ics(p) {
@@ -389,7 +402,7 @@ ${grid(people, "Published funeral notices will appear here. For help with a noti
 function livestreamsPage() {
   const watch = people.filter((p) => p.livestream && !(p.service && serviceDay(p) >= today));
   const row = (p) => `<article class="ts-service-row">
-<a class="ts-service-face" href="obituaries/${p.slug}.html" aria-label="View the notice for ${esc(p.name)}">${oval(p, "")}</a>
+<a class="ts-service-face" href="obituaries/${p.slug}.html" aria-label="View the notice for ${esc(p.name)}">${flyerFor(p) && !photoFor("notices", p.slug) ? `<img class="ts-service-flyer" src="${flyerFor(p)}" alt="" loading="lazy" />` : oval(p, "")}</a>
 <div class="ts-service-detail"><h3><a href="obituaries/${p.slug}.html">${esc(p.name)}</a>${p.sample ? ' <span class="ts-sample ts-sample-inline">Sample</span>' : ""}</h3>
 <p class="ts-when mb-0">${p.service ? longDate(p.service) : "Details available on request"}</p>
 <p class="ts-meta mb-0">${esc(p.church || p.service_start || "")}</p></div>
@@ -580,7 +593,7 @@ fs.writeFileSync(path.join(root, "robots.txt"), PREVIEW ? "User-agent: *\nDisall
 
 /* ---------- report ---------- */
 console.log(`Built ${Object.keys(out).length} pages (${people.length} obituaries, ${upcoming.length} upcoming).`);
-const noPhoto = people.filter((p) => !photoFor("notices", p.slug));
+const noPhoto = people.filter((p) => !photoFor("notices", p.slug) && !flyerFor(p));
 if (noPhoto.length) console.log(`Waiting for a photo (images/notices/<slug>.jpg): ${noPhoto.map((p) => p.slug).join(", ")}`);
 const warn = [];
 for (const p of people) {
