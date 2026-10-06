@@ -1,0 +1,92 @@
+name: Apply website adjustments
+
+on:
+  push:
+    branches:
+      - website-adjustments-2026-10-06
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: website-adjustments-2026-10-06
+
+      - name: Apply shared website adjustments
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+
+          build = Path('tools/build.js')
+          text = build.read_text(encoding='utf-8')
+
+          text = text.replace(
+              '  ["obituaries.html", "Obituaries"],\n  // Label, not file name: someone looking for the time of a funeral would never think to click "Livestreams".\n  ["livestreams.html", "Funerals"],\n',
+              '  ["obituaries.html", "Obituaries"],\n'
+          )
+
+          text = text.replace(
+              '<a class="btn btn-primary ts-call-btn-lg d-none d-lg-inline-flex d-xl-none align-items-center ms-auto me-2" href="${TEL}"><i class="fa fa-phone me-2"></i>Call 24 hours</a>',
+              '<a class="btn btn-primary ts-call-btn-lg d-none d-lg-inline-flex d-xl-none align-items-center ms-auto me-2" href="${up}get-a-quote.html"><i class="fa fa-file-text-o me-2"></i>Get a quote</a>'
+          )
+          text = text.replace(
+              '</ul><a class="btn btn-primary ts-call-btn" href="${TEL}"><i class="fa fa-phone me-2"></i>Call 24 hours</a></div>',
+              '</ul><a class="btn btn-primary ts-call-btn" href="${up}get-a-quote.html"><i class="fa fa-file-text-o me-2"></i>Get a quote</a></div>'
+          )
+          text = text.replace(
+              '<li><a href="${up}obituaries.html">Obituaries</a></li><li><a href="${up}livestreams.html">Funerals &amp; livestreams</a></li>',
+              '<li><a href="${up}obituaries.html">Obituaries</a></li>'
+          )
+          text = text.replace(
+              '<a href="${up}livestreams.html"><i class="fa fa-video-camera"></i>Funerals</a>',
+              '<a href="${up}get-a-quote.html"><i class="fa fa-file-text-o"></i>Get a quote</a>'
+          )
+
+          cleanup = r'''
+
+/* Website adjustment: Obituaries is the single service-notice page. */
+{
+  const obsolete = path.join(root, "livestreams.html");
+  if (fs.existsSync(obsolete)) fs.unlinkSync(obsolete);
+  const sm = path.join(root, "sitemap.xml");
+  if (fs.existsSync(sm)) {
+    const cleaned = fs.readFileSync(sm, "utf8").replace(/<url>[\s\S]*?livestreams\.html[\s\S]*?<\/url>\s*/g, "");
+    fs.writeFileSync(sm, cleaned);
+  }
+}
+'''
+          if 'Website adjustment: Obituaries is the single service-notice page.' not in text:
+              text += cleanup
+          build.write_text(text, encoding='utf-8')
+
+          quotes_path = Path('data/quotes.json')
+          quotes = json.loads(quotes_path.read_text(encoding='utf-8'))
+          for section in quotes:
+              if section.get('id') == 'burial':
+                  for item in section.get('items', []):
+                      if item.get('checked') is True:
+                          item['type'] = 'required'
+                          item.pop('checked', None)
+          quotes_path.write_text(json.dumps(quotes, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+      - name: Build website
+        run: node tools/build.js
+
+      - name: Commit rebuilt pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit"
+          else
+            git commit -m "Apply Two Sons website adjustments [skip ci]"
+            git push origin website-adjustments-2026-10-06
+          fi
