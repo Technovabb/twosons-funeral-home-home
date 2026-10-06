@@ -13,9 +13,8 @@
         ]
       },
       {
-        "type": "check",
-        "name": "Removal",
-        "checked": true
+        "type": "required",
+        "name": "Removal"
       },
       {
         "type": "multi",
