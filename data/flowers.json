@@ -45,8 +45,20 @@
       "price": null
     },
     {
-      "slug": "floral-cross",
-      "name": "Floral Cross",
+      "slug": "floral-cross-yellow",
+      "name": "Yellow Floral Cross",
+      "price": null,
+      "fit": "contain"
+    },
+    {
+      "slug": "floral-cross-purple",
+      "name": "Purple & White Floral Cross",
+      "price": null,
+      "fit": "contain"
+    },
+    {
+      "slug": "floral-cross-yellow-purple",
+      "name": "Yellow & Purple Floral Cross",
       "price": null,
       "fit": "contain"
     }
