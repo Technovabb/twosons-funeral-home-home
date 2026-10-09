@@ -1204,8 +1204,8 @@ html { scroll-padding-top: 110px; }
 .ts-hero-actions { justify-content: center; }
 .ts-hero .ts-features { justify-content: center; color: #eef1f5; }
 .ts-hero .ts-features i { color: #eef1f5; }
-#wrapwrap .ts-hero .btn-primary { background: #22304f; border-color: #22304f; color: #fff; }
-#wrapwrap .ts-hero .btn-primary:hover, #wrapwrap .ts-hero .btn-primary:focus { background: #2d3d61; border-color: #2d3d61; color: #fff; }
+#wrapwrap .ts-hero .btn-primary { background: #93a4c6; border-color: #93a4c6; color: #1d1e22; }
+#wrapwrap .ts-hero .btn-primary:hover, #wrapwrap .ts-hero .btn-primary:focus { background: #aebbd6; border-color: #aebbd6; color: #1d1e22; }
 #wrapwrap .ts-hero .btn-outline-primary { background: transparent; border-color: #fff; color: #fff; }
 #wrapwrap .ts-hero .btn-outline-primary:hover, #wrapwrap .ts-hero .btn-outline-primary:focus { background: #fff; color: #1d1e22; }
 @media (max-width: 575.98px) { .ts-hero { padding: 72px 0 80px; } }

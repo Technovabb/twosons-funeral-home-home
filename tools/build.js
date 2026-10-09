@@ -713,7 +713,7 @@ function flowersPage() {
     return `<option value="${label}" data-slug="${esc(p.slug)}"${p.service ? ` data-until="${serviceDay(p)}"` : ""}>${label}</option>`;
   }).join("");
   const body = banner("Floral tributes", "Flowers for every service",
-    "Casket sprays, hearts, crosses and lettered tributes such as MUM and GRAN. Order with the funeral, or bring flowers to our chapel by the time shown on the funeral notice. Prices are in US dollars.") + `
+    "Wreaths, hearts, crosses and lettered tributes such as MUM and GRAN. Order with the funeral, or bring flowers to our chapel by the time shown on the obituary. Floral tributes should be ordered at least two days before the funeral, to ensure on-time delivery. Prices are in US dollars.") + `
 <section class="ts-section pt-0"><div class="container">
 <h2 class="visually-hidden">Choose a tribute</h2>
 <div class="ts-flower-grid">
@@ -762,7 +762,7 @@ function quotePage() {
       case "multi": return opts.map((o, i) => `<label><input type="checkbox" name="${key}_${i}" value="${esc(o)}" /> ${esc(o)}</label>`).join("");
       case "qty": return `<input type="number" class="form-control ts-num" id="${key}" name="${key}" min="0" step="1" placeholder="0" data-min="${item.min || 0}"${note} />`;
       case "multiqty": return opts.map((o, i) => `<label>${esc(o)} <input type="number" class="form-control ts-num" name="${key}_${i}" data-label="${esc(o)}" min="0" step="1" placeholder="0" /></label>`).join("");
-      case "text": return `<input class="form-control" id="${key}" name="${key}" maxlength="200" />`;
+      case "text": return `<input class="form-control" id="${key}" name="${key}" maxlength="200"${item.placeholder ? ` placeholder="${esc(item.placeholder)}"` : ""} />`;
     }
     return "";
   };
