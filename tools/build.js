@@ -755,7 +755,7 @@ ${flowers.items.map((f, i) => {
 <div class="col-12"><label class="form-label" for="fl-card">Message for the card <span class="ts-meta">(optional)</span></label><textarea id="fl-card" name="card_message" class="form-control" rows="3" maxlength="600" placeholder="e.g. With deepest sympathy, from the Browne family"></textarea></div>
 <div class="col-md-6"><label class="form-label" for="fl-name">Your name</label><input id="fl-name" name="name" class="form-control" required maxlength="200" autocomplete="name" /></div>
 <div class="col-md-6"><label class="form-label" for="fl-phone">Your phone number</label><input id="fl-phone" name="phone" type="tel" class="form-control" required maxlength="60" autocomplete="tel" /></div>
-<div class="col-12"><label class="form-label" for="fl-email">Your email <span class="ts-meta">(optional)</span></label><input id="fl-email" name="email" type="email" class="form-control" maxlength="120" autocomplete="email" /></div>
+<div class="col-12"><label class="form-label" for="fl-email">Your email</label><input id="fl-email" name="email" type="email" class="form-control" required maxlength="120" autocomplete="email" /></div>
 </div>
 </fieldset>
 
