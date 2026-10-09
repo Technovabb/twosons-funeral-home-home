@@ -193,6 +193,7 @@ const NAV = [
   ["about.html", "About"],
   ["services.html", "Services"],
   ["caskets.html", "Caskets"],
+  ["flowers.html", "Flowers"],
   ["obituaries.html", "Obituaries"],
   ["testimonials.html", "Testimonials"],
   ["pre-planning.html", "Pre-planning"],
