@@ -718,13 +718,24 @@ function flowersPage() {
 <p class="ts-lead">Add the tributes you would like. You can add more than one, and change the quantity in your basket below.</p></div>
 <div class="ts-flower-grid">
 ${flowers.items.map((f, i) => {
-    const photo = photoFor("flowers", f.slug);
-    const tile = photo && (photoFor("thumbs", f.slug) || photo); // the smaller copy made by tools/images.js
+    const variants = Array.isArray(f.variants) && f.variants.length ? f.variants : null;
+    const photoSlug = variants ? variants[0].slug : f.slug; // the default photo (first colour)
+    const photo = photoFor("flowers", photoSlug);
+    const tile = photo && (photoFor("thumbs", photoSlug) || photo); // the smaller copy made by tools/images.js
     const picture = photo
-      ? `<img src="${tile}"${dims(tile)} alt="${esc(f.name)}" class="img-fluid${f.fit === "contain" ? " ts-contain" : ""}"${i < 3 ? "" : ' loading="lazy"'} />`
+      ? `<img src="${tile}"${dims(tile)} alt="${esc(f.name)}" class="img-fluid${f.fit === "contain" ? " ts-contain" : ""}"${i < 3 ? "" : ' loading="lazy"'} data-flower-img />`
       : '<div class="ts-service-art ts-flower-art" aria-hidden="true"><i class="fa fa-leaf"></i></div>';
+    const selId = `fv-${f.slug}`;
+    const control = variants
+      ? `<label class="form-label ts-variant-label" for="${selId}">Colour / style</label>
+<select class="form-select ts-variant" id="${selId}" data-product="${esc(f.name)}">${variants.map((v) => {
+          const vt = photoFor("thumbs", v.slug) || photoFor("flowers", v.slug) || "";
+          return `<option value="${esc(v.name)}" data-slug="${esc(v.slug)}"${vt ? ` data-photo="${vt}"` : ""}>${esc(v.name)}</option>`;
+        }).join("")}</select>
+<button type="button" class="btn btn-outline-primary ts-add" data-variant-select="${selId}" data-price="${f.price == null ? "" : f.price}" data-from="${f.from ? "1" : ""}"><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: ${esc(f.name)}</span></button>`
+      : `<button type="button" class="btn btn-outline-primary ts-add" data-slug="${esc(f.slug)}" data-name="${esc(f.name)}" data-price="${f.price == null ? "" : f.price}" data-from="${f.from ? "1" : ""}"><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: ${esc(f.name)}</span></button>`;
     return `<div class="ts-panel ts-flower">${picture}<h3>${esc(f.name)}</h3><p class="ts-price">${money(f)}</p>${f.desc ? `<p class="ts-flower-desc ts-meta">${esc(f.desc)}</p>` : ""}
-<button type="button" class="btn btn-outline-primary ts-add" data-slug="${esc(f.slug)}" data-name="${esc(f.name)}" data-price="${f.price == null ? "" : f.price}" data-from="${f.from ? "1" : ""}"><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: ${esc(f.name)}</span></button></div>`;
+${control}</div>`;
   }).join("\n")}
 </div>
 </div></section>

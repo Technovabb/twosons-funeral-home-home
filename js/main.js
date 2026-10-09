@@ -303,10 +303,32 @@ document.addEventListener("DOMContentLoaded", function () {
     try { var saved = JSON.parse(sessionStorage.getItem(STORE) || "{}"); if (saved && typeof saved === "object") basket = saved; } catch (e) {}
     render();
 
+    // change the colour/style: swap the card photo
+    document.querySelectorAll(".ts-variant").forEach(function (sel) {
+      sel.addEventListener("change", function () {
+        var card = sel.closest(".ts-flower");
+        var img = card && card.querySelector("[data-flower-img]");
+        var opt = sel.options[sel.selectedIndex];
+        if (img && opt.getAttribute("data-photo")) {
+          img.src = opt.getAttribute("data-photo");
+          img.alt = sel.getAttribute("data-product") + " — " + opt.value;
+        }
+      });
+    });
+
     document.querySelectorAll(".ts-add").forEach(function (b) {
       b.addEventListener("click", function () {
-        var slug = b.getAttribute("data-slug"), price = b.getAttribute("data-price");
-        if (!basket[slug]) basket[slug] = { name: b.getAttribute("data-name"), price: price === "" ? null : Number(price), from: b.getAttribute("data-from") === "1", qty: 0 };
+        var slug, name, price = b.getAttribute("data-price");
+        var selId = b.getAttribute("data-variant-select");
+        if (selId) {
+          var sel = document.getElementById(selId), opt = sel.options[sel.selectedIndex];
+          slug = opt.getAttribute("data-slug");
+          name = sel.getAttribute("data-product") + " — " + opt.value;
+        } else {
+          slug = b.getAttribute("data-slug");
+          name = b.getAttribute("data-name");
+        }
+        if (!basket[slug]) basket[slug] = { name: name, price: price === "" ? null : Number(price), from: b.getAttribute("data-from") === "1", qty: 0 };
         if (basket[slug].qty < 99) basket[slug].qty += 1;
         render();
         var label = b.innerHTML; b.classList.add("is-added");

@@ -1,25 +1,27 @@
 {
-  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. 'priceText' overrides the shown price (e.g. a per-letter rate). 'desc' adds a small line under the price. Photos go in images/flowers/<slug>.jpg, with a ~700px copy in images/thumbs/<slug>.jpg. 'fit':'contain' shows the whole photo. TODO (client): casket-spray prices; real photos for the lettered tributes, heart tribute and floral cross.",
+  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. 'priceText' overrides the shown price (e.g. a per-letter rate). 'desc' adds a small line under the price. 'variants' = colour/style options shown in one card; each needs images/flowers/<variant.slug>.jpg (+ a ~700px copy in images/thumbs/<variant.slug>.jpg). 'fit':'contain' shows the whole photo. TODO (client): prices for casket sprays and crosses; real photos for the lettered tributes and hearts.",
   "items": [
     {
-      "slug": "casket-spray-blue-gold",
-      "name": "Blue & Gold Casket Spray",
-      "price": null
+      "slug": "casket-spray",
+      "name": "Casket Spray",
+      "price": null,
+      "variants": [
+        { "name": "Blue & Gold", "slug": "casket-spray-blue-gold" },
+        { "name": "Blue & White", "slug": "casket-spray-blue-white" },
+        { "name": "Pink", "slug": "casket-spray-pink" },
+        { "name": "Red & White", "slug": "casket-spray-red-white" }
+      ]
     },
     {
-      "slug": "casket-spray-blue-white",
-      "name": "Blue & White Casket Spray",
-      "price": null
-    },
-    {
-      "slug": "casket-spray-pink",
-      "name": "Pink Casket Spray",
-      "price": null
-    },
-    {
-      "slug": "casket-spray-red-white",
-      "name": "Red & White Casket Spray",
-      "price": null
+      "slug": "floral-cross",
+      "name": "Floral Cross",
+      "price": null,
+      "fit": "contain",
+      "variants": [
+        { "name": "Yellow", "slug": "floral-cross-yellow" },
+        { "name": "Purple & White", "slug": "floral-cross-purple" },
+        { "name": "Yellow & Purple", "slug": "floral-cross-yellow-purple" }
+      ]
     },
     {
       "slug": "wreath",
@@ -43,24 +45,6 @@
       "slug": "heart-tribute",
       "name": "Heart Tribute",
       "price": null
-    },
-    {
-      "slug": "floral-cross-yellow",
-      "name": "Yellow Floral Cross",
-      "price": null,
-      "fit": "contain"
-    },
-    {
-      "slug": "floral-cross-purple",
-      "name": "Purple & White Floral Cross",
-      "price": null,
-      "fit": "contain"
-    },
-    {
-      "slug": "floral-cross-yellow-purple",
-      "name": "Yellow & Purple Floral Cross",
-      "price": null,
-      "fit": "contain"
     }
   ]
 }

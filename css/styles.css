@@ -1213,6 +1213,8 @@ html { scroll-padding-top: 110px; }
 /* ---- Flower shop (basket) ---- */
 .ts-flower .ts-add { margin-top: auto; }
 .ts-flower-desc { margin: -2px 0 2px; font-size: 0.9rem; line-height: 1.35; }
+.ts-variant-label { font-size: 0.85rem; font-weight: 600; margin: 4px 0 4px; }
+.ts-flower .ts-variant { margin-bottom: 12px; }
 .ts-add.is-added { background: #2f5233; border-color: #2f5233; color: #fff; }
 .ts-order-step { border: 0; margin: 0 0 28px; padding: 0; min-width: 0; }
 .ts-order-step + .ts-order-step { border-top: 1px solid #e3e3df; padding-top: 24px; }
