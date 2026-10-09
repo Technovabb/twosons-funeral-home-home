@@ -711,9 +711,10 @@ function flowersPage() {
     return `<option value="${label}" data-slug="${esc(p.slug)}"${p.service ? ` data-until="${serviceDay(p)}"` : ""}>${label}</option>`;
   }).join("");
   const body = banner("Floral tributes", "Flowers for every service",
-    "Wreaths, hearts, crosses and lettered tributes such as MUM and GRAN. Order with the funeral, or bring flowers to our chapel by the time shown on the obituary. Floral tributes should be ordered at least two days before the funeral, to ensure on-time delivery. Prices are in US dollars.") + `
+    "Wreaths, hearts, crosses and lettered tributes such as MUM and GRAN. Add the tributes you would like to your basket, choose the funeral, and send us your order. Floral tributes should be ordered at least two days before the funeral, to ensure on-time delivery. Prices are in US dollars.") + `
 <section class="ts-section pt-0"><div class="container">
-<h2 class="visually-hidden">Choose a tribute</h2>
+<div class="ts-section-head"><p class="ts-eyebrow">Step 1</p><h2>Choose your tributes</h2>
+<p class="ts-lead">Add the tributes you would like. You can add more than one, and change the quantity in your basket below.</p></div>
 <div class="ts-flower-grid">
 ${flowers.items.map((f, i) => {
     const photo = photoFor("flowers", f.slug);
@@ -722,27 +723,46 @@ ${flowers.items.map((f, i) => {
       ? `<img src="${tile}"${dims(tile)} alt="${esc(f.name)}" class="img-fluid${f.fit === "contain" ? " ts-contain" : ""}"${i < 3 ? "" : ' loading="lazy"'} />`
       : '<div class="ts-service-art ts-flower-art" aria-hidden="true"><i class="fa fa-leaf"></i></div>';
     return `<div class="ts-panel ts-flower">${picture}<h3>${esc(f.name)}</h3><p class="ts-price">${money(f)}</p>
-<a class="btn btn-outline-primary ts-pick" href="#order" data-pick="${esc(f.name)}">Send Flowers<span class="visually-hidden">: ${esc(f.name)}</span></a></div>`;
+<button type="button" class="btn btn-outline-primary ts-add" data-slug="${esc(f.slug)}" data-name="${esc(f.name)}" data-price="${f.price == null ? "" : f.price}" data-from="${f.from ? "1" : ""}"><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: ${esc(f.name)}</span></button></div>`;
   }).join("\n")}
 </div>
 </div></section>
 <section class="ts-section ts-alt" id="order"><div class="container ts-narrow">
-<h2>Order a tribute</h2>
-<p>Send us your order and we will call you to confirm it and take payment.</p>
-<form class="ts-panel ts-form" data-form="flowers" method="post" action="${FORM_ACTION}">
+<div class="ts-section-head"><p class="ts-eyebrow">Step 2</p><h2>Your order</h2></div>
+<form class="ts-panel ts-form ts-flower-order" data-form="flowers" method="post" action="${FORM_ACTION}">
 <div class="ts-trap" aria-hidden="true"><label>Leave empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+
+<fieldset class="ts-order-step">
+<legend>Which funeral are these flowers for?</legend>
 <div class="row g-3">
-<div class="col-md-8"><label class="form-label" for="fl-item">Tribute</label><select id="fl-item" name="tribute" class="form-select">${flowers.items.map((f) => `<option>${esc(f.name)} (${money(f)})</option>`).join("")}</select></div>
-<div class="col-md-4"><label class="form-label" for="fl-qty">How many</label><input id="fl-qty" name="quantity" type="number" min="1" max="50" value="1" class="form-control" /></div>
-<div class="col-12"><label class="form-label" for="fl-for">For the funeral of</label><select id="fl-for" name="funeral" class="form-select" required><option value="" selected disabled>Choose the funeral</option>${options}<option value="Not listed">A funeral not listed here (tell us below)</option></select></div>
-<div class="col-12" id="fl-other-row"><label class="form-label" for="fl-other">If the funeral is not listed: the name of the person who has died, and the funeral date</label><input id="fl-other" name="funeral_not_listed" class="form-control" maxlength="200"${funerals.length ? "" : " required"} /></div>
-<div class="col-12"><label class="form-label" for="fl-card">Message for the card</label><textarea id="fl-card" name="card_message" class="form-control" rows="3" maxlength="600"></textarea></div>
+<div class="col-12"><label class="form-label" for="fl-for">Funeral</label><select id="fl-for" name="funeral" class="form-select" required aria-describedby="fl-deadline"><option value="" selected disabled>Choose the funeral</option>${options}<option value="Not listed">A funeral not listed here (tell us below)</option></select></div>
+<div class="col-12" id="fl-other-row"${funerals.length ? " hidden" : ""}><label class="form-label" for="fl-other">If the funeral is not listed: the name of the person who has died, and the funeral date</label><input id="fl-other" name="funeral_not_listed" class="form-control" maxlength="200"${funerals.length ? "" : " required"} /></div>
+</div>
+<p id="fl-deadline" class="ts-meta mt-2" role="status"></p>
+</fieldset>
+
+<fieldset class="ts-order-step">
+<legend>Your basket</legend>
+<div id="fl-basket" class="ts-basket" aria-live="polite">
+<p class="ts-basket-empty">Your basket is empty. Add tributes from the list above.</p>
+</div>
+</fieldset>
+
+<fieldset class="ts-order-step">
+<legend>Message and your details</legend>
+<div class="row g-3">
+<div class="col-12"><label class="form-label" for="fl-card">Message for the card <span class="ts-meta">(optional)</span></label><textarea id="fl-card" name="card_message" class="form-control" rows="3" maxlength="600" placeholder="e.g. With deepest sympathy, from the Browne family"></textarea></div>
 <div class="col-md-6"><label class="form-label" for="fl-name">Your name</label><input id="fl-name" name="name" class="form-control" required maxlength="200" autocomplete="name" /></div>
 <div class="col-md-6"><label class="form-label" for="fl-phone">Your phone number</label><input id="fl-phone" name="phone" type="tel" class="form-control" required maxlength="60" autocomplete="tel" /></div>
-<div class="col-12"><label class="form-label" for="fl-email">Your email (optional)</label><input id="fl-email" name="email" type="email" class="form-control" maxlength="120" autocomplete="email" /></div>
+<div class="col-12"><label class="form-label" for="fl-email">Your email <span class="ts-meta">(optional)</span></label><input id="fl-email" name="email" type="email" class="form-control" maxlength="120" autocomplete="email" /></div>
 </div>
-<button type="submit" class="btn btn-primary mt-3">Send Flowers</button>
-<p class="form-note ts-meta mt-2" role="status">Please do not put card details here. We take payment by phone.</p>
+</fieldset>
+
+<input type="hidden" name="order" id="fl-order-field" />
+<input type="hidden" name="order_total" id="fl-total-field" />
+<button type="submit" class="btn btn-primary mt-3" id="fl-submit">Send order</button>
+<p class="form-note ts-meta mt-2" role="status">We will call you to confirm your order and the final price, and to take payment. Please do not put card details here.</p>
+<noscript><p class="ts-meta mt-2">To order flowers, please call us on <a href="${TEL}">${PHONE}</a> or email <a href="mailto:${EMAIL}">${EMAIL}</a>.</p></noscript>
 </form>
 </div></section>`;
   return page({ file: "flowers.html", title: "Floral tributes", desc: "Order funeral flowers from Two Sons Funeral Home, Barbados: casket sprays, hearts, crosses and lettered tributes. Prices in US dollars.", body });

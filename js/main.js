@@ -97,6 +97,7 @@ document.addEventListener("submit", function (event) {
     form.classList.add("is-sent");
     form.innerHTML = '<div class="ts-sent" role="status" tabindex="-1"><p class="ts-eyebrow">' + (conf.sent || "Message sent") + '</p><p class="mb-0">' + conf.thanks + "</p></div>";
     if (kind === "quote") { var qTabs = document.querySelector(".ts-tabs"); if (qTabs) qTabs.hidden = true; }
+    if (kind === "flowers") { try { sessionStorage.removeItem("ts-flowers-basket"); } catch (e) {} }
     var sent = form.querySelector(".ts-sent");
     sent.focus({ preventScroll: true });
     form.scrollIntoView({ block: "center", behavior: reduceMotion ? "auto" : "smooth" });
@@ -242,26 +243,109 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!showQuote(params.get("type") || "")) showQuote(tabs[0].getAttribute("data-quote"));
   }
 
-  // Flowers: "Send Flowers" on a tribute picks it in the order form; ?for=<slug> picks the funeral
-  var item = document.getElementById("fl-item");
-  document.querySelectorAll(".ts-pick").forEach(function (b) {
-    b.addEventListener("click", function () {
-      var want = b.getAttribute("data-pick");
-      Array.prototype.forEach.call(item.options, function (o) { if (o.text.indexOf(want + " (") === 0) item.value = o.value; });
-    });
-  });
+  // Flowers shop: add tributes to a basket, choose the funeral, send one order to Two Sons.
+  var flBasket = document.getElementById("fl-basket");
   var forSel = document.getElementById("fl-for");
-  var wantFor = (params.get("for") || "").replace(/[^a-z0-9-]/g, "");
-  if (forSel && wantFor) {
-    var opt = forSel.querySelector('option[data-slug="' + wantFor + '"]');
-    if (opt) opt.selected = true; // otherwise "Choose the funeral" stays, so the visitor picks one
-  }
-  // "A funeral not listed here": then the name and date are needed
-  var other = document.getElementById("fl-other");
-  if (forSel && other) {
-    var syncOther = function () { other.required = forSel.value === "Not listed"; };
-    forSel.addEventListener("change", syncOther);
-    syncOther();
+  if (flBasket && forSel) {
+    var basket = {}; // slug -> { name, price (number|null), from (bool), qty }
+    var orderField = document.getElementById("fl-order-field");
+    var totalField = document.getElementById("fl-total-field");
+    var submitBtn = document.getElementById("fl-submit");
+    var STORE = "ts-flowers-basket";
+    var escHtml = function (s) {
+      return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var money = function (n) { return "US$" + n.toLocaleString("en-US"); };
+    var save = function () { try { sessionStorage.setItem(STORE, JSON.stringify(basket)); } catch (e) {} };
+
+    var render = function () {
+      var slugs = Object.keys(basket);
+      var total = 0, hasOnRequest = false;
+      var rows = slugs.map(function (slug) {
+        var it = basket[slug], priceText, lineText;
+        if (it.price == null) {
+          priceText = "Price on request"; lineText = "Price on request"; hasOnRequest = true;
+        } else {
+          var line = it.price * it.qty; total += line;
+          priceText = (it.from ? "from " : "") + money(it.price) + " each";
+          lineText = (it.from ? "from " : "") + money(line);
+        }
+        return '<div class="ts-basket-row" data-slug="' + escHtml(slug) + '">' +
+          '<div class="ts-basket-item"><strong>' + escHtml(it.name) + '</strong><span class="ts-meta">' + priceText + '</span></div>' +
+          '<div class="ts-qty" role="group" aria-label="Quantity of ' + escHtml(it.name) + '">' +
+            '<button type="button" class="ts-qty-btn" data-step="-1" aria-label="One fewer ' + escHtml(it.name) + '">&minus;</button>' +
+            '<span class="ts-qty-n">' + it.qty + '</span>' +
+            '<button type="button" class="ts-qty-btn" data-step="1" aria-label="One more ' + escHtml(it.name) + '">+</button>' +
+          '</div>' +
+          '<div class="ts-basket-line">' + lineText + '</div>' +
+          '<button type="button" class="ts-basket-remove" data-remove aria-label="Remove ' + escHtml(it.name) + ' from the basket">&times;</button>' +
+        '</div>';
+      });
+      if (!slugs.length) {
+        flBasket.innerHTML = '<p class="ts-basket-empty">Your basket is empty. Add tributes from the list above.</p>';
+      } else {
+        var totalText = hasOnRequest ? (total ? money(total) + " + items on request" : "Priced on request") : money(total);
+        flBasket.innerHTML = rows.join("") +
+          '<div class="ts-basket-total"><span>Total</span><strong>' + totalText + '</strong></div>' +
+          (hasOnRequest ? '<p class="ts-meta ts-basket-note">We will confirm the price of any “price on request” tributes when we call you.</p>' : "");
+      }
+      // hidden fields that travel with the order email
+      if (orderField) orderField.value = slugs.map(function (slug) {
+        var it = basket[slug];
+        var p = it.price == null ? "price on request" : (it.from ? "from " : "") + money(it.price) + " each";
+        return it.qty + " × " + it.name + " (" + p + ")";
+      }).join("\n");
+      if (totalField) totalField.value = slugs.length ? (hasOnRequest ? (total ? money(total) + " + items on request" : "on request") : money(total)) : "";
+      if (submitBtn) submitBtn.disabled = !slugs.length;
+      save();
+    };
+
+    try { var saved = JSON.parse(sessionStorage.getItem(STORE) || "{}"); if (saved && typeof saved === "object") basket = saved; } catch (e) {}
+    render();
+
+    document.querySelectorAll(".ts-add").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var slug = b.getAttribute("data-slug"), price = b.getAttribute("data-price");
+        if (!basket[slug]) basket[slug] = { name: b.getAttribute("data-name"), price: price === "" ? null : Number(price), from: b.getAttribute("data-from") === "1", qty: 0 };
+        if (basket[slug].qty < 99) basket[slug].qty += 1;
+        render();
+        var label = b.innerHTML; b.classList.add("is-added");
+        b.innerHTML = '<i class="fa fa-check me-2" aria-hidden="true"></i>Added';
+        setTimeout(function () { b.classList.remove("is-added"); b.innerHTML = label; }, 1200);
+      });
+    });
+
+    flBasket.addEventListener("click", function (e) {
+      var row = e.target.closest(".ts-basket-row");
+      if (!row) return;
+      var slug = row.getAttribute("data-slug");
+      if (!basket[slug]) return;
+      if (e.target.closest("[data-remove]")) { delete basket[slug]; render(); return; }
+      var step = e.target.closest(".ts-qty-btn");
+      if (step) {
+        basket[slug].qty += Number(step.getAttribute("data-step"));
+        if (basket[slug].qty < 1) delete basket[slug];
+        render();
+      }
+    });
+
+    // ?for=<slug> preselects the funeral; "A funeral not listed" needs the free-text field
+    var wantFor = (params.get("for") || "").replace(/[^a-z0-9-]/g, "");
+    if (wantFor) { var opt = forSel.querySelector('option[data-slug="' + wantFor + '"]'); if (opt) opt.selected = true; }
+    var other = document.getElementById("fl-other");
+    var otherRow = document.getElementById("fl-other-row");
+    var deadline = document.getElementById("fl-deadline");
+    var syncFor = function () {
+      var isOther = forSel.value === "Not listed";
+      if (otherRow) otherRow.hidden = !isOther;
+      if (other) other.required = isOther;
+      if (deadline) {
+        var sel = forSel.options[forSel.selectedIndex];
+        deadline.textContent = (sel && sel.getAttribute("data-until")) ? "Please order at least two days before the funeral so we can prepare your tribute in time." : "";
+      }
+    };
+    forSel.addEventListener("change", syncFor);
+    syncFor();
   }
 
   // Contact: "Ask about this style" on a casket fills in the message

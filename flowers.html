@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=e60104d7" />
+<link rel="stylesheet" href="css/styles.css?v=08fec4ad" />
 </head>
 <body>
 <div id="wrapwrap">
@@ -53,42 +53,62 @@
 <main id="main" tabindex="-1">
 <section class="ts-banner"><div class="container">
 <p class="ts-eyebrow">Floral tributes</p><h1>Flowers for every service</h1>
-<p class="ts-lead">Wreaths, hearts, crosses and lettered tributes such as MUM and GRAN. Order with the funeral, or bring flowers to our chapel by the time shown on the obituary. Floral tributes should be ordered at least two days before the funeral, to ensure on-time delivery. Prices are in US dollars.</p>
+<p class="ts-lead">Wreaths, hearts, crosses and lettered tributes such as MUM and GRAN. Add the tributes you would like to your basket, choose the funeral, and send us your order. Floral tributes should be ordered at least two days before the funeral, to ensure on-time delivery. Prices are in US dollars.</p>
 </div></section>
 <section class="ts-section pt-0"><div class="container">
-<h2 class="visually-hidden">Choose a tribute</h2>
+<div class="ts-section-head"><p class="ts-eyebrow">Step 1</p><h2>Choose your tributes</h2>
+<p class="ts-lead">Add the tributes you would like. You can add more than one, and change the quantity in your basket below.</p></div>
 <div class="ts-flower-grid">
 <div class="ts-panel ts-flower"><div class="ts-service-art ts-flower-art" aria-hidden="true"><i class="fa fa-leaf" aria-hidden="true"></i></div><h3>Bleeding Heart</h3><p class="ts-price">US$250</p>
-<a class="btn btn-outline-primary ts-pick" href="#order" data-pick="Bleeding Heart">Send Flowers<span class="visually-hidden">: Bleeding Heart</span></a></div>
+<button type="button" class="btn btn-outline-primary ts-add" data-slug="bleeding-heart" data-name="Bleeding Heart" data-price="250" data-from=""><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: Bleeding Heart</span></button></div>
 <div class="ts-panel ts-flower"><img src="images/thumbs/heart-tribute.jpg?v=a314f222" width="1011" height="760" alt="Heart Tribute" class="img-fluid" /><h3>Heart Tribute</h3><p class="ts-price">Price on request</p>
-<a class="btn btn-outline-primary ts-pick" href="#order" data-pick="Heart Tribute">Send Flowers<span class="visually-hidden">: Heart Tribute</span></a></div>
+<button type="button" class="btn btn-outline-primary ts-add" data-slug="heart-tribute" data-name="Heart Tribute" data-price="" data-from=""><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: Heart Tribute</span></button></div>
 <div class="ts-panel ts-flower"><img src="images/thumbs/casket-spray.jpg?v=1939301a" width="907" height="760" alt="Casket Spray" class="img-fluid" /><h3>Casket Spray</h3><p class="ts-price">Price on request</p>
-<a class="btn btn-outline-primary ts-pick" href="#order" data-pick="Casket Spray">Send Flowers<span class="visually-hidden">: Casket Spray</span></a></div>
+<button type="button" class="btn btn-outline-primary ts-add" data-slug="casket-spray" data-name="Casket Spray" data-price="" data-from=""><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: Casket Spray</span></button></div>
 <div class="ts-panel ts-flower"><div class="ts-service-art ts-flower-art" aria-hidden="true"><i class="fa fa-leaf" aria-hidden="true"></i></div><h3>Wreath</h3><p class="ts-price">From US$60</p>
-<a class="btn btn-outline-primary ts-pick" href="#order" data-pick="Wreath">Send Flowers<span class="visually-hidden">: Wreath</span></a></div>
+<button type="button" class="btn btn-outline-primary ts-add" data-slug="wreath" data-name="Wreath" data-price="60" data-from="1"><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: Wreath</span></button></div>
 <div class="ts-panel ts-flower"><img src="images/thumbs/floral-cross.jpg?v=7d0a260b" width="760" height="831" alt="Floral Cross" class="img-fluid ts-contain" loading="lazy" /><h3>Floral Cross</h3><p class="ts-price">Price on request</p>
-<a class="btn btn-outline-primary ts-pick" href="#order" data-pick="Floral Cross">Send Flowers<span class="visually-hidden">: Floral Cross</span></a></div>
+<button type="button" class="btn btn-outline-primary ts-add" data-slug="floral-cross" data-name="Floral Cross" data-price="" data-from=""><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: Floral Cross</span></button></div>
 <div class="ts-panel ts-flower"><img src="images/thumbs/lettered-tribute.jpg?v=342dad98" width="1200" height="756" alt="Lettered Tribute" class="img-fluid" loading="lazy" /><h3>Lettered Tribute</h3><p class="ts-price">Price on request</p>
-<a class="btn btn-outline-primary ts-pick" href="#order" data-pick="Lettered Tribute">Send Flowers<span class="visually-hidden">: Lettered Tribute</span></a></div>
+<button type="button" class="btn btn-outline-primary ts-add" data-slug="lettered-tribute" data-name="Lettered Tribute" data-price="" data-from=""><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: Lettered Tribute</span></button></div>
 </div>
 </div></section>
 <section class="ts-section ts-alt" id="order"><div class="container ts-narrow">
-<h2>Order a tribute</h2>
-<p>Send us your order and we will call you to confirm it and take payment.</p>
-<form class="ts-panel ts-form" data-form="flowers" method="post" action="https://formsubmit.co/info@twosonsfuneralhome.com">
+<div class="ts-section-head"><p class="ts-eyebrow">Step 2</p><h2>Your order</h2></div>
+<form class="ts-panel ts-form ts-flower-order" data-form="flowers" method="post" action="https://formsubmit.co/info@twosonsfuneralhome.com">
 <div class="ts-trap" aria-hidden="true"><label>Leave empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+
+<fieldset class="ts-order-step">
+<legend>Which funeral are these flowers for?</legend>
 <div class="row g-3">
-<div class="col-md-8"><label class="form-label" for="fl-item">Tribute</label><select id="fl-item" name="tribute" class="form-select"><option>Bleeding Heart (US$250)</option><option>Heart Tribute (Price on request)</option><option>Casket Spray (Price on request)</option><option>Wreath (From US$60)</option><option>Floral Cross (Price on request)</option><option>Lettered Tribute (Price on request)</option></select></div>
-<div class="col-md-4"><label class="form-label" for="fl-qty">How many</label><input id="fl-qty" name="quantity" type="number" min="1" max="50" value="1" class="form-control" /></div>
-<div class="col-12"><label class="form-label" for="fl-for">For the funeral of</label><select id="fl-for" name="funeral" class="form-select" required><option value="" selected disabled>Choose the funeral</option><option value="Not listed">A funeral not listed here (tell us below)</option></select></div>
+<div class="col-12"><label class="form-label" for="fl-for">Funeral</label><select id="fl-for" name="funeral" class="form-select" required aria-describedby="fl-deadline"><option value="" selected disabled>Choose the funeral</option><option value="Not listed">A funeral not listed here (tell us below)</option></select></div>
 <div class="col-12" id="fl-other-row"><label class="form-label" for="fl-other">If the funeral is not listed: the name of the person who has died, and the funeral date</label><input id="fl-other" name="funeral_not_listed" class="form-control" maxlength="200" required /></div>
-<div class="col-12"><label class="form-label" for="fl-card">Message for the card</label><textarea id="fl-card" name="card_message" class="form-control" rows="3" maxlength="600"></textarea></div>
+</div>
+<p id="fl-deadline" class="ts-meta mt-2" role="status"></p>
+</fieldset>
+
+<fieldset class="ts-order-step">
+<legend>Your basket</legend>
+<div id="fl-basket" class="ts-basket" aria-live="polite">
+<p class="ts-basket-empty">Your basket is empty. Add tributes from the list above.</p>
+</div>
+</fieldset>
+
+<fieldset class="ts-order-step">
+<legend>Message and your details</legend>
+<div class="row g-3">
+<div class="col-12"><label class="form-label" for="fl-card">Message for the card <span class="ts-meta">(optional)</span></label><textarea id="fl-card" name="card_message" class="form-control" rows="3" maxlength="600" placeholder="e.g. With deepest sympathy, from the Browne family"></textarea></div>
 <div class="col-md-6"><label class="form-label" for="fl-name">Your name</label><input id="fl-name" name="name" class="form-control" required maxlength="200" autocomplete="name" /></div>
 <div class="col-md-6"><label class="form-label" for="fl-phone">Your phone number</label><input id="fl-phone" name="phone" type="tel" class="form-control" required maxlength="60" autocomplete="tel" /></div>
-<div class="col-12"><label class="form-label" for="fl-email">Your email (optional)</label><input id="fl-email" name="email" type="email" class="form-control" maxlength="120" autocomplete="email" /></div>
+<div class="col-12"><label class="form-label" for="fl-email">Your email <span class="ts-meta">(optional)</span></label><input id="fl-email" name="email" type="email" class="form-control" maxlength="120" autocomplete="email" /></div>
 </div>
-<button type="submit" class="btn btn-primary mt-3">Send Flowers</button>
-<p class="form-note ts-meta mt-2" role="status">Please do not put card details here. We take payment by phone.</p>
+</fieldset>
+
+<input type="hidden" name="order" id="fl-order-field" />
+<input type="hidden" name="order_total" id="fl-total-field" />
+<button type="submit" class="btn btn-primary mt-3" id="fl-submit">Send order</button>
+<p class="form-note ts-meta mt-2" role="status">We will call you to confirm your order and the final price, and to take payment. Please do not put card details here.</p>
+<noscript><p class="ts-meta mt-2">To order flowers, please call us on <a href="tel:+12464261205">(246)&nbsp;426-1205</a> or email <a href="mailto:info@twosonsfuneralhome.com">info@twosonsfuneralhome.com</a>.</p></noscript>
 </form>
 </div></section>
 <section class="ts-section ts-dark ts-band">
@@ -129,6 +149,6 @@
 </nav>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-<script src="js/main.js?v=0174e742"></script>
+<script src="js/main.js?v=d6d932f7"></script>
 </body>
 </html>

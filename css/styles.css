@@ -1209,3 +1209,30 @@ html { scroll-padding-top: 110px; }
 #wrapwrap .ts-hero .btn-outline-primary { background: transparent; border-color: #fff; color: #fff; }
 #wrapwrap .ts-hero .btn-outline-primary:hover, #wrapwrap .ts-hero .btn-outline-primary:focus { background: #fff; color: #1d1e22; }
 @media (max-width: 575.98px) { .ts-hero { padding: 72px 0 80px; } }
+
+/* ---- Flower shop (basket) ---- */
+.ts-flower .ts-add { margin-top: auto; }
+.ts-add.is-added { background: #2f5233; border-color: #2f5233; color: #fff; }
+.ts-order-step { border: 0; margin: 0 0 28px; padding: 0; min-width: 0; }
+.ts-order-step + .ts-order-step { border-top: 1px solid #e3e3df; padding-top: 24px; }
+.ts-order-step > legend { font-family: "Marcellus", Georgia, serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 14px; padding: 0; float: none; width: auto; }
+.ts-basket-empty { color: #5f6166; margin: 0; }
+.ts-basket-row { display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: 12px 16px; padding: 12px 0; border-bottom: 1px solid #e8e8e4; }
+.ts-basket-item { display: flex; flex-direction: column; min-width: 0; }
+.ts-qty { display: inline-flex; align-items: center; border: 1px solid #c9cbd0; border-radius: 6px; overflow: hidden; }
+.ts-qty-btn { border: 0; background: #f1f1ee; color: #1d1e22; width: 34px; height: 34px; font-size: 1.1rem; line-height: 1; cursor: pointer; }
+.ts-qty-btn:hover, .ts-qty-btn:focus-visible { background: #e3e7ef; }
+.ts-qty-n { min-width: 40px; text-align: center; font-variant-numeric: tabular-nums; font-weight: 600; }
+.ts-basket-line { font-weight: 700; color: #22304f; white-space: nowrap; }
+.ts-basket-remove { border: 0; background: transparent; color: #8a8d93; font-size: 1.5rem; line-height: 1; width: 34px; height: 34px; cursor: pointer; border-radius: 6px; }
+.ts-basket-remove:hover, .ts-basket-remove:focus-visible { background: #f0dede; color: #9b2c2c; }
+.ts-basket-total { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 14px; font-size: 1.15rem; }
+.ts-basket-total strong { font-size: 1.3rem; color: #22304f; }
+.ts-basket-note { margin: 8px 0 0; }
+@media (max-width: 575.98px) {
+  .ts-basket-row { grid-template-columns: 1fr auto; grid-template-areas: "item remove" "qty line"; row-gap: 10px; }
+  .ts-basket-item { grid-area: item; }
+  .ts-qty { grid-area: qty; }
+  .ts-basket-line { grid-area: line; text-align: right; align-self: center; }
+  .ts-basket-remove { grid-area: remove; justify-self: end; }
+}
