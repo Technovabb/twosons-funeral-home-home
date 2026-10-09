@@ -1,6 +1,39 @@
 {
-  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. Photos go in images/flowers/<slug>.jpg. \"fit\": \"contain\" shows the whole photo (for tall or very wide tributes). TODO: client to send names, photos and prices.",
+  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. 'priceText' overrides the shown price (e.g. a per-letter rate). 'desc' adds a small line under the price. Photos go in images/flowers/<slug>.jpg, with a ~700px copy in images/thumbs/<slug>.jpg. 'fit':'contain' shows the whole photo. TODO (client): casket-spray prices; real photos for the lettered tributes, heart tribute and floral cross.",
   "items": [
+    {
+      "slug": "casket-spray-blue-gold",
+      "name": "Blue & Gold Casket Spray",
+      "price": null
+    },
+    {
+      "slug": "casket-spray-blue-white",
+      "name": "Blue & White Casket Spray",
+      "price": null
+    },
+    {
+      "slug": "casket-spray-pink",
+      "name": "Pink Casket Spray",
+      "price": null
+    },
+    {
+      "slug": "casket-spray-red-white",
+      "name": "Red & White Casket Spray",
+      "price": null
+    },
+    {
+      "slug": "wreath",
+      "name": "Wreath",
+      "price": 70,
+      "from": true
+    },
+    {
+      "slug": "lettered-tribute",
+      "name": "Lettered Tribute",
+      "price": null,
+      "priceText": "US$75 per letter",
+      "desc": "MUM, DAD, GRAN, UNCLE or any name. Tell us the word and we will confirm the price."
+    },
     {
       "slug": "bleeding-heart",
       "name": "Bleeding Heart",
@@ -12,27 +45,10 @@
       "price": null
     },
     {
-      "slug": "casket-spray",
-      "name": "Casket Spray",
-      "price": null
-    },
-    {
-      "slug": "wreath",
-      "name": "Wreath",
-      "price": 60,
-      "from": true,
-      "_todo": "confirm the $60 is USD"
-    },
-    {
       "slug": "floral-cross",
       "name": "Floral Cross",
       "price": null,
       "fit": "contain"
-    },
-    {
-      "slug": "lettered-tribute",
-      "name": "Lettered Tribute",
-      "price": null
     }
   ]
 }

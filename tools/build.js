@@ -704,7 +704,7 @@ ${list}
 }
 
 function flowersPage() {
-  const money = (f) => (f.price == null ? "Price on request" : `${f.from ? "From " : ""}US$${f.price}`);
+  const money = (f) => (f.priceText ? f.priceText : f.price == null ? "Price on request" : `${f.from ? "From " : ""}US$${f.price}`);
   const funerals = people.filter(takesFlowers).sort((a, b) => String(a.service || "9").localeCompare(String(b.service || "9")));
   const options = funerals.map((p) => {
     const label = esc(p.name) + (p.service ? ` (${esc(shortDate(serviceDay(p)))})` : "");
@@ -722,7 +722,7 @@ ${flowers.items.map((f, i) => {
     const picture = photo
       ? `<img src="${tile}"${dims(tile)} alt="${esc(f.name)}" class="img-fluid${f.fit === "contain" ? " ts-contain" : ""}"${i < 3 ? "" : ' loading="lazy"'} />`
       : '<div class="ts-service-art ts-flower-art" aria-hidden="true"><i class="fa fa-leaf"></i></div>';
-    return `<div class="ts-panel ts-flower">${picture}<h3>${esc(f.name)}</h3><p class="ts-price">${money(f)}</p>
+    return `<div class="ts-panel ts-flower">${picture}<h3>${esc(f.name)}</h3><p class="ts-price">${money(f)}</p>${f.desc ? `<p class="ts-flower-desc ts-meta">${esc(f.desc)}</p>` : ""}
 <button type="button" class="btn btn-outline-primary ts-add" data-slug="${esc(f.slug)}" data-name="${esc(f.name)}" data-price="${f.price == null ? "" : f.price}" data-from="${f.from ? "1" : ""}"><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: ${esc(f.name)}</span></button></div>`;
   }).join("\n")}
 </div>
