@@ -194,8 +194,6 @@ const NAV = [
   ["services.html", "Services"],
   ["caskets.html", "Caskets"],
   ["obituaries.html", "Obituaries"],
-  // Label, not file name: someone looking for the time of a funeral would never think to click "Livestreams".
-  ["livestreams.html", "Funerals"],
   ["testimonials.html", "Testimonials"],
   ["pre-planning.html", "Pre-planning"],
   ["contact.html", "Contact"],
@@ -253,11 +251,11 @@ ${PREVIEW ? '<aside class="ts-preview" aria-label="Preview notice">Preview websi
 </div></aside>
 <header class="ts-header"><nav class="navbar navbar-expand-xl" aria-label="Main"><div class="container">
 <a class="navbar-brand" href="${up}index.html"><span class="ts-brand"><img src="${up}images/brand/crest-dark.png" alt="" width="68" height="50" /><span class="ts-brand-text"><span class="ts-brand-name">Two Sons</span><span class="ts-brand-sub">Funeral Home Ltd &middot; Since 1979</span></span></span></a>
-<a class="btn btn-primary ts-call-btn-lg d-none d-lg-inline-flex d-xl-none align-items-center ms-auto me-2" href="${TEL}"><i class="fa fa-phone me-2"></i>Call 24 hours</a>
+<a class="btn btn-primary ts-call-btn-lg d-none d-lg-inline-flex d-xl-none align-items-center ms-auto me-2" href="${up}get-a-quote.html"><i class="fa fa-file-text-o me-2"></i>Get a quote</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ts-nav" aria-controls="ts-nav" aria-expanded="false"><i class="fa fa-bars me-2"></i><span class="ts-menu-label">Menu</span></button>
 <div class="collapse navbar-collapse" id="ts-nav"><ul class="navbar-nav ms-auto me-xl-3">
 ${links}
-</ul><a class="btn btn-primary ts-call-btn" href="${TEL}"><i class="fa fa-phone me-2"></i>Call 24 hours</a></div>
+</ul><a class="btn btn-primary ts-call-btn" href="${up}get-a-quote.html"><i class="fa fa-file-text-o me-2"></i>Get a quote</a></div>
 </div></nav></header>
 <main id="main" tabindex="-1">`;
 }
@@ -284,7 +282,7 @@ function footer(up) {
 <li>Mon&ndash;Fri, 8:30 a.m.&ndash;5:00 p.m.</li><li>Saturday, 9:00 a.m.&ndash;2:00 p.m.</li>
 <li>Sunday, public and bank holidays: closed</li><li>Help by phone, 24 hours a day</li></ul></div>
 <div class="col-md-6 col-lg-3"><h2 class="ts-footer-h">For families</h2><ul class="list-unstyled ts-footer-nav">
-<li><a href="${up}obituaries.html">Obituaries</a></li><li><a href="${up}livestreams.html">Funerals &amp; livestreams</a></li>
+<li><a href="${up}obituaries.html">Obituaries</a></li>
 <li><a href="${up}pre-planning.html#first-steps">What to do first</a></li><li><a href="${up}get-a-quote.html">Get a quote</a></li>
 <li><a href="${up}flowers.html">Floral tributes</a></li><li><a href="${up}caskets.html">Casket collection</a></li>
 <li><a href="${up}gallery.html">Gallery</a></li><li><a href="${up}testimonials.html">Testimonials &amp; feedback</a></li></ul></div>
@@ -297,7 +295,7 @@ function footer(up) {
 <nav class="ts-mobilebar d-lg-none" aria-label="Quick links">
 <a class="ts-mobilebar-call" href="${TEL}"><i class="fa fa-phone"></i>Call 24 hrs</a>
 <a href="${up}obituaries.html"><i class="fa fa-file-text-o"></i>Notices</a>
-<a href="${up}livestreams.html"><i class="fa fa-video-camera"></i>Funerals</a>
+<a href="${up}get-a-quote.html"><i class="fa fa-file-text-o"></i>Get a quote</a>
 <a href="${MAPS}" target="_blank" rel="noopener"><i class="fa fa-map-marker"></i>Directions${NEW_TAB}</a>
 </nav>
 </div>
@@ -632,7 +630,7 @@ function upcomingBlock() {
   if (!upcoming.length) return "";
   return `<section class="ts-section ts-upcoming" aria-labelledby="upcoming-h" data-list><div class="container">
 <div class="d-md-flex justify-content-between align-items-end mb-3"><div><p class="ts-eyebrow">Upcoming funerals</p><h2 class="mb-0" id="upcoming-h">Services still to come</h2></div>
-<a class="ts-link" href="livestreams.html">All funerals and livestreams <i class="fa fa-arrow-right ms-1"></i></a></div>
+<a class="ts-link" href="obituaries.html">View all obituaries <i class="fa fa-arrow-right ms-1"></i></a></div>
 ${upcoming.slice(0, 4).map((p) => serviceRow(p, { cls: "ts-upcoming-row", until: serviceDay(p), watch: "Watch live" })).join("\n")}
 </div></section>`;
 }
@@ -713,7 +711,7 @@ function flowersPage() {
     return `<option value="${label}" data-slug="${esc(p.slug)}"${p.service ? ` data-until="${serviceDay(p)}"` : ""}>${label}</option>`;
   }).join("");
   const body = banner("Floral tributes", "Flowers for every service",
-    "Casket sprays, hearts, crosses and lettered tributes such as MUM and GRAN. Order with the funeral, or bring flowers to our chapel by the time shown on the funeral notice. Prices are in US dollars.") + `
+    "Wreaths, hearts, crosses and lettered tributes such as MUM and GRAN. Order with the funeral, or bring flowers to our chapel by the time shown on the obituary. Floral tributes should be ordered at least two days before the funeral, to ensure on-time delivery. Prices are in US dollars.") + `
 <section class="ts-section pt-0"><div class="container">
 <h2 class="visually-hidden">Choose a tribute</h2>
 <div class="ts-flower-grid">
@@ -762,7 +760,7 @@ function quotePage() {
       case "multi": return opts.map((o, i) => `<label><input type="checkbox" name="${key}_${i}" value="${esc(o)}" /> ${esc(o)}</label>`).join("");
       case "qty": return `<input type="number" class="form-control ts-num" id="${key}" name="${key}" min="0" step="1" placeholder="0" data-min="${item.min || 0}"${note} />`;
       case "multiqty": return opts.map((o, i) => `<label>${esc(o)} <input type="number" class="form-control ts-num" name="${key}_${i}" data-label="${esc(o)}" min="0" step="1" placeholder="0" /></label>`).join("");
-      case "text": return `<input class="form-control" id="${key}" name="${key}" maxlength="200" />`;
+      case "text": return `<input class="form-control" id="${key}" name="${key}" maxlength="200"${item.placeholder ? ` placeholder="${esc(item.placeholder)}"` : ""} />`;
     }
     return "";
   };
@@ -821,7 +819,8 @@ for (const [file, title, desc, band] of PAGES) {
   out[file] = page({ file, title, desc, body, band });
 }
 out["obituaries.html"] = obituariesPage();
-out["livestreams.html"] = livestreamsPage();
+// The "Funerals & livestreams" page was merged into Obituaries at the client's request (Oct 2026):
+// every obituary already carries its own livestream link, so the separate page is no longer generated.
 out["testimonials.html"] = testimonialsPage();
 out["flowers.html"] = flowersPage();
 out["get-a-quote.html"] = quotePage();
@@ -882,7 +881,7 @@ for (const f of fs.readdirSync(path.join(root, "obituaries"))) {
 }
 
 /* ---------- sitemap and robots ---------- */
-const ROOT_PAGES = ["", "obituaries.html", "livestreams.html", "services.html", "caskets.html", "pre-planning.html", "get-a-quote.html", "flowers.html", "about.html", "testimonials.html", "gallery.html", "contact.html"];
+const ROOT_PAGES = ["", "obituaries.html", "services.html", "caskets.html", "pre-planning.html", "get-a-quote.html", "flowers.html", "about.html", "testimonials.html", "gallery.html", "contact.html"];
 const urls = [...ROOT_PAGES.map((f) => `${SITE}/${f}`), ...people.filter((p) => !p.sample).map((p) => `${SITE}/obituaries/${p.slug}.html`)];
 fs.writeFileSync(path.join(root, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `<url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);

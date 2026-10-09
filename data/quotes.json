@@ -13,8 +13,21 @@
         ]
       },
       {
+        "type": "text",
+        "name": "Casket style, if you have one in mind",
+        "placeholder": "e.g. White & gold casket (see our Casket collection)"
+      },
+      {
         "type": "required",
         "name": "Removal"
+      },
+      {
+        "type": "required",
+        "name": "Keeping of the Body"
+      },
+      {
+        "type": "required",
+        "name": "Dressing and Preparation"
       },
       {
         "type": "multi",
@@ -72,16 +85,14 @@
           "Grave",
           "Chapel",
           "Priest",
-          "Choir"
+          "Choir",
+          "None"
         ]
       },
       {
-        "type": "check",
-        "name": "Church Fees"
-      },
-      {
         "type": "text",
-        "name": "Name of Church"
+        "name": "Name of Church",
+        "placeholder": "e.g. Chapel of Westbury, St. Anne’s Anglican"
       },
       {
         "type": "text",
@@ -206,7 +217,8 @@
       },
       {
         "type": "text",
-        "name": "Name of Church"
+        "name": "Name of Church",
+        "placeholder": "e.g. Chapel of Westbury, St. Anne’s Anglican"
       },
       {
         "type": "required",
@@ -303,7 +315,8 @@
     "items": [
       {
         "type": "text",
-        "name": "Name of Church or venue"
+        "name": "Name of Church or venue",
+        "placeholder": "e.g. St. Anne’s Anglican, or a hall"
       },
       {
         "type": "qty",
