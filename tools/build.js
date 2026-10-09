@@ -818,7 +818,7 @@ ${forms}
 <div class="row g-3">
 <div class="col-md-4"><label class="form-label" for="q-name">Your name</label><input id="q-name" name="name" class="form-control" required maxlength="200" autocomplete="name" /></div>
 <div class="col-md-4"><label class="form-label" for="q-phone">Phone number</label><input id="q-phone" name="phone" type="tel" class="form-control" required maxlength="60" autocomplete="tel" /></div>
-<div class="col-md-4"><label class="form-label" for="q-email">Email (optional)</label><input id="q-email" name="email" type="email" class="form-control" maxlength="120" autocomplete="email" /></div>
+<div class="col-md-4"><label class="form-label" for="q-email">Email</label><input id="q-email" name="email" type="email" class="form-control" required maxlength="120" autocomplete="email" /></div>
 <div class="col-12"><label class="form-label" for="q-notes">Anything else we should know?</label><textarea id="q-notes" name="notes" class="form-control" rows="3" maxlength="2000"></textarea></div>
 </div>
 <button type="submit" class="btn btn-primary mt-4">Send quote request</button>
