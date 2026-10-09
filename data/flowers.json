@@ -24,6 +24,17 @@
       ]
     },
     {
+      "slug": "bible-tribute",
+      "name": "Bible Tribute",
+      "price": 110,
+      "from": true,
+      "fit": "contain",
+      "variants": [
+        { "name": "White & Yellow", "slug": "bible-white-yellow" },
+        { "name": "With Psalm 23", "slug": "bible-psalm-23" }
+      ]
+    },
+    {
       "slug": "wreath",
       "name": "Wreath",
       "price": 70,
