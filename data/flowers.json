@@ -45,17 +45,24 @@
       "name": "Lettered Tribute",
       "price": null,
       "priceText": "US$75 per letter",
+      "fit": "contain",
       "desc": "MUM, DAD, GRAN, UNCLE or any name. Tell us the word and we will confirm the price."
     },
     {
       "slug": "bleeding-heart",
       "name": "Bleeding Heart",
-      "price": 250
+      "price": 250,
+      "fit": "contain",
+      "variants": [
+        { "name": "Red", "slug": "heart-red" },
+        { "name": "Pink", "slug": "heart-pink" }
+      ]
     },
     {
-      "slug": "heart-tribute",
-      "name": "Heart Tribute",
-      "price": null
+      "slug": "heart-open",
+      "name": "Open Heart",
+      "price": null,
+      "fit": "contain"
     }
   ]
 }
