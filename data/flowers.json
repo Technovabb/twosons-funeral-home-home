@@ -1,27 +1,30 @@
 {
-  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. 'priceText' overrides the shown price (e.g. a per-letter rate). 'desc' adds a small line under the price. 'variants' = colour/style options shown in one card; each needs images/flowers/<variant.slug>.jpg (+ a ~700px copy in images/thumbs/<variant.slug>.jpg). 'fit':'contain' shows the whole photo. TODO (client): prices for casket sprays and crosses; real photos for the lettered tributes and hearts.",
+  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. 'priceText' overrides the shown price. 'desc' adds a small line under the price. 'fit':'contain' shows the whole photo. EVERY tribute offers the shared 'colours' list below; a product's 'photos' map (colour -> image slug) swaps the card photo for the colours we have a photo of, and 'default' is the colour shown first. Images: images/flowers/<slug>.jpg plus a ~700px copy in images/thumbs/<slug>.jpg. A product can override the colour list with its own 'colours'. TODO (client): prices for casket sprays, crosses, open heart; more colour photos.",
+  "colours": ["White", "Pink", "Red", "Yellow", "Blue", "Purple", "Gold", "Mixed"],
   "items": [
     {
       "slug": "casket-spray",
       "name": "Casket Spray",
       "price": null,
-      "variants": [
-        { "name": "Blue & Gold", "slug": "casket-spray-blue-gold" },
-        { "name": "Blue & White", "slug": "casket-spray-blue-white" },
-        { "name": "Pink", "slug": "casket-spray-pink" },
-        { "name": "Red & White", "slug": "casket-spray-red-white" }
-      ]
+      "default": "Blue",
+      "photos": {
+        "Blue": "casket-spray-blue-white",
+        "Red": "casket-spray-red-white",
+        "Pink": "casket-spray-pink",
+        "Gold": "casket-spray-blue-gold"
+      }
     },
     {
       "slug": "floral-cross",
       "name": "Floral Cross",
       "price": null,
       "fit": "contain",
-      "variants": [
-        { "name": "Yellow", "slug": "floral-cross-yellow" },
-        { "name": "Purple & White", "slug": "floral-cross-purple" },
-        { "name": "Yellow & Purple", "slug": "floral-cross-yellow-purple" }
-      ]
+      "default": "Yellow",
+      "photos": {
+        "Yellow": "floral-cross-yellow",
+        "Purple": "floral-cross-purple",
+        "Mixed": "floral-cross-yellow-purple"
+      }
     },
     {
       "slug": "bible-tribute",
@@ -29,16 +32,19 @@
       "price": 110,
       "from": true,
       "fit": "contain",
-      "variants": [
-        { "name": "White & Yellow", "slug": "bible-white-yellow" },
-        { "name": "With Psalm 23", "slug": "bible-psalm-23" }
-      ]
+      "colours": ["White & Yellow", "With Psalm 23", "Pink", "Blue", "Purple", "Mixed"],
+      "default": "White & Yellow",
+      "photos": {
+        "White & Yellow": "bible-white-yellow",
+        "With Psalm 23": "bible-psalm-23"
+      }
     },
     {
       "slug": "wreath",
       "name": "Wreath",
       "price": 70,
-      "from": true
+      "from": true,
+      "default": "White"
     },
     {
       "slug": "lettered-tribute",
@@ -46,23 +52,28 @@
       "price": null,
       "priceText": "US$75 per letter",
       "fit": "contain",
-      "desc": "MUM, DAD, GRAN, UNCLE or any name. Tell us the word and we will confirm the price."
+      "desc": "MUM, DAD, GRAN, UNCLE or any name. Tell us the word and the colour, and we will confirm the price."
     },
     {
       "slug": "bleeding-heart",
       "name": "Bleeding Heart",
       "price": 250,
       "fit": "contain",
-      "variants": [
-        { "name": "Red", "slug": "heart-red" },
-        { "name": "Pink", "slug": "heart-pink" }
-      ]
+      "default": "Red",
+      "photos": {
+        "Red": "heart-red",
+        "Pink": "heart-pink"
+      }
     },
     {
       "slug": "heart-open",
       "name": "Open Heart",
       "price": null,
-      "fit": "contain"
+      "fit": "contain",
+      "default": "White",
+      "photos": {
+        "White": "heart-open"
+      }
     }
   ]
 }
