@@ -1,5 +1,5 @@
 {
-  "_readme": "Floral tributes. Prices in US dollars (client request). price null = 'Price on request'. 'priceText' overrides the shown price. 'desc' adds a small line under the price. 'fit':'contain' shows the whole photo. EVERY tribute offers the shared 'colours' list below; a product's 'photos' map (colour -> image slug) swaps the card photo for the colours we have a photo of, and 'default' is the colour shown first. Images: images/flowers/<slug>.jpg plus a ~700px copy in images/thumbs/<slug>.jpg. A product can override the colour list with its own 'colours'. TODO (client): prices for casket sprays, crosses, open heart; more colour photos.",
+  "_readme": "Floral tributes. Prices in Barbados dollars (Bds$). price null = 'Price on request'. 'priceText' overrides the shown price. 'desc' adds a small line under the price. 'fit':'contain' shows the whole photo. EVERY tribute offers the shared 'colours' list below; a product's 'photos' map (colour -> image slug) swaps the card photo for the colours we have a photo of, and 'default' is the colour shown first. Images: images/flowers/<slug>.jpg plus a ~700px copy in images/thumbs/<slug>.jpg. A product can override the colour list with its own 'colours'. TODO (client): prices for casket sprays, crosses, open heart; more colour photos.",
   "colours": ["White", "Pink", "Red", "Yellow", "Blue", "Purple", "Gold", "Mixed"],
   "items": [
     {
@@ -50,7 +50,7 @@
       "slug": "lettered-tribute",
       "name": "Lettered Tribute",
       "price": null,
-      "priceText": "US$75 per letter",
+      "priceText": "Bds$75 per letter",
       "fit": "contain",
       "desc": "MUM, DAD, GRAN, UNCLE or any name. Tell us the word and the colour, and we will confirm the price."
     },

@@ -705,14 +705,14 @@ ${list}
 }
 
 function flowersPage() {
-  const money = (f) => (f.priceText ? f.priceText : f.price == null ? "Price on request" : `${f.from ? "From " : ""}US$${f.price}`);
+  const money = (f) => (f.priceText ? f.priceText : f.price == null ? "Price on request" : `${f.from ? "From " : ""}Bds$${f.price}`);
   const funerals = people.filter(takesFlowers).sort((a, b) => String(a.service || "9").localeCompare(String(b.service || "9")));
   const options = funerals.map((p) => {
     const label = esc(p.name) + (p.service ? ` (${esc(shortDate(serviceDay(p)))})` : "");
     return `<option value="${label}" data-slug="${esc(p.slug)}"${p.service ? ` data-until="${serviceDay(p)}"` : ""}>${label}</option>`;
   }).join("");
   const body = banner("Floral tributes", "Flowers for every service",
-    "Wreaths, hearts, crosses and lettered tributes such as MUM and GRAN. Add the tributes you would like to your basket, choose the funeral, and send us your order. Floral tributes should be ordered at least two days before the funeral, to ensure on-time delivery. Prices are in US dollars.") + `
+    "Wreaths, hearts, crosses and lettered tributes such as MUM and GRAN. Add the tributes you would like to your basket, choose the funeral, and send us your order. Floral tributes should be ordered at least two days before the funeral, to ensure on-time delivery. Prices are in Barbados dollars.") + `
 <section class="ts-section pt-0"><div class="container">
 <div class="ts-section-head"><p class="ts-eyebrow">Step 1</p><h2>Choose your tributes</h2>
 <p class="ts-lead">Add the tributes you would like. You can add more than one, and change the quantity in your basket below. Every tribute can be made in your choice of colour &mdash; the photos are examples.</p></div>
@@ -781,7 +781,7 @@ ${flowers.items.map((f, i) => {
 <noscript><p class="ts-meta mt-2">To order flowers, please call us on <a href="${TEL}">${PHONE}</a> or email <a href="mailto:${EMAIL}">${EMAIL}</a>.</p></noscript>
 </form>
 </div></section>`;
-  return page({ file: "flowers.html", title: "Floral tributes", desc: "Order funeral flowers from Two Sons Funeral Home, Barbados: casket sprays, hearts, crosses and lettered tributes. Prices in US dollars.", body });
+  return page({ file: "flowers.html", title: "Floral tributes", desc: "Order funeral flowers from Two Sons Funeral Home, Barbados: casket sprays, hearts, crosses and lettered tributes. Prices in Barbados dollars.", body });
 }
 
 function quotePage() {
