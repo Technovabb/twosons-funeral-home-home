@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Two Sons Funeral Home//Notices//EN
+BEGIN:VEVENT
+UID:anderson-richard-mayers@twosonsfuneralhome.com
+DTSTAMP:20260529T000000Z
+DTSTART:20260529T180000Z
+DTEND:20260529T200000Z
+SUMMARY:Funeral of Anderson Richard Mayers
+LOCATION:St. John Parish Church\, Barbados
+DESCRIPTION:Leaves the Chapel of Two Sons Funeral Home\, Stadium Road\, Bus
+ h Hall\, St. Michael at 12:15 p.m. Service at St. John Parish Church\, 2:0
+ 0 p.m. Interment: Coral Ridge Memorial Gardens. https://technovabb.com/two
+ sons-funeral-home-home/obituaries/anderson-richard-mayers.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/anderson-ri
+ chard-mayers.html
+END:VEVENT
+END:VCALENDAR

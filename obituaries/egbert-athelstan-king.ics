@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Two Sons Funeral Home//Notices//EN
+BEGIN:VEVENT
+UID:egbert-athelstan-king@twosonsfuneralhome.com
+DTSTAMP:20260612T000000Z
+DTSTART:20260612T190000Z
+DTEND:20260612T210000Z
+SUMMARY:Funeral of Egbert Athelstan King
+LOCATION:St. Andrew Parish Church\, Barbados
+DESCRIPTION:Leaves the Tranquility Chapel of Two Sons Funeral Home\, Stadiu
+ m Road\, Bush Hall\, St. Michael at 1:15 p.m. Service at St. Andrew Parish
+  Church\, 3:00 p.m. Interment: Follows the service. https://technovabb.com
+ /twosons-funeral-home-home/obituaries/egbert-athelstan-king.html
+URL:https://technovabb.com/twosons-funeral-home-home/obituaries/egbert-athe
+ lstan-king.html
+END:VEVENT
+END:VCALENDAR
