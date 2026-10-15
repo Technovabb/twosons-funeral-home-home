@@ -18,12 +18,11 @@
     "livestream": {
       "url": "https://sharingmemoriesforever.live/RichardWasonJr",
       "label": "Sharing Memories Forever"
-    },
-    "flyer_wide": true
+    }
   },
   {
-    "slug": "cardinal-haldene-lewis",
-    "name": "Cardinal Haldene Lewis",
+    "slug": "cardinal-haldane-lewis",
+    "name": "Cardinal Haldane Lewis",
     "born": "1947-06-14",
     "died": "2026-07-21",
     "age": 79,
@@ -41,9 +40,7 @@
     "livestream": {
       "url": "https://youtube.com/live/RocQDYGxSmA",
       "label": "Sharing Memories Forever"
-    },
-    "flyer_wide": true,
-    "flag": "The in-memory flyer spells the name “Haldane”; the service card shown on the page spells it “Haldene”. Confirm which is correct — if Haldane, send that flyer as a file and I will update the name and image."
+    }
   },
   {
     "slug": "athelbert-bourne",
@@ -415,8 +412,7 @@
     "livestream": {
       "url": "https://youtube.com/live/yyPz805kvh4",
       "label": "Sharing Memories Forever"
-    },
-    "flyer_wide": true
+    }
   },
   {
     "slug": "shanae-jatara-ifill",
