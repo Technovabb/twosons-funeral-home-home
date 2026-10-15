@@ -30,6 +30,10 @@
         "name": "Dressing and Preparation"
       },
       {
+        "type": "required",
+        "name": "Lowering Device"
+      },
+      {
         "type": "multi",
         "name": "Subsequent Announcement / Advertisement",
         "options": [
