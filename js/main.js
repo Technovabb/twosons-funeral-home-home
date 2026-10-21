@@ -17,7 +17,7 @@ var FORM_TEL = "tel:+12464261205";
 var FORM_KINDS = {
   condolence: { subject: "Condolence for {person}", thanks: "Your message has been sent to Two Sons, and we will pass it to the family. Some messages are added to this page after our staff have read them." },
   quote: { subject: "Quote request: {quote_type} ({name})", sent: "Request sent", thanks: 'We have your request. We will call or email you with a price. <a href="get-a-quote.html">Ask for another quote</a>.' },
-  flowers: { subject: "Flower order from {name}", sent: "Order sent", thanks: "We have your order. We will call you to confirm it and take payment." },
+  flowers: { subject: "Flower order from {name}", sent: "Order sent", thanks: "We have your order. We will call you to confirm it and the final price. Then we send you a secure link to pay, or you can pay at our office." },
   plan_ahead: { subject: "Pre-planning request from {name}", sent: "Request sent", thanks: "We have your request and will call you to arrange a meeting." },
   contact: { subject: "Website message from {name}", thanks: "We have your message and will be in touch soon." },
   feedback: { subject: "Feedback from {name}", thanks: "Thank you for taking the time to write to us. We will ask you before showing anything on the website." },

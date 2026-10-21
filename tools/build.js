@@ -178,6 +178,8 @@ const LD = {
   address: { "@type": "PostalAddress", streetAddress: "Stadium Road, Bush Hall", addressLocality: "St. Michael", postalCode: "BB15038", addressCountry: "BB" },
   hasMap: MAPS,
   areaServed: { "@type": "Country", name: "Barbados" },
+  currenciesAccepted: "BBD",
+  paymentAccepted: "Cash, Cheque, Bank transfer, Visa, Mastercard",
   sameAs: [FACEBOOK],
   openingHoursSpecification: [
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:30", closes: "17:00" },
@@ -268,6 +270,16 @@ const contactBand = `<section class="ts-section ts-dark ts-band">
 </div>
 </section>`;
 
+/* The cards we accept. CIBC FirstCaribbean needs the card brands' own marks, in full colour:
+   use the files exactly as downloaded, always on white (docs/cibc/card-logos.md). */
+function cardLogos(up, large) {
+  const [vw, vh, mw, mh] = large ? [80, 26, 57, 44] : [48, 16, 37, 29];
+  return `<ul class="ts-cards${large ? " ts-cards-lg" : ""}">
+<li><img src="${up}images/cards/visa.svg" alt="Visa" width="${vw}" height="${vh}"${large ? "" : ' loading="lazy"'} /></li>
+<li><img src="${up}images/cards/mastercard.svg" alt="Mastercard" width="${mw}" height="${mh}"${large ? "" : ' loading="lazy"'} /></li>
+</ul>`;
+}
+
 function footer(up) {
   return `</main>
 <footer class="ts-footer"><section class="pt-5 pb-3" aria-label="Contact details and links"><div class="container"><div class="row g-4">
@@ -288,6 +300,19 @@ function footer(up) {
 <li><a href="${up}flowers.html">Floral tributes</a></li><li><a href="${up}caskets.html">Casket collection</a></li>
 <li><a href="${up}gallery.html">Gallery</a></li><li><a href="${up}testimonials.html">Testimonials &amp; feedback</a></li></ul></div>
 </div></div></section>
+<div class="container"><div class="ts-footer-trust">
+<div class="ts-accept"><span class="ts-accept-label">We accept</span>
+${cardLogos(up)}
+<span class="ts-currency">Prices in Barbados dollars (BBD)</span></div>
+<nav aria-label="Our policies"><ul class="ts-policy-links ts-footer-nav">
+<li><a href="${up}policies.html#refunds">Refunds</a></li>
+<li><a href="${up}policies.html#delivery">Delivery</a></li>
+<li><a href="${up}policies.html#privacy">Privacy</a></li>
+<li><a href="${up}policies.html#payment-security">Card payments</a></li>
+<li><a href="${up}policies.html#terms">Terms of sale</a></li>
+<li><a href="${up}policies.html">All policies</a></li>
+</ul></nav>
+</div></div>
 <div class="container"><div class="ts-copyright d-flex flex-wrap justify-content-between gap-2">
 <span>&copy; <span id="year">${new Date().getFullYear()}</span> Two Sons Funeral Home Ltd. All rights reserved.</span>
 <a href="${FACEBOOK}" target="_blank" rel="noopener"><i class="fa fa-facebook-official me-2"></i>Two Sons on Facebook${NEW_TAB}</a>
@@ -744,7 +769,8 @@ ${flowers.items.map((f, i) => {
 </div>
 </div></section>
 <section class="ts-section ts-alt" id="order"><div class="container ts-narrow">
-<div class="ts-section-head"><p class="ts-eyebrow">Step 2</p><h2>Your order</h2></div>
+<div class="ts-section-head"><p class="ts-eyebrow">Step 2</p><h2>Your order</h2>
+<p class="ts-meta mb-0">Prices are in Barbados dollars (Bds$). See <a href="policies.html#delivery">how we deliver tributes</a>, and <a href="policies.html#refunds">cancellations and refunds</a>.</p></div>
 <form class="ts-panel ts-form ts-flower-order" data-form="flowers" method="post" action="${FORM_ACTION}">
 <div class="ts-trap" aria-hidden="true"><label>Leave empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
 
@@ -777,7 +803,7 @@ ${flowers.items.map((f, i) => {
 <input type="hidden" name="order" id="fl-order-field" />
 <input type="hidden" name="order_total" id="fl-total-field" />
 <button type="submit" class="btn btn-primary mt-3" id="fl-submit">Send order</button>
-<p class="form-note ts-meta mt-2" role="status">We will call you to confirm your order and the final price, and to take payment. Please do not put card details here.</p>
+<p class="form-note ts-meta mt-2" role="status">We will call you to confirm your order and the final price. Then we send you a secure link to your invoice. You can pay at our office or by bank transfer. Please do not put card details here.</p>
 <noscript><p class="ts-meta mt-2">To order flowers, please call us on <a href="${TEL}">${PHONE}</a> or email <a href="mailto:${EMAIL}">${EMAIL}</a>.</p></noscript>
 </form>
 </div></section>`;
@@ -828,6 +854,7 @@ ${forms}
 <button type="submit" class="btn btn-primary mt-4">Send quote request</button>
 <p class="form-note ts-meta mt-2" role="status">Your request goes to Two Sons. If you need us now, please call <a href="${TEL}">${PHONE}</a>, 24 hours a day.</p>
 </form>
+<p class="ts-meta">Our prices are in Barbados dollars (Bds$). See <a href="policies.html">our policies</a> for refunds, cancellations and privacy.</p>
 </div></section>`;
   return page({ file: "get-a-quote.html", title: "Get a quote", desc: "Get a funeral quote from Two Sons Funeral Home: burial, cremation, shipment or a memorial service.", body });
 }
@@ -842,11 +869,14 @@ const PAGES = [
   ["pre-planning.html", "Pre-planning", "What to do when a death occurs, and how to plan a funeral ahead with Two Sons Funeral Home, Barbados.", false],
   ["gallery.html", "Gallery", "Photos of the Two Sons Funeral Home chapel, fleet and floral work.", true],
   ["contact.html", "Contact us", `Contact Two Sons Funeral Home, Stadium Road, Bush Hall, St. Michael. Help 24 hours a day on ${PHONE}.`, false],
+  // In the footer, not the main menu. CIBC FirstCaribbean needs these on the site to take cards online.
+  ["policies.html", "Our policies", "Quotes, payments, refunds, pre-planning, delivery, livestreams, privacy and card security at Two Sons Funeral Home Ltd., Bush Hall, St. Michael, Barbados. Prices in BBD.", false],
 ];
 
 const out = {};
 for (const [file, title, desc, band] of PAGES) {
-  let body = read("pages/" + file).replaceAll("{{PHONE}}", PHONE).replaceAll("{{TEL}}", TEL).replaceAll("{{FORM_ACTION}}", FORM_ACTION);
+  let body = read("pages/" + file).replaceAll("{{PHONE}}", PHONE).replaceAll("{{TEL}}", TEL).replaceAll("{{FORM_ACTION}}", FORM_ACTION)
+    .replaceAll("{{CARDS}}", cardLogos("", true));
   if (file === "index.html") {
     body = body.replace(/<!-- upcoming:start -->[\s\S]*?<!-- upcoming:end -->/, "<!-- upcoming:start -->" + upcomingBlock() + "<!-- upcoming:end -->");
     body = body.replace("<!-- notices:home -->", grid(people.slice(0, 3), "New funeral notices will appear here.", "", 0, "ts-notice-grid-3"));
@@ -900,6 +930,7 @@ const stamp = (text) => text.replace(ASSET, (whole, rel) => (fingerprint(rel) ? 
 const warn = [];
 for (const [rel, html] of Object.entries(out)) {
   if (/ts-todo|____|\[Your |placeholder\.svg/.test(html)) warn.push(`${rel}: placeholder text or a "photo to come" picture is still on the page`);
+  if (html.includes("<!-- policies:draft")) warn.push(`${rel}: the policies are still draft wording. Two Sons must confirm them (docs/cibc/policies-to-confirm.md), then delete the "policies:draft" line at the top of pages/policies.html.`);
 }
 if (!PREVIEW && warn.length) {
   console.error("The build stopped: placeholder text can't go live.\n" + warn.map((w) => "  - " + w).join("\n"));
@@ -917,7 +948,7 @@ for (const f of fs.readdirSync(path.join(root, "obituaries"))) {
 }
 
 /* ---------- sitemap and robots ---------- */
-const ROOT_PAGES = ["", "obituaries.html", "services.html", "caskets.html", "pre-planning.html", "get-a-quote.html", "flowers.html", "about.html", "testimonials.html", "gallery.html", "contact.html"];
+const ROOT_PAGES = ["", "obituaries.html", "services.html", "caskets.html", "pre-planning.html", "get-a-quote.html", "flowers.html", "about.html", "testimonials.html", "gallery.html", "contact.html", "policies.html"];
 const urls = [...ROOT_PAGES.map((f) => `${SITE}/${f}`), ...people.filter((p) => !p.sample).map((p) => `${SITE}/obituaries/${p.slug}.html`)];
 fs.writeFileSync(path.join(root, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `<url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);

@@ -1239,3 +1239,51 @@ html { scroll-padding-top: 110px; }
   .ts-basket-line { grid-area: line; text-align: right; align-self: center; }
   .ts-basket-remove { grid-area: remove; justify-self: end; }
 }
+
+/* ======================================================================
+   Card payments and policies (CIBC FirstCaribbean, October 2026)
+   ====================================================================== */
+
+/* The card brands' own marks, always on white with clear space round them (docs/cibc/card-logos.md) */
+.ts-cards { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.ts-cards li { display: flex; align-items: center; justify-content: center; width: 72px; height: 44px; background: #fff; border-radius: 5px; margin: 0; }
+.ts-cards img { display: block; }
+.ts-cards-lg { gap: 12px; margin-bottom: 4px; }
+.ts-cards-lg li { width: 112px; height: 70px; border: 1px solid #e2e0da; }
+
+/* Footer: "We accept", the currency and the policy links, above the copyright line */
+.ts-footer-trust { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; border-top: 1px solid #3a3b40; padding: 18px 0; }
+.ts-accept { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.ts-accept-label { font-family: "Marcellus", Georgia, serif; color: #fff; font-size: 1.05rem; }
+.ts-currency { font-size: 0.95rem; color: #d7d7d3; }
+.ts-footer .ts-cards li, .ts-footer .ts-policy-links li { margin-bottom: 0; }
+.ts-policy-links { display: flex; flex-wrap: wrap; gap: 4px 20px; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
+@media (max-width: 575.98px) {
+  .ts-footer-trust { gap: 12px; }
+  .ts-currency { flex-basis: 100%; }
+  .ts-footer-trust > nav { flex-basis: 100%; }
+  .ts-policy-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+}
+
+/* Policies page */
+.ts-toc ul { margin: 0; padding-left: 1.2rem; }
+.ts-toc li { margin-bottom: 6px; }
+.ts-toc h2.h3 { font-size: 1.3rem; margin-bottom: 12px; }
+/* "On this page": four short groups, two across (one on phones) */
+.ts-toc-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; }
+#wrapwrap .ts-toc-h { font-family: inherit; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #22304f; margin: 0 0 8px; }
+@media (max-width: 575.98px) { .ts-toc-groups { grid-template-columns: 1fr; gap: 16px; } }
+.ts-summary { border-left: 4px solid #22304f; }
+.ts-summary h2.h3 { font-size: 1.3rem; margin-bottom: 12px; }
+.ts-summary ul { margin-bottom: 0; }
+.ts-to-top { margin: 18px 0 0; font-size: 0.95rem; }
+.ts-to-top a { color: #5f6166; }
+.ts-policy h3 { font-size: 1.2rem; margin: 26px 0 10px; }
+.ts-policy h2 + h3 { margin-top: 14px; }
+.ts-policy ul:not(.ts-contact-list):not(.ts-cards) { padding-left: 1.2rem; }
+.ts-policy ul ul { margin-top: 6px; }
+.ts-policy li { margin-bottom: 6px; }
+.ts-policy .ts-contact-list li { margin-bottom: 0; }
+.ts-policy .ts-contact-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.ts-callout { background: #fbf3e4; border-left: 4px solid #a86b16; padding: 12px 14px; border-radius: 4px; }
+@media (max-width: 575.98px) { .ts-policy.ts-panel, .ts-toc.ts-panel { padding: 22px 18px; } }

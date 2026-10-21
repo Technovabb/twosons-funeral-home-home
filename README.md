@@ -13,13 +13,18 @@ Plain HTML, CSS and JavaScript. No framework and no server. It's hosted free on 
 | Services | `services.html` | `pages/services.html` |
 | Caskets | `caskets.html` | `pages/caskets.html` |
 | Obituaries | `obituaries.html` + `obituaries/<slug>.html` | `data/obituaries.json` and `data/condolences.json` |
-| Funerals (livestreams) | `livestreams.html` | `data/obituaries.json` |
 | Testimonials | `testimonials.html` | `data/testimonials.json` |
 | Pre-planning | `pre-planning.html` | `pages/pre-planning.html` |
 | Contact | `contact.html` | `pages/contact.html` |
 | Get a quote | `get-a-quote.html` | `data/quotes.json` |
 | Floral tributes | `flowers.html` | `data/flowers.json` |
 | Gallery | `gallery.html` | `pages/gallery.html` |
+| Our policies (footer only, not in the menu) | `policies.html` | `pages/policies.html`: refunds, delivery, privacy, card payments, terms of sale, customer service. CIBC FirstCaribbean needs these to take cards online. |
+
+Livestream links are on each obituary (the separate Funerals page was merged into Obituaries).
+
+The footer on every page shows the cards we accept (Visa and Mastercard), "Prices in Barbados dollars (BBD)" and links to the policies.
+The card logos are in `images/cards/`. Don't change them: see [docs/cibc/card-logos.md](../docs/cibc/card-logos.md).
 
 **Never edit the `.html` files at the top of the folder.** The build overwrites them.
 Edit `pages/` or `data/`, then run the build.
@@ -104,6 +109,7 @@ The site starts as a preview on GitHub Pages. At the top of `tools/build.js`:
 
 **At launch (Juwan):**
 1. Check there are no `"sample": true` notices in `data/obituaries.json`, and fill in the yellow placeholder on the About page. The build stops if a placeholder would go live.
+   Two Sons must also confirm the policies ([docs/cibc/policies-to-confirm.md](../docs/cibc/policies-to-confirm.md)). Then delete the `policies:draft` line at the top of `pages/policies.html`. A live build stops while it is there. (A preview build only warns, and does publish the draft page.)
 2. In `tools/build.js`: set `SITE` to `https://www.twosonsfuneralhome.com` and `PREVIEW` to `false`.
 3. Add a file called `CNAME` containing `www.twosonsfuneralhome.com`.
 4. Run the build, commit and push.
