@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var escHtml = function (s) {
       return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
     };
-    var money = function (n) { return "Bds$" + n.toLocaleString("en-US"); };
+    var money = function (n) { return "BBD\u00a0$" + n.toLocaleString("en-US"); };
     var save = function () { try { sessionStorage.setItem(STORE, JSON.stringify(basket)); } catch (e) {} };
 
     var render = function () {

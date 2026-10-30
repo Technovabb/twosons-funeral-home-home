@@ -730,7 +730,7 @@ ${list}
 }
 
 function flowersPage() {
-  const money = (f) => (f.priceText ? f.priceText : f.price == null ? "Price on request" : `${f.from ? "From " : ""}Bds$${f.price}`);
+  const money = (f) => (f.priceText ? f.priceText : f.price == null ? "Price on request" : `${f.from ? "From " : ""}BBD $${f.price}`);
   const funerals = people.filter(takesFlowers).sort((a, b) => String(a.service || "9").localeCompare(String(b.service || "9")));
   const options = funerals.map((p) => {
     const label = esc(p.name) + (p.service ? ` (${esc(shortDate(serviceDay(p)))})` : "");
@@ -778,7 +778,7 @@ ${flowers.items.map((f, i) => {
 </div></section>
 <section class="ts-section ts-alt" id="order"><div class="container ts-narrow">
 <div class="ts-section-head"><p class="ts-eyebrow">Step 2</p><h2>Your order</h2>
-<p class="ts-meta mb-0">Prices are in Barbados dollars (Bds$). See <a href="policies.html#delivery">how we deliver tributes</a>, and <a href="policies.html#refunds">cancellations and refunds</a>.</p></div>
+<p class="ts-meta mb-0">Prices are in Barbados dollars (BBD). See <a href="policies.html#delivery">how we deliver tributes</a>, and <a href="policies.html#refunds">cancellations and refunds</a>.</p></div>
 <form class="ts-panel ts-form ts-flower-order" data-form="flowers" method="post" action="${FORM_ACTION}">
 <div class="ts-trap" aria-hidden="true"><label>Leave empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
 
@@ -862,7 +862,7 @@ ${forms}
 <button type="submit" class="btn btn-primary mt-4">Send quote request</button>
 <p class="form-note ts-meta mt-2" role="status">Your request goes to Two Sons. If you need us now, please call <a href="${TEL}">${PHONE}</a>, 24 hours a day.</p>
 </form>
-<p class="ts-meta">Our prices are in Barbados dollars (Bds$). See <a href="policies.html">our policies</a> for refunds, cancellations and privacy.</p>
+<p class="ts-meta">Our prices are in Barbados dollars (BBD). See <a href="policies.html">our policies</a> for refunds, cancellations and privacy.</p>
 </div></section>`;
   return page({ file: "get-a-quote.html", title: "Get a quote", desc: "Get a funeral quote from Two Sons Funeral Home: burial, cremation, shipment or a memorial service.", body });
 }
@@ -917,7 +917,7 @@ const hideIcons = (html) => html.replace(/<i class="(fa [^"]*)"><\/i>/g, '<i cla
 const MONTH_WORD = /\b(\d{1,2}) (?=(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b)/g;
 const keepTogether = (html) => html.split(/(<script[\s\S]*?<\/script>)/).map((part, i) => (i % 2 ? part
   : part.replace(/>([^<]+)</g, (m, text) => ">" + text.replace(/ (a\.m\.|p\.m\.)/g, "&nbsp;$1").replace(/\bSt\. (?=[A-Z])/g, "St.&nbsp;")
-    .replace(MONTH_WORD, "$1&nbsp;").replace(/\((\d{3})\) (?=\d{3}-\d{4})/g, "($1)&nbsp;") + "<"))).join("");
+    .replace(MONTH_WORD, "$1&nbsp;").replace(/\((\d{3})\) (?=\d{3}-\d{4})/g, "($1)&nbsp;").replace(/\b(BBD|US) \$(?=\d)/g, "$1&nbsp;$$") + "<"))).join("");
 
 /* ---------- fingerprint local assets (as on Sterling) ----------
    GitHub Pages caches files for ten minutes and that can't be changed, so a
