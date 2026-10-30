@@ -815,7 +815,7 @@ ${flowers.items.map((f, i) => {
 <noscript><p class="ts-meta mt-2">To order flowers, please call us on <a href="${TEL}">${PHONE}</a> or email <a href="mailto:${EMAIL}">${EMAIL}</a>.</p></noscript>
 </form>
 </div></section>`;
-  return page({ file: "flowers.html", title: "Floral tributes", desc: "Order funeral flowers from Two Sons Funeral Home, Barbados: casket sprays, hearts, crosses and lettered tributes. Prices in Barbados dollars.", body });
+  return page({ file: "flowers.html", title: "Floral tributes", desc: "Order funeral flowers from Two Sons Funeral Home, Barbados: wreaths, roses, carnations, hearts, crosses and lettered tributes. Prices in Barbados dollars.", body });
 }
 
 function quotePage() {
