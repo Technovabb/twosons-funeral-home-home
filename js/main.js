@@ -313,6 +313,9 @@ document.addEventListener("DOMContentLoaded", function () {
           img.src = opt.getAttribute("data-photo");
           img.alt = sel.getAttribute("data-product") + " — " + opt.value;
         }
+        // light up the small example photo of this colour, if there is one
+        var match = card && card.querySelector('.ts-example[data-colour="' + opt.value.replace(/"/g, '\\"') + '"]');
+        if (match) card.querySelectorAll(".ts-example").forEach(function (b) { b.setAttribute("aria-pressed", b === match ? "true" : "false"); });
       });
     });
 
@@ -325,6 +328,10 @@ document.addEventListener("DOMContentLoaded", function () {
         img.src = btn.getAttribute("data-photo");
         img.alt = (card.querySelector("h3") ? card.querySelector("h3").textContent + " — " : "") + btn.getAttribute("data-label");
         card.querySelectorAll(".ts-example").forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+        // an example of one colour also picks that colour
+        var colour = btn.getAttribute("data-colour");
+        var sel = card.querySelector(".ts-variant");
+        if (colour && sel) for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === colour) sel.selectedIndex = i;
       });
     });
 

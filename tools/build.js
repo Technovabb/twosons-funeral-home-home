@@ -757,11 +757,14 @@ ${flowers.items.map((f, i) => {
       : '<div class="ts-service-art ts-flower-art" aria-hidden="true"><i class="fa fa-leaf"></i></div>';
     // small example photos under the card photo (e.g. MUM, DAD, SON); tapping one shows it in the card photo
     const examples = (Array.isArray(f.examples) ? f.examples : [])
-      .map((e) => ({ label: e.label, src: photoFor("thumbs", e.photo) || photoFor("flowers", e.photo), first: e.photo === photoSlug }))
+      .map((e) => ({ label: e.label, colour: e.colour, src: photoFor("thumbs", e.photo) || photoFor("flowers", e.photo), first: e.photo === photoSlug }))
       .filter((e) => e.src && e.label);
+    // tall photos (crosses) get tall little boxes; wide ones (lettered tributes) get wide boxes
+    const firstSize = examples.length ? imageSize(examples[0].src) : null;
+    const tall = firstSize && firstSize.h > firstSize.w;
     const strip = photo && examples.length > 1
-      ? `<div class="ts-flower-examples" role="group" aria-label="Examples of the ${esc(f.name)}">${examples.map((e) =>
-        `<button type="button" class="ts-example" data-photo="${e.src}" data-label="${esc(e.label)}" aria-pressed="${e.first ? "true" : "false"}"><img src="${e.src}"${dims(e.src)} alt="${esc(e.label)}" loading="lazy" /></button>`).join("")}</div>`
+      ? `<div class="ts-flower-examples${tall ? " ts-tall" : ""}" role="group" aria-label="Examples of the ${esc(f.name)}">${examples.map((e) =>
+        `<button type="button" class="ts-example" data-photo="${e.src}" data-label="${esc(e.label)}"${e.colour ? ` data-colour="${esc(e.colour)}"` : ""} aria-pressed="${e.first ? "true" : "false"}"><img src="${e.src}"${dims(e.src)} alt="${esc(e.label)}" loading="lazy" /></button>`).join("")}</div>`
       : "";
     const selId = `fv-${f.slug}`;
     const defColour = (f.default && colours.includes(f.default)) ? f.default : (photoColour || colours[0]);
