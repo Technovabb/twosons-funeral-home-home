@@ -19,7 +19,17 @@
         "Gold": "casket-spray-yellow-gold",
         "Green": "casket-spray-green-white",
         "Teal": "casket-spray-teal-white"
-      }
+      },
+      "examples": [
+        { "photo": "casket-spray-blue-white", "label": "Blue and white", "colour": "Blue" },
+        { "photo": "casket-spray-blue-gold", "label": "Blue and gold", "colour": "Blue & Gold" },
+        { "photo": "casket-spray-red-white", "label": "Red and white", "colour": "Red" },
+        { "photo": "casket-spray-pink", "label": "Pink", "colour": "Pink" },
+        { "photo": "casket-spray-pink-purple", "label": "Pink and purple", "colour": "Purple" },
+        { "photo": "casket-spray-yellow-gold", "label": "Yellow and gold", "colour": "Yellow" },
+        { "photo": "casket-spray-green-white", "label": "Green and white", "colour": "Green" },
+        { "photo": "casket-spray-teal-white", "label": "Teal and white", "colour": "Teal" }
+      ]
     },
     {
       "slug": "floral-cross",
@@ -49,7 +59,11 @@
       "photos": {
         "White & Yellow": "bible-white-yellow",
         "With Psalm 23": "bible-psalm-23"
-      }
+      },
+      "examples": [
+        { "photo": "bible-white-yellow", "label": "White and yellow", "colour": "White & Yellow" },
+        { "photo": "bible-psalm-23", "label": "With Psalm 23", "colour": "With Psalm 23" }
+      ]
     },
     {
       "slug": "roses",
