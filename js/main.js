@@ -301,6 +301,18 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try { var saved = JSON.parse(sessionStorage.getItem(STORE) || "{}"); if (saved && typeof saved === "object") basket = saved; } catch (e) {}
+    // a basket saved earlier: use today's prices
+    Object.keys(basket).forEach(function (slug) {
+      var add = null;
+      document.querySelectorAll(".ts-variant option").forEach(function (o) {
+        if (!add && o.getAttribute("data-slug") === slug) add = document.querySelector('.ts-add[data-variant-select="' + o.parentNode.id + '"]');
+      });
+      if (!add) document.querySelectorAll(".ts-add[data-slug]").forEach(function (b) { if (!add && b.getAttribute("data-slug") === slug) add = b; });
+      if (!add || !basket[slug]) return;
+      var p = add.getAttribute("data-price");
+      basket[slug].price = p === "" || p === null ? null : Number(p);
+      basket[slug].from = add.getAttribute("data-from") === "1";
+    });
     render();
 
     // change the colour/style: swap the card photo and light up the matching small example photo
@@ -329,7 +341,8 @@ document.addEventListener("DOMContentLoaded", function () {
       sel.addEventListener("change", function () { showColour(sel); });
     });
     // coming Back to the page, the browser may bring back a chosen colour: show its photo too
-    window.addEventListener("pageshow", function () {
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted) return; // kept in memory: the page is exactly as it was left
       document.querySelectorAll(".ts-variant").forEach(function (sel) {
         if (!sel.options[sel.selectedIndex] || !sel.options[sel.selectedIndex].defaultSelected) showColour(sel);
       });

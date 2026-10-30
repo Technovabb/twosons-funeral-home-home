@@ -45,6 +45,9 @@ if (!PREVIEW) people = people.filter((p) => !p.sample);
 const condolences = json("data/condolences.json");
 const testimonials = json("data/testimonials.json");
 const flowers = json("data/flowers.json");
+// the colour list a tribute offers: its own, else the shared one, else these
+const flowerColours = (f) => Array.isArray(f.colours) && f.colours.length ? f.colours
+  : (Array.isArray(flowers.colours) && flowers.colours.length ? flowers.colours : ["White", "Pink", "Red", "Yellow", "Blue", "Purple", "Gold", "Mixed"]);
 const quotes = json("data/quotes.json");
 
 function esc(s) {
@@ -744,8 +747,7 @@ function flowersPage() {
 <div class="ts-flower-grid">
 ${flowers.items.map((f, i) => {
     const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-    const colours = Array.isArray(f.colours) && f.colours.length ? f.colours
-      : (Array.isArray(flowers.colours) && flowers.colours.length ? flowers.colours : ["White", "Pink", "Red", "Yellow", "Blue", "Purple", "Gold", "Mixed"]);
+    const colours = flowerColours(f);
     const photos = f.photos || {};
     // the photo shown first: the default colour's photo, else the first colour that has one, else the product's own image
     const photoColour = (f.default && photos[f.default]) ? f.default : colours.find((c) => photos[c]) || null;
@@ -759,7 +761,8 @@ ${flowers.items.map((f, i) => {
     const examples = (Array.isArray(f.examples) ? f.examples : [])
       .map((e) => {
         const src = photoFor("thumbs", e.photo) || photoFor("flowers", e.photo); // shown large when tapped
-        return { label: e.label, colour: e.colour, src, mini: photoFor("mini", e.photo) || src, first: e.photo === photoSlug };
+        const mini = photoFor("mini", e.photo) || src, size = imageSize(mini);
+        return { label: e.label, colour: e.colour, src, mini, wide: !!size && size.w / size.h > 1.65, first: e.photo === photoSlug };
       })
       .filter((e) => e.src && e.label);
     // the little boxes follow the photos' shape (the middle one of them, so one odd photo can't change it):
@@ -768,8 +771,8 @@ ${flowers.items.map((f, i) => {
     const ratio = ratios.length ? (ratios[(ratios.length - 1) >> 1] + ratios[ratios.length >> 1]) / 2 : null;
     const shape = ratio == null ? "" : ratio < 0.85 ? " ts-tall" : ratio < 1.3 ? " ts-square" : ratio < 1.9 ? " ts-photo" : "";
     const strip = photo && examples.length > 1
-      ? `<div class="ts-flower-examples${shape}" role="group" aria-label="Examples of the ${esc(f.name)}">${examples.map((e) =>
-        `<button type="button" class="ts-example" data-photo="${e.src}" data-label="${esc(e.label)}"${e.colour ? ` data-colour="${esc(e.colour)}"` : ""} aria-pressed="${e.first ? "true" : "false"}"><img src="${e.mini}"${dims(e.mini)} alt="${esc(e.label)}" loading="lazy" /></button>`).join("")}</div>`
+      ? `<div class="ts-flower-examples${shape}${examples.length > 4 ? " ts-many" : ""}" role="group" aria-label="Examples of the ${esc(f.name)}">${examples.map((e) =>
+        `<button type="button" class="ts-example" data-photo="${e.src}" data-label="${esc(e.label)}"${e.colour ? ` data-colour="${esc(e.colour)}"` : ""} aria-pressed="${e.first ? "true" : "false"}"><img src="${e.mini}"${dims(e.mini)} alt="${esc(e.label)}"${shape === " ts-photo" && e.wide ? ' class="ts-wide"' : ""} loading="lazy" /></button>`).join("")}</div>`
       : "";
     const selId = `fv-${f.slug}`;
     const defColour = (f.default && colours.includes(f.default)) ? f.default : (photoColour || colours[0]);
@@ -946,10 +949,10 @@ const stamp = (text) => text.replace(ASSET, (whole, rel) => (fingerprint(rel) ? 
 const warn = [];
 // small example photos: each one's colour must be on the card, with that photo
 for (const f of flowers.items) {
-  const colours = Array.isArray(f.colours) && f.colours.length ? f.colours : flowers.colours || [];
+  const colours = flowerColours(f);
   for (const e of Array.isArray(f.examples) ? f.examples : []) {
-    if (!photoFor("flowers", e.photo)) warn.push(`data/flowers.json, ${f.name}: the example photo images/flowers/${e.photo}.jpg is missing`);
-    else if (!photoFor("mini", e.photo)) warn.push(`data/flowers.json, ${f.name}: ${e.photo} has no small copy yet: run node tools/images.js, then build again.`);
+    if (!photoFor("flowers", e.photo)) { warn.push(`data/flowers.json, ${f.name}: the example photo images/flowers/${e.photo}.jpg is missing`); continue; }
+    if (!photoFor("mini", e.photo)) warn.push(`data/flowers.json, ${f.name}: ${e.photo} has no small copy yet: run node tools/images.js, then build again.`);
     if (e.colour && !colours.includes(e.colour)) warn.push(`data/flowers.json, ${f.name}: the example "${e.label}" has colour "${e.colour}", which is not in the card's colour list`);
     else if (e.colour && (f.photos || {})[e.colour] !== e.photo) warn.push(`data/flowers.json, ${f.name}: the example "${e.label}" is colour "${e.colour}", but that colour's photo in "photos" is not ${e.photo}`);
   }

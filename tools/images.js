@@ -124,7 +124,7 @@ async function main() {
     await sharp(img("flowers", f)).rotate().flatten({ background: "#ffffff" }).resize({ width: 200, height: 200, fit: "inside", withoutEnlargement: true }).jpeg(JPEG).toFile(dest);
     thumbs++;
   }
-  for (const f of fs.readdirSync(img("mini"))) if (!wantedMini.has(f)) { fs.unlinkSync(img("mini", f)); thumbs++; }
+  for (const d of fs.readdirSync(img("mini"), { withFileTypes: true })) if (d.isFile() && !wantedMini.has(d.name)) { fs.unlinkSync(img("mini", d.name)); thumbs++; }
   console.log(`Photo copies: ${thumbs} written or removed.`);
 
   console.log("Now run: node tools/build.js");

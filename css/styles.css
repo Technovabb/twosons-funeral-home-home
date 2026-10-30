@@ -1083,13 +1083,15 @@ html { scroll-padding-top: 110px; }
 .ts-flower .ts-flower-examples.ts-tall img { width: 38px; height: 54px; }
 .ts-flower .ts-flower-examples.ts-photo img { width: 54px; height: 40px; object-fit: cover; }
 .ts-flower .ts-flower-examples.ts-square img { width: 46px; height: 46px; }
+.ts-flower .ts-flower-examples.ts-photo img.ts-wide { object-fit: contain; } /* very wide photos: show them whole */
 #wrapwrap .ts-flower-examples .ts-example:focus-visible { outline: 2px dashed #22304f; outline-offset: 2px; }
 @media (max-width: 575.98px) {
   .ts-flower .ts-flower-examples.ts-tall img { width: 32px; height: 46px; }
   .ts-flower .ts-flower-examples.ts-square img { width: 38px; height: 38px; }
-  /* phones: ordinary photos 4 to a row, so 8 wreaths take 2 rows, not 3 */
-  .ts-flower-examples.ts-photo { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
-  .ts-flower .ts-flower-examples.ts-photo img { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+  .ts-flower .ts-flower-examples.ts-photo img { width: 38px; height: 28px; }
+  /* phones: a long row of ordinary photos goes 4 to a row, so 8 wreaths take 2 rows, not 3 */
+  .ts-flower-examples.ts-photo.ts-many { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+  .ts-flower .ts-flower-examples.ts-photo.ts-many img { width: 100%; height: auto; aspect-ratio: 4 / 3; }
 }
 
 /* A calm framed icon panel where a photo is still to come */
