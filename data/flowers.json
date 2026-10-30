@@ -1,5 +1,5 @@
 {
-  "_readme": "Floral tributes. Prices in Barbados dollars (Bds$). price null = 'Price on request'. 'priceText' overrides the shown price. 'desc' adds a small line under the price. 'fit':'contain' shows the whole photo. EVERY tribute offers the shared 'colours' list below; a product's 'photos' map (colour -> image slug) swaps the card photo for the colours we have a photo of, and 'default' is the colour shown first. Images: images/flowers/<slug>.jpg plus a ~700px copy in images/thumbs/<slug>.jpg. A product can override the colour list with its own 'colours'. A product's 'examples' list (photo slug + label) shows small example photos under the card photo; tapping one shows it large. TODO (client): prices for casket sprays, crosses, open heart; more colour photos.",
+  "_readme": "Floral tributes. Prices in Barbados dollars (Bds$). price null = 'Price on request'. 'priceText' overrides the shown price. 'desc' adds a small line under the price. 'fit':'contain' shows the whole photo. EVERY tribute offers the shared 'colours' list below; a product's 'photos' map (colour -> image slug) swaps the card photo for the colours we have a photo of, and 'default' is the colour shown first. Images: images/flowers/<slug>.jpg plus a ~700px copy in images/thumbs/<slug>.jpg. A product can override the colour list with its own 'colours'. A product's 'examples' list (photo slug + label) shows small example photos under the card photo; tapping one shows it large. TODO (client): prices for casket sprays, crosses, open heart, roses; more colour photos.",
   "colours": ["White", "Pink", "Red", "Yellow", "Blue", "Purple", "Gold", "Mixed"],
   "items": [
     {
@@ -51,6 +51,17 @@
       "price": 70,
       "from": true,
       "default": "White"
+    },
+    {
+      "slug": "roses",
+      "name": "Roses",
+      "price": null,
+      "desc": "Fresh roses with baby's breath and greenery.",
+      "default": "White",
+      "photos": {
+        "White": "roses-white",
+        "Red": "roses-red"
+      }
     },
     {
       "slug": "lettered-tribute",
