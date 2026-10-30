@@ -7,11 +7,17 @@
       "name": "Casket Spray",
       "price": null,
       "default": "Blue",
+      "colours": ["White", "Pink", "Red", "Yellow", "Blue", "Blue & Gold", "Purple", "Gold", "Green", "Teal", "Mixed"],
       "photos": {
         "Blue": "casket-spray-blue-white",
+        "Blue & Gold": "casket-spray-blue-gold",
         "Red": "casket-spray-red-white",
         "Pink": "casket-spray-pink",
-        "Gold": "casket-spray-blue-gold"
+        "Purple": "casket-spray-pink-purple",
+        "Yellow": "casket-spray-yellow-gold",
+        "Gold": "casket-spray-yellow-gold",
+        "Green": "casket-spray-green-white",
+        "Teal": "casket-spray-teal-white"
       }
     },
     {
