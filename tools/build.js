@@ -755,13 +755,21 @@ ${flowers.items.map((f, i) => {
     const picture = photo
       ? `<img src="${tile}"${dims(tile)} alt="${esc(f.name)}" class="img-fluid${f.fit === "contain" ? " ts-contain" : ""}"${i < 3 ? "" : ' loading="lazy"'} data-flower-img />`
       : '<div class="ts-service-art ts-flower-art" aria-hidden="true"><i class="fa fa-leaf"></i></div>';
+    // small example photos under the card photo (e.g. MUM, DAD, SON); tapping one shows it in the card photo
+    const examples = (Array.isArray(f.examples) ? f.examples : [])
+      .map((e) => ({ label: e.label, src: photoFor("thumbs", e.photo) || photoFor("flowers", e.photo), first: e.photo === photoSlug }))
+      .filter((e) => e.src && e.label);
+    const strip = photo && examples.length > 1
+      ? `<div class="ts-flower-examples" role="group" aria-label="Examples of the ${esc(f.name)}">${examples.map((e) =>
+        `<button type="button" class="ts-example" data-photo="${e.src}" data-label="${esc(e.label)}" aria-pressed="${e.first ? "true" : "false"}"><img src="${e.src}"${dims(e.src)} alt="${esc(e.label)}" loading="lazy" /></button>`).join("")}</div>`
+      : "";
     const selId = `fv-${f.slug}`;
     const defColour = (f.default && colours.includes(f.default)) ? f.default : (photoColour || colours[0]);
     const opts = colours.map((c) => {
       const ph = photos[c] ? (photoFor("thumbs", photos[c]) || photoFor("flowers", photos[c])) : "";
       return `<option value="${esc(c)}" data-slug="${esc(f.slug + "-" + slugify(c))}"${ph ? ` data-photo="${ph}"` : ""}${c === defColour ? " selected" : ""}>${esc(c)}</option>`;
     }).join("");
-    return `<div class="ts-panel ts-flower">${picture}<h3>${esc(f.name)}</h3><p class="ts-price">${money(f)}</p>${f.desc ? `<p class="ts-flower-desc ts-meta">${esc(f.desc)}</p>` : ""}
+    return `<div class="ts-panel ts-flower">${picture}${strip}<h3>${esc(f.name)}</h3><p class="ts-price">${money(f)}</p>${f.desc ? `<p class="ts-flower-desc ts-meta">${esc(f.desc)}</p>` : ""}
 <label class="form-label ts-variant-label" for="${selId}">Colour / style</label>
 <select class="form-select ts-variant" id="${selId}" data-product="${esc(f.name)}">${opts}</select>
 <button type="button" class="btn btn-outline-primary ts-add" data-variant-select="${selId}" data-price="${f.price == null ? "" : f.price}" data-from="${f.from ? "1" : ""}"><i class="fa fa-plus me-2" aria-hidden="true"></i>Add to basket<span class="visually-hidden">: ${esc(f.name)}</span></button></div>`;

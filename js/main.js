@@ -316,6 +316,18 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
+    // tap a small example photo (e.g. MUM, DAD): show it in the card photo
+    document.querySelectorAll(".ts-example").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var card = btn.closest(".ts-flower");
+        var img = card && card.querySelector("[data-flower-img]");
+        if (!img) return;
+        img.src = btn.getAttribute("data-photo");
+        img.alt = (card.querySelector("h3") ? card.querySelector("h3").textContent + " — " : "") + btn.getAttribute("data-label");
+        card.querySelectorAll(".ts-example").forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+      });
+    });
+
     document.querySelectorAll(".ts-add").forEach(function (b) {
       b.addEventListener("click", function () {
         var slug, name, price = b.getAttribute("data-price");
