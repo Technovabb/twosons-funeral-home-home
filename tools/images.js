@@ -19,6 +19,9 @@
  *                                     which fill tall boxes on the home page),
  *                                     for the gallery, the home page and the
  *                                     Floral tributes page
+ *   images/mini/<name>.jpg            200 px on the long side, flowers only,
+ *                                     for the small example photos on the
+ *                                     Floral tributes page
  *
  *   node tools/images.js --shrink
  * also makes any photo in images/photos/ or images/flowers/ that is wider or
@@ -109,6 +112,19 @@ async function main() {
     }
   }
   for (const f of fs.readdirSync(img("thumbs"))) if (!wanted.has(f)) { fs.unlinkSync(img("thumbs", f)); thumbs++; }
+
+  // tiny copies of the flower photos, for the small example photos under a tribute
+  fs.mkdirSync(img("mini"), { recursive: true });
+  const wantedMini = new Set();
+  for (const f of fs.readdirSync(img("flowers")).filter((x) => /\.(jpe?g|png)$/i.test(x))) {
+    const name = f.replace(/\.[^.]+$/, "") + ".jpg";
+    wantedMini.add(name);
+    const dest = img("mini", name);
+    if (upToDate(img("flowers", f), dest)) continue;
+    await sharp(img("flowers", f)).rotate().flatten({ background: "#ffffff" }).resize({ width: 200, height: 200, fit: "inside", withoutEnlargement: true }).jpeg(JPEG).toFile(dest);
+    thumbs++;
+  }
+  for (const f of fs.readdirSync(img("mini"))) if (!wantedMini.has(f)) { fs.unlinkSync(img("mini", f)); thumbs++; }
   console.log(`Photo copies: ${thumbs} written or removed.`);
 
   console.log("Now run: node tools/build.js");

@@ -303,19 +303,35 @@ document.addEventListener("DOMContentLoaded", function () {
     try { var saved = JSON.parse(sessionStorage.getItem(STORE) || "{}"); if (saved && typeof saved === "object") basket = saved; } catch (e) {}
     render();
 
-    // change the colour/style: swap the card photo
+    // change the colour/style: swap the card photo and light up the matching small example photo
+    var showColour = function (sel) {
+      var card = sel.closest(".ts-flower");
+      var img = card && card.querySelector("[data-flower-img]");
+      var opt = sel.options[sel.selectedIndex];
+      if (!card || !opt) return;
+      var photo = opt.getAttribute("data-photo");
+      if (img && photo) {
+        img.src = photo;
+        img.alt = sel.getAttribute("data-product") + " — " + opt.value;
+      } else if (img) {
+        img.alt = sel.getAttribute("data-product"); // no photo of this colour: the photo stays, as an example
+      }
+      var examples = card.querySelectorAll(".ts-example"), match = null, coloured = false;
+      examples.forEach(function (b) {
+        if (b.hasAttribute("data-colour")) coloured = true;
+        if (!match && b.getAttribute("data-colour") === opt.value) match = b;
+      });
+      if (!match && photo) examples.forEach(function (b) { if (!match && b.getAttribute("data-photo") === photo) match = b; });
+      // examples of a colour: light up this colour's, or none. Examples of words (MUM, DAD): leave as they are
+      if (match || coloured) examples.forEach(function (b) { b.setAttribute("aria-pressed", b === match ? "true" : "false"); });
+    };
     document.querySelectorAll(".ts-variant").forEach(function (sel) {
-      sel.addEventListener("change", function () {
-        var card = sel.closest(".ts-flower");
-        var img = card && card.querySelector("[data-flower-img]");
-        var opt = sel.options[sel.selectedIndex];
-        if (img && opt.getAttribute("data-photo")) {
-          img.src = opt.getAttribute("data-photo");
-          img.alt = sel.getAttribute("data-product") + " — " + opt.value;
-        }
-        // light up the small example photo of this colour, if there is one
-        var match = card && card.querySelector('.ts-example[data-colour="' + opt.value.replace(/"/g, '\\"') + '"]');
-        if (match) card.querySelectorAll(".ts-example").forEach(function (b) { b.setAttribute("aria-pressed", b === match ? "true" : "false"); });
+      sel.addEventListener("change", function () { showColour(sel); });
+    });
+    // coming Back to the page, the browser may bring back a chosen colour: show its photo too
+    window.addEventListener("pageshow", function () {
+      document.querySelectorAll(".ts-variant").forEach(function (sel) {
+        if (!sel.options[sel.selectedIndex] || !sel.options[sel.selectedIndex].defaultSelected) showColour(sel);
       });
     });
 
@@ -328,9 +344,11 @@ document.addEventListener("DOMContentLoaded", function () {
         img.src = btn.getAttribute("data-photo");
         img.alt = (card.querySelector("h3") ? card.querySelector("h3").textContent + " — " : "") + btn.getAttribute("data-label");
         card.querySelectorAll(".ts-example").forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
-        // an example of one colour also picks that colour
+        // an example of one colour also picks that colour (unless the chosen colour already uses this photo, e.g. Gold)
         var colour = btn.getAttribute("data-colour");
         var sel = card.querySelector(".ts-variant");
+        var current = sel && sel.options[sel.selectedIndex];
+        if (current && current.getAttribute("data-photo") === btn.getAttribute("data-photo")) return;
         if (colour && sel) for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === colour) sel.selectedIndex = i;
       });
     });
@@ -347,7 +365,10 @@ document.addEventListener("DOMContentLoaded", function () {
           slug = b.getAttribute("data-slug");
           name = b.getAttribute("data-name");
         }
-        if (!basket[slug]) basket[slug] = { name: name, price: price === "" ? null : Number(price), from: b.getAttribute("data-from") === "1", qty: 0 };
+        if (!basket[slug]) basket[slug] = { name: name, qty: 0 };
+        // always today's price, even for an item saved in the basket before a price changed
+        basket[slug].price = price === "" ? null : Number(price);
+        basket[slug].from = b.getAttribute("data-from") === "1";
         if (basket[slug].qty < 99) basket[slug].qty += 1;
         render();
         var label = b.innerHTML; b.classList.add("is-added");
